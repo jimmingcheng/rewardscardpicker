@@ -1,5 +1,5 @@
 //
-//  CCRWDSecondViewController.h
+//  CCRWDFirstViewController.h
 //  Card Rewards
 //
 //  Created by Jimming Cheng on 8/6/13.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CCRWDSecondViewController : UIViewController
+@interface CCRWDCategoriesViewController : UICollectionViewController
+
+@property (nonatomic, copy) NSArray * categories;
 
 @end
