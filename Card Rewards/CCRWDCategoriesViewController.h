@@ -11,5 +11,6 @@
 @interface CCRWDCategoriesViewController : UICollectionViewController
 
 @property (nonatomic, copy) NSArray * categories;
+@property (nonatomic, copy) NSArray * creditCards;
 
 @end

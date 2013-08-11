@@ -7,15 +7,23 @@
 //
 
 #import "CCRWDAppDelegate.h"
+#import "CCRWDCardsViewController.h"
+#import "CCRWDCategoriesViewController.h"
 
 @implementation CCRWDAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSData* data = [NSData dataWithContentsOfURL:[[NSURL alloc] initWithString:@"http://cccal.herokuapp.com/api/0/"]];
+        [self performSelectorOnMainThread:@selector(fetchedData:)
+                               withObject:data waitUntilDone:YES];
+    });
+    
     return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -41,6 +49,25 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)fetchedData:(NSData *)responseData {
+    NSString *strData = [[NSString alloc]initWithData:responseData encoding:NSUTF8StringEncoding];
+
+    NSLog(@"%@", strData);
+    
+    NSError * error;
+    NSArray * json = [NSJSONSerialization
+                      JSONObjectWithData:responseData
+                      options:kNilOptions
+                      error:&error];
+
+    UITabBarController * rootViewController = (UITabBarController *)self.window.rootViewController;
+    for (id vc in rootViewController.viewControllers) {
+        if ([vc respondsToSelector:@selector(loadData:)]) {
+            [vc loadData:json];
+        }
+    }
 }
 
 @end

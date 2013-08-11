@@ -10,10 +10,13 @@
 
 @interface CCRWDCreditCard : NSObject
 
-@property (nonatomic, copy) NSString * name;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSArray *categories;
 
-- (id)initWithName:(NSString *)name;
+- (id)initWithName:(NSString *)name categories:(NSArray *)categories;
 
-+ (NSArray *)loadAllCreditCards;
++ (NSArray *)creditCardsFromJSON:(NSArray *)json;
+
++ (NSDictionary *)creditCardsByCategory:(NSArray *)cards;
 
 @end

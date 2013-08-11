@@ -27,6 +27,7 @@
 		25C76ADD17B2150B00F31874 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25C76AB917B2150B00F31874 /* UIKit.framework */; };
 		25C76AE517B2150B00F31874 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 25C76AE317B2150B00F31874 /* InfoPlist.strings */; };
 		25C76AE717B2150B00F31874 /* Card_RewardsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C76AE617B2150B00F31874 /* Card_RewardsTests.m */; };
+		25FBC19417B7858C0038A60A /* CCRWDCategoryHeadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FBC19317B7858C0038A60A /* CCRWDCategoryHeadingView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,8 @@
 		25C76AE217B2150B00F31874 /* Card RewardsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Card RewardsTests-Info.plist"; sourceTree = "<group>"; };
 		25C76AE417B2150B00F31874 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		25C76AE617B2150B00F31874 /* Card_RewardsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Card_RewardsTests.m; sourceTree = "<group>"; };
+		25FBC19217B7858C0038A60A /* CCRWDCategoryHeadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRWDCategoryHeadingView.h; sourceTree = "<group>"; };
+		25FBC19317B7858C0038A60A /* CCRWDCategoryHeadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRWDCategoryHeadingView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +150,8 @@
 				2524070017B6148E0035CF99 /* CCRWDCategory.m */,
 				2524070217B6152C0035CF99 /* CCRWDCategoryCell.h */,
 				2524070317B6152C0035CF99 /* CCRWDCategoryCell.m */,
+				25FBC19217B7858C0038A60A /* CCRWDCategoryHeadingView.h */,
+				25FBC19317B7858C0038A60A /* CCRWDCategoryHeadingView.m */,
 			);
 			path = "Card Rewards";
 			sourceTree = "<group>";
@@ -283,6 +288,7 @@
 				25C76AD217B2150B00F31874 /* CCRWDCardsViewController.m in Sources */,
 				2524070117B6148E0035CF99 /* CCRWDCategory.m in Sources */,
 				25C76AC617B2150B00F31874 /* CCRWDAppDelegate.m in Sources */,
+				25FBC19417B7858C0038A60A /* CCRWDCategoryHeadingView.m in Sources */,
 				252406FB17B5F08F0035CF99 /* CCRWDCardCell.m in Sources */,
 				25C76AC217B2150B00F31874 /* main.m in Sources */,
 				25C76ACF17B2150B00F31874 /* CCRWDCategoriesViewController.m in Sources */,

@@ -7,8 +7,8 @@
 //
 
 #import "CCRWDCategoriesViewController.h"
-#import "CCRWDCategory.h"
-#import "CCRWDCategoryCell.h"
+#import "CCRWDCreditCard.h"
+#import "CCRWDCardCell.h"
 
 @interface CCRWDCategoriesViewController ()
 
@@ -19,8 +19,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.categories = [CCRWDCategory loadAllCategories];
 }
 
 - (void)didReceiveMemoryWarning
@@ -36,10 +34,16 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    CCRWDCategoryCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CategoryCell" forIndexPath:indexPath];
-    CCRWDCategory * category = [self.categories objectAtIndex:indexPath.row];
-    cell.label.text = category.name;
+    CCRWDCardCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Card" forIndexPath:indexPath];
+    CCRWDCreditCard * card = [self.categories objectAtIndex:indexPath.row];
+    cell.label.text = card.name;
     return cell;
+}
+
+- (void)loadData:(NSArray *)json
+{
+    self.creditCards = [CCRWDCreditCard creditCardsFromJSON:json];
+    [self.collectionView reloadData];
 }
 
 @end
