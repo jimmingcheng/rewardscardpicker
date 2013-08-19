@@ -12,7 +12,7 @@
 
 @property (nonatomic, copy) NSArray * creditCards;
 @property (nonatomic, copy) NSArray * categories;
-@property (nonatomic, copy) NSDictionary * cardsByCategory;
+@property (nonatomic, copy) NSDictionary * categoriesByCard;
 
 - (void)loadData:(NSArray *)json;
 

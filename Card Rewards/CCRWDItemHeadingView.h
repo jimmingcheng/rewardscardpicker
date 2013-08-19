@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CCRWDCategoryHeadingView : UICollectionReusableView
+@interface CCRWDItemHeadingView : UICollectionReusableView
 
 @property (weak, nonatomic) IBOutlet UILabel * label;
 

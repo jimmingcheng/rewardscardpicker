@@ -12,6 +12,15 @@
 
 @property (nonatomic, copy) NSString * name;
 
+
+//- (id)initWithName:(NSString *)name categories:(NSArray *)categories;
+
+//+ (NSArray *)creditCardsFromJSON:(NSArray *)json;
+
+//+ (NSDictionary *)creditCardsByCategory:(NSArray *)cards;
+
+
+
 - (id)initWithName:(NSString *)name;
 
 + (NSArray *)loadAllCategories;

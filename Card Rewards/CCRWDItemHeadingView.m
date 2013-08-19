@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Jimming Cheng. All rights reserved.
 //
 
-#import "CCRWDCategoryHeadingView.h"
+#import "CCRWDItemHeadingView.h"
 
-@implementation CCRWDCategoryHeadingView
+@implementation CCRWDItemHeadingView
 
 - (id)initWithFrame:(CGRect)frame
 {

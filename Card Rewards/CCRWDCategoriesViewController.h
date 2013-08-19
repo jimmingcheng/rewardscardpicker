@@ -10,7 +10,10 @@
 
 @interface CCRWDCategoriesViewController : UICollectionViewController
 
-@property (nonatomic, copy) NSArray * categories;
 @property (nonatomic, copy) NSArray * creditCards;
+@property (nonatomic, copy) NSArray * categories;
+@property (nonatomic, copy) NSDictionary * cardsByCategory;
+
+- (void)loadData:(NSArray *)json;
 
 @end
