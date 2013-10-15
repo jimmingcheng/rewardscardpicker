@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4488.1" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3715.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
         <!--Cards View Controller - Cards-->
@@ -54,6 +54,7 @@
                                 </label>
                             </subviews>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <gestureRecognizers/>
                             <connections>
                                 <outlet property="label" destination="7g2-78-soo" id="pKj-Dm-Mt7"/>
                             </connections>
@@ -64,10 +65,11 @@
                         </connections>
                     </collectionView>
                     <tabBarItem key="tabBarItem" title="Cards" image="second" id="iow-AY-QaS"/>
+                    <navigationItem key="navigationItem" id="i8W-82-e7J"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xIS-Iy-9E2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="637" y="585"/>
+            <point key="canvasLocation" x="691" y="-197"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Vex-rW-GRa">
@@ -148,7 +150,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cze-lx-Ye4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="623" y="-164"/>
+            <point key="canvasLocation" x="691" y="574"/>
         </scene>
     </scenes>
     <resources>

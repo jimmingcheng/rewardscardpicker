@@ -10,6 +10,8 @@
 
 @interface CCRWDItemHeadingView : UICollectionReusableView
 
+@property (nonatomic, copy) NSString * key;
+
 @property (weak, nonatomic) IBOutlet UILabel * label;
 
 @end
