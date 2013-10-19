@@ -8,7 +8,6 @@
 
 #import "CCRWDAppDelegate.h"
 #import "CCRWDCardsViewController.h"
-#import "CCRWDCategoriesViewController.h"
 
 @implementation CCRWDAppDelegate
 
@@ -62,12 +61,8 @@
                       options:kNilOptions
                       error:&error];
 
-    UITabBarController * rootViewController = (UITabBarController *)self.window.rootViewController;
-    for (id vc in rootViewController.viewControllers) {
-        if ([vc respondsToSelector:@selector(loadData:)]) {
-            [vc loadData:json];
-        }
-    }
+    CCRWDCardsViewController * rootViewController = (CCRWDCardsViewController *)self.window.rootViewController;
+    [rootViewController loadData:json];
 }
 
 @end

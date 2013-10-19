@@ -10,12 +10,13 @@
 
 @implementation CCRWDCreditCard
 
-- (id)initWithName:(NSString *)name categories:(NSArray *)categories
+- (id)initWithName:(NSString *)name categories:(NSArray *)categories reward:(NSString *)reward
 {
     self = [super init];
     if (self) {
         _name = name;
         _categories = categories;
+        _reward = reward;
         return self;
     }
     return nil;
@@ -23,11 +24,12 @@
 
 + (NSArray *)creditCardsFromJSON:(NSArray *)json
 {
-    NSMutableArray * cards = [[NSMutableArray alloc] init];
-    for (NSArray * cardJSON in json) {
-        NSString * name = [cardJSON objectAtIndex:0];
-        NSArray * categories = [cardJSON objectAtIndex:2];
-        [cards addObject: [[CCRWDCreditCard alloc] initWithName:name categories:categories]];
+    NSMutableArray *cards = [[NSMutableArray alloc] init];
+    for (NSArray *cardJSON in json) {
+        NSString *name = [cardJSON objectAtIndex:0];
+        NSArray *categories = [cardJSON objectAtIndex:2];
+        NSString *reward = [cardJSON objectAtIndex:3];
+        [cards addObject: [[CCRWDCreditCard alloc] initWithName:name categories:categories reward:reward]];
     }
     return cards;
 }

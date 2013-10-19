@@ -1,5 +1,5 @@
 //
-//  CCRWDCardCell.h
+//  CCRWDCategoryCell.h
 //  Card Rewards
 //
 //  Created by Jimming Cheng on 8/9/13.
@@ -10,6 +10,7 @@
 
 @interface CCRWDCardCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel * label;
+@property (weak, nonatomic) IBOutlet UILabel * nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel * rewardLabel;
 
 @end

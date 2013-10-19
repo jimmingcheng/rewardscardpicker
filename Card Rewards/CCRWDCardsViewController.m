@@ -7,7 +7,7 @@
 //
 
 #import "CCRWDCardsViewController.h"
-#import "CCRWDCategoryCell.h"
+#import "CCRWDCardCell.h"
 #import "CCRWDCategory.h"
 #import "CCRWDCreditCard.h"
 #import "CCRWDItemHeadingView.h"
@@ -62,10 +62,11 @@
     NSInteger i = [indexPath indexAtPosition:0];
     NSInteger j = [indexPath indexAtPosition:1];
     NSString *categoryStr = [self.categories objectAtIndex:i];
-    CCRWDCategory *category = [[_visibleCardsByCategory objectForKey:categoryStr] objectAtIndex:j];
+    CCRWDCreditCard *card = [[_visibleCardsByCategory objectForKey:categoryStr] objectAtIndex:j];
     
-    CCRWDCategoryCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CategoryCell" forIndexPath:indexPath];
-    cell.label.text = category.name;
+    CCRWDCardCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CardCell" forIndexPath:indexPath];
+    cell.nameLabel.text = card.name;
+    cell.rewardLabel.text = card.reward;
 
     return cell;
 }

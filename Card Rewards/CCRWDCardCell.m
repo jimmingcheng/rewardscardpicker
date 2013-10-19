@@ -1,5 +1,5 @@
 //
-//  CCRWDCardCell.m
+//  CCRWDCategoryCell.m
 //  Card Rewards
 //
 //  Created by Jimming Cheng on 8/9/13.
