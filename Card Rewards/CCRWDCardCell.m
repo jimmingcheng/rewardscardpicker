@@ -28,4 +28,12 @@
 }
 */
 
+- (void)setCard:(CCRWDCreditCard *)card
+{
+    _card = card;
+    _nameLabel.text = _card.cardId;
+    _rewardLabel.text = _card.reward;
+    NSLog(@"setCard");
+}
+
 @end

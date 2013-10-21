@@ -16,5 +16,6 @@
 
 - (void)loadData:(NSArray *)json;
 - (void)tapHeading:(UITapGestureRecognizer *)recognizer;
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 
 @end

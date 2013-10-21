@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Jimming Cheng. All rights reserved.
 //
 
+#import "CCRWDCardViewController.h"
 #import "CCRWDCardsViewController.h"
 #import "CCRWDCardCell.h"
 #import "CCRWDCategory.h"
@@ -65,8 +66,7 @@
     CCRWDCreditCard *card = [[_visibleCardsByCategory objectForKey:categoryStr] objectAtIndex:j];
     
     CCRWDCardCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CardCell" forIndexPath:indexPath];
-    cell.nameLabel.text = card.name;
-    cell.rewardLabel.text = card.reward;
+    cell.card = card;
 
     return cell;
 }
@@ -102,6 +102,13 @@
         [_visibleCardsByCategory setObject:[NSArray array] forKey:category];
     }
     [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:index]];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    CCRWDCardCell *cardCell = (CCRWDCardCell *)sender;
+    CCRWDCardViewController *cardViewController = (CCRWDCardViewController *)segue.destinationViewController;
+    cardViewController.card = cardCell.card;
 }
 
 @end

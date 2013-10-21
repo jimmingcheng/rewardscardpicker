@@ -60,9 +60,11 @@
                       JSONObjectWithData:responseData
                       options:kNilOptions
                       error:&error];
+    
+    UINavigationController *rootViewController = (UINavigationController *)self.window.rootViewController;
 
-    CCRWDCardsViewController * rootViewController = (CCRWDCardsViewController *)self.window.rootViewController;
-    [rootViewController loadData:json];
+    CCRWDCardsViewController *cardsController = (CCRWDCardsViewController *)[rootViewController.viewControllers objectAtIndex:0];
+    [cardsController loadData:json];
 }
 
 @end

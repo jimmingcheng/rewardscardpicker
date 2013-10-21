@@ -10,11 +10,11 @@
 
 @implementation CCRWDCreditCard
 
-- (id)initWithName:(NSString *)name categories:(NSArray *)categories reward:(NSString *)reward
+- (id)initWithName:(NSString *)cardId categories:(NSArray *)categories reward:(NSString *)reward
 {
     self = [super init];
     if (self) {
-        _name = name;
+        _cardId = cardId;
         _categories = categories;
         _reward = reward;
         return self;

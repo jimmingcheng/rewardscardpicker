@@ -10,14 +10,14 @@
 		252406FE17B5FF710035CF99 /* CCRWDCreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 252406FD17B5FF710035CF99 /* CCRWDCreditCard.m */; };
 		2524070117B6148E0035CF99 /* CCRWDCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2524070017B6148E0035CF99 /* CCRWDCategory.m */; };
 		2524070417B6152C0035CF99 /* CCRWDCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2524070317B6152C0035CF99 /* CCRWDCardCell.m */; };
+		2547DCA2181489170032E748 /* CCRWDCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2547DCA1181489170032E748 /* CCRWDCardViewController.m */; };
 		25C76AB617B2150B00F31874 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25C76AB517B2150B00F31874 /* Foundation.framework */; };
 		25C76AB817B2150B00F31874 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25C76AB717B2150B00F31874 /* CoreGraphics.framework */; };
 		25C76ABA17B2150B00F31874 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25C76AB917B2150B00F31874 /* UIKit.framework */; };
 		25C76AC017B2150B00F31874 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 25C76ABE17B2150B00F31874 /* InfoPlist.strings */; };
 		25C76AC217B2150B00F31874 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C76AC117B2150B00F31874 /* main.m */; };
 		25C76AC617B2150B00F31874 /* CCRWDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C76AC517B2150B00F31874 /* CCRWDAppDelegate.m */; };
-		25C76AC917B2150B00F31874 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25C76AC717B2150B00F31874 /* Main_iPhone.storyboard */; };
-		25C76ACC17B2150B00F31874 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25C76ACA17B2150B00F31874 /* Main_iPad.storyboard */; };
+		25C76AC917B2150B00F31874 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25C76AC717B2150B00F31874 /* Main.storyboard */; };
 		25C76AD217B2150B00F31874 /* CCRWDCardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C76AD117B2150B00F31874 /* CCRWDCardsViewController.m */; };
 		25C76AD417B2150B00F31874 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25C76AD317B2150B00F31874 /* Images.xcassets */; };
 		25C76ADB17B2150B00F31874 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25C76ADA17B2150B00F31874 /* XCTest.framework */; };
@@ -45,6 +45,8 @@
 		2524070017B6148E0035CF99 /* CCRWDCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRWDCategory.m; sourceTree = "<group>"; };
 		2524070217B6152C0035CF99 /* CCRWDCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRWDCardCell.h; sourceTree = "<group>"; };
 		2524070317B6152C0035CF99 /* CCRWDCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRWDCardCell.m; sourceTree = "<group>"; };
+		2547DCA0181489170032E748 /* CCRWDCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCRWDCardViewController.h; path = ../CCRWDCardViewController.h; sourceTree = "<group>"; };
+		2547DCA1181489170032E748 /* CCRWDCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCRWDCardViewController.m; path = ../CCRWDCardViewController.m; sourceTree = "<group>"; };
 		25C76AB217B2150B00F31874 /* Card Rewards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Card Rewards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25C76AB517B2150B00F31874 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		25C76AB717B2150B00F31874 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -55,8 +57,7 @@
 		25C76AC317B2150B00F31874 /* Card Rewards-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Card Rewards-Prefix.pch"; sourceTree = "<group>"; };
 		25C76AC417B2150B00F31874 /* CCRWDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCRWDAppDelegate.h; sourceTree = "<group>"; };
 		25C76AC517B2150B00F31874 /* CCRWDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCRWDAppDelegate.m; sourceTree = "<group>"; };
-		25C76AC817B2150B00F31874 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		25C76ACB17B2150B00F31874 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		25C76AC817B2150B00F31874 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		25C76AD017B2150B00F31874 /* CCRWDCardsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCRWDCardsViewController.h; sourceTree = "<group>"; };
 		25C76AD117B2150B00F31874 /* CCRWDCardsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCRWDCardsViewController.m; sourceTree = "<group>"; };
 		25C76AD317B2150B00F31874 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -126,10 +127,11 @@
 		25C76ABB17B2150B00F31874 /* Card Rewards */ = {
 			isa = PBXGroup;
 			children = (
+				2547DCA0181489170032E748 /* CCRWDCardViewController.h */,
+				2547DCA1181489170032E748 /* CCRWDCardViewController.m */,
 				25C76AC417B2150B00F31874 /* CCRWDAppDelegate.h */,
 				25C76AC517B2150B00F31874 /* CCRWDAppDelegate.m */,
-				25C76AC717B2150B00F31874 /* Main_iPhone.storyboard */,
-				25C76ACA17B2150B00F31874 /* Main_iPad.storyboard */,
+				25C76AC717B2150B00F31874 /* Main.storyboard */,
 				25C76AD017B2150B00F31874 /* CCRWDCardsViewController.h */,
 				25C76AD117B2150B00F31874 /* CCRWDCardsViewController.m */,
 				25C76AD317B2150B00F31874 /* Images.xcassets */,
@@ -252,9 +254,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25C76ACC17B2150B00F31874 /* Main_iPad.storyboard in Resources */,
 				25C76AD417B2150B00F31874 /* Images.xcassets in Resources */,
-				25C76AC917B2150B00F31874 /* Main_iPhone.storyboard in Resources */,
+				25C76AC917B2150B00F31874 /* Main.storyboard in Resources */,
 				25C76AC017B2150B00F31874 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2547DCA2181489170032E748 /* CCRWDCardViewController.m in Sources */,
 				252406FE17B5FF710035CF99 /* CCRWDCreditCard.m in Sources */,
 				25C76AD217B2150B00F31874 /* CCRWDCardsViewController.m in Sources */,
 				2524070117B6148E0035CF99 /* CCRWDCategory.m in Sources */,
@@ -311,20 +313,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		25C76AC717B2150B00F31874 /* Main_iPhone.storyboard */ = {
+		25C76AC717B2150B00F31874 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				25C76AC817B2150B00F31874 /* Base */,
 			);
-			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		25C76ACA17B2150B00F31874 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				25C76ACB17B2150B00F31874 /* Base */,
-			);
-			name = Main_iPad.storyboard;
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		25C76AE317B2150B00F31874 /* InfoPlist.strings */ = {
@@ -417,6 +411,7 @@
 				GCC_PREFIX_HEADER = "Card Rewards/Card Rewards-Prefix.pch";
 				INFOPLIST_FILE = "Card Rewards/Card Rewards-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -430,6 +425,7 @@
 				GCC_PREFIX_HEADER = "Card Rewards/Card Rewards-Prefix.pch";
 				INFOPLIST_FILE = "Card Rewards/Card Rewards-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
