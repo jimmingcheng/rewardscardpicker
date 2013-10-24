@@ -15,7 +15,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *rewardLabel;
+@property (weak, nonatomic) IBOutlet UIButton *toggleOwnsCardButton;
 
-- (IBAction)toggleFavorite:(id)sender;
+- (IBAction)toggleOwnsCard:(id)sender;
 
 @end

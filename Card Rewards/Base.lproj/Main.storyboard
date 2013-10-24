@@ -20,7 +20,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CardCell" id="wOU-np-JcW" customClass="CCRWDCardCell">
-                                <rect key="frame" x="0.0" y="114" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="50" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
@@ -52,7 +52,7 @@
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ItemHeading" id="UxC-Wt-U7V" customClass="CCRWDItemHeadingView">
-                            <rect key="frame" x="0.0" y="64" width="320" height="50"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Restaurants" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7g2-78-soo">
@@ -98,7 +98,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="toggleFavorite:" destination="MZY-U8-DEq" eventType="touchUpInside" id="gFC-n4-i0X"/>
+                                    <action selector="toggleOwnsCard:" destination="MZY-U8-DEq" eventType="touchUpInside" id="OMO-ei-TmO"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G8t-xq-YlX">
@@ -121,6 +121,7 @@
                     <connections>
                         <outlet property="nameLabel" destination="dRN-Ya-kjh" id="KUN-eK-4Cn"/>
                         <outlet property="rewardLabel" destination="G8t-xq-YlX" id="eA4-se-bZf"/>
+                        <outlet property="toggleOwnsCardButton" destination="kpg-d1-33v" id="zHT-NQ-v60"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U5T-zC-3Ww" userLabel="First Responder" sceneMemberID="firstResponder"/>

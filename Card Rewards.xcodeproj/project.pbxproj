@@ -11,6 +11,8 @@
 		2524070117B6148E0035CF99 /* CCRWDCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2524070017B6148E0035CF99 /* CCRWDCategory.m */; };
 		2524070417B6152C0035CF99 /* CCRWDCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2524070317B6152C0035CF99 /* CCRWDCardCell.m */; };
 		2547DCA2181489170032E748 /* CCRWDCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2547DCA1181489170032E748 /* CCRWDCardViewController.m */; };
+		258E0E741814F45200E0E10D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258E0E731814F45200E0E10D /* CoreData.framework */; };
+		258E0E7718150A4300E0E10D /* Card_Rewards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 258E0E7518150A4300E0E10D /* Card_Rewards.xcdatamodeld */; };
 		25C76AB617B2150B00F31874 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25C76AB517B2150B00F31874 /* Foundation.framework */; };
 		25C76AB817B2150B00F31874 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25C76AB717B2150B00F31874 /* CoreGraphics.framework */; };
 		25C76ABA17B2150B00F31874 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25C76AB917B2150B00F31874 /* UIKit.framework */; };
@@ -47,6 +49,8 @@
 		2524070317B6152C0035CF99 /* CCRWDCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRWDCardCell.m; sourceTree = "<group>"; };
 		2547DCA0181489170032E748 /* CCRWDCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCRWDCardViewController.h; path = ../CCRWDCardViewController.h; sourceTree = "<group>"; };
 		2547DCA1181489170032E748 /* CCRWDCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCRWDCardViewController.m; path = ../CCRWDCardViewController.m; sourceTree = "<group>"; };
+		258E0E731814F45200E0E10D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		258E0E7618150A4300E0E10D /* Card_Rewards.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Card_Rewards.xcdatamodel; sourceTree = "<group>"; };
 		25C76AB217B2150B00F31874 /* Card Rewards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Card Rewards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25C76AB517B2150B00F31874 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		25C76AB717B2150B00F31874 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -75,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				258E0E741814F45200E0E10D /* CoreData.framework in Frameworks */,
 				25C76AB817B2150B00F31874 /* CoreGraphics.framework in Frameworks */,
 				25C76ABA17B2150B00F31874 /* UIKit.framework in Frameworks */,
 				25C76AB617B2150B00F31874 /* Foundation.framework in Frameworks */,
@@ -116,6 +121,7 @@
 		25C76AB417B2150B00F31874 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				258E0E731814F45200E0E10D /* CoreData.framework */,
 				25C76AB517B2150B00F31874 /* Foundation.framework */,
 				25C76AB717B2150B00F31874 /* CoreGraphics.framework */,
 				25C76AB917B2150B00F31874 /* UIKit.framework */,
@@ -144,6 +150,7 @@
 				2524070317B6152C0035CF99 /* CCRWDCardCell.m */,
 				25FBC19217B7858C0038A60A /* CCRWDItemHeadingView.h */,
 				25FBC19317B7858C0038A60A /* CCRWDItemHeadingView.m */,
+				258E0E7518150A4300E0E10D /* Card_Rewards.xcdatamodeld */,
 			);
 			path = "Card Rewards";
 			sourceTree = "<group>";
@@ -280,6 +287,7 @@
 				25C76AD217B2150B00F31874 /* CCRWDCardsViewController.m in Sources */,
 				2524070117B6148E0035CF99 /* CCRWDCategory.m in Sources */,
 				25C76AC617B2150B00F31874 /* CCRWDAppDelegate.m in Sources */,
+				258E0E7718150A4300E0E10D /* Card_Rewards.xcdatamodeld in Sources */,
 				25FBC19417B7858C0038A60A /* CCRWDItemHeadingView.m in Sources */,
 				25C76AC217B2150B00F31874 /* main.m in Sources */,
 				2524070417B6152C0035CF99 /* CCRWDCardCell.m in Sources */,
@@ -501,6 +509,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		258E0E7518150A4300E0E10D /* Card_Rewards.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				258E0E7618150A4300E0E10D /* Card_Rewards.xcdatamodel */,
+			);
+			currentVersion = 258E0E7618150A4300E0E10D /* Card_Rewards.xcdatamodel */;
+			path = Card_Rewards.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 25C76AAA17B2150B00F31874 /* Project object */;
 }
