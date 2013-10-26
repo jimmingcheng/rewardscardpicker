@@ -72,18 +72,31 @@
 
 + (NSDictionary *)cardsByCategoryIdFromRewards:(NSArray *)rewards
 {
-    NSMutableDictionary *cardsByCategoryId = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *rewardsByCategoryId = [[NSMutableDictionary alloc] init];
     for (CCRWDReward *reward in rewards) {
         for (CCRWDCategory *category in reward.categories) {
-            NSMutableArray *cards = [cardsByCategoryId objectForKey:category.categoryId];
-            if (cards == nil) {
-                cards = [[NSMutableArray alloc] init];
-                [cardsByCategoryId setValue:cards forKey:category.categoryId];
+            NSMutableArray *rewards = [rewardsByCategoryId objectForKey:category.categoryId];
+            if (rewards == nil) {
+                rewards = [[NSMutableArray alloc] init];
+                [rewardsByCategoryId setValue:rewards forKey:category.categoryId];
             }
-            [cards addObject:reward.creditCard];
+            [rewards addObject:reward];
         }
     }
     
+    NSMutableDictionary *cardsByCategoryId = [[NSMutableDictionary alloc] init];
+    for (NSString *categoryId in rewardsByCategoryId) {
+        NSMutableArray *rewards = [rewardsByCategoryId objectForKey:categoryId];
+        [rewards sortUsingComparator:^NSComparisonResult(CCRWDReward *obj1, CCRWDReward *obj2) {
+            return [obj2.amount compare:obj1.amount];
+        }];
+        NSMutableArray *cards = [[NSMutableArray alloc] init];
+        for (CCRWDReward *reward in rewards) {
+            [cards addObject:reward.creditCard];
+        }
+        [cardsByCategoryId setObject:cards forKey:categoryId];
+    }
+
     return cardsByCategoryId;
 }
 

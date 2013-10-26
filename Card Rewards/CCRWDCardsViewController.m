@@ -86,7 +86,9 @@
     
     [context save:nil];
     
-    self.categories = [self.categories sortedArrayUsingComparator:^NSComparisonResult(CCRWDCategory *a, CCRWDCategory *b) { return [a.categoryId compare:b.categoryId]; }];
+    self.categories = [self.categories sortedArrayUsingComparator:^NSComparisonResult(CCRWDCategory *obj1, CCRWDCategory *obj2) {
+        return [obj1.categoryId compare:obj2.categoryId];
+    }];
 
     self.cardsByCategoryId = [CCRWDReward cardsByCategoryIdFromRewards:self.rewards];
     _visibleCardsByCategoryId = [self.cardsByCategoryId mutableCopy];
