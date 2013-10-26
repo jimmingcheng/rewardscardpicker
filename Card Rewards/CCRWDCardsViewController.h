@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class CCRWDCategory;
+
 @interface CCRWDCardsViewController : UICollectionViewController<UICollectionViewDataSource, UICollectionViewDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, copy) NSArray * creditCards;
 @property (nonatomic, copy) NSArray * categories;
-@property (nonatomic, copy) NSDictionary * cardsByCategory;
+@property (nonatomic, copy) NSArray * rewards;
+@property (nonatomic, copy) NSDictionary * cardsByCategoryId;
 
 - (void)loadData:(NSArray *)json;
 - (void)tapHeading:(UITapGestureRecognizer *)recognizer;

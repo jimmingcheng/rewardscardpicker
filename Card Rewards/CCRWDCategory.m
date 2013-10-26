@@ -10,28 +10,38 @@
 
 @implementation CCRWDCategory
 
-- (id)initWithName:(NSString *)name
+@dynamic categoryId;
+
+- (id)initWithId:(NSString *)categoryId context:(NSManagedObjectContext *)context
 {
-    self = [super init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Category" inManagedObjectContext:context];
+    self = [super initWithEntity:entity insertIntoManagedObjectContext:context];
     if (self) {
-        _name = name;
+        [self setCategoryId:categoryId];
         return self;
     }
     return nil;
 }
 
-+ (NSArray *)loadAllCategories
++ (NSArray *)updateFromJSON:(NSArray *)json context:(NSManagedObjectContext *)context
 {
-    NSMutableArray * cards = [[NSMutableArray alloc] init];
+    NSMutableSet *newCategoryIds = [[NSMutableSet alloc] init];
+    for (NSArray *cardJSON in json) {
+        [newCategoryIds addObjectsFromArray:[cardJSON objectAtIndex:2]];
+    }
     
-    [cards addObject: [[CCRWDCategory alloc] initWithName:@"category0"]];
-    [cards addObject: [[CCRWDCategory alloc] initWithName:@"category1"]];
-    [cards addObject: [[CCRWDCategory alloc] initWithName:@"category2"]];
-    [cards addObject: [[CCRWDCategory alloc] initWithName:@"category3"]];
-    [cards addObject: [[CCRWDCategory alloc] initWithName:@"category4"]];
-    [cards addObject: [[CCRWDCategory alloc] initWithName:@"category5"]];
+    NSFetchRequest *categoriesRequest = [[NSFetchRequest alloc] initWithEntityName:@"Category"];
+    NSArray *existingCategories = [[context executeFetchRequest:categoriesRequest error:nil] mutableCopy];
+    for (CCRWDCategory *category in existingCategories) {
+        [context deleteObject:category];
+    }
     
-    return cards;
+    NSMutableArray *categories = [[NSMutableArray alloc] init];
+    for (NSString *newCategoryId in newCategoryIds) {
+        CCRWDCategory *category = [[CCRWDCategory alloc] initWithId:newCategoryId context:context];
+        [categories addObject:category];
+    }
+    return categories;
 }
 
 @end

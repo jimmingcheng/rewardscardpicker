@@ -8,16 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CCRWDCreditCard : NSObject
+@interface CCRWDCreditCard : NSManagedObject
 
-@property (nonatomic, copy) NSString *cardId;
-@property (nonatomic, copy) NSArray *categories;
-@property (nonatomic, copy) NSString *reward;
+@property (nonatomic) NSString *cardId;
+@property (nonatomic) NSSet *rewards;
+@property (nonatomic) NSNumber *owned;
 
-- (id)initWithName:(NSString *)cardId categories:(NSArray *)categories reward:(NSString *)reward;
-
-+ (NSArray *)creditCardsFromJSON:(NSArray *)json;
-
-+ (NSDictionary *)creditCardsByCategory:(NSArray *)cards;
+- (id)initWithId:(NSString *)cardId context:(NSManagedObjectContext *)context;
++ (NSArray *)updateFromJSON:(NSArray *)json context:(NSManagedObjectContext *)context;
 
 @end

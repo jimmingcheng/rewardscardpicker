@@ -6,9 +6,10 @@
 //  Copyright (c) 2013 Jimming Cheng. All rights reserved.
 //
 
-#import "CCRWDItemHeadingView.h"
+#import "CCRWDCategoryHeadingView.h"
+#import "CCRWDCategory.h"
 
-@implementation CCRWDItemHeadingView
+@implementation CCRWDCategoryHeadingView
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -27,5 +28,11 @@
     // Drawing code
 }
 */
+
+- (void)setCategory:(CCRWDCategory *)category
+{
+    _category = category;
+    _label.text = _category.categoryId;
+}
 
 @end

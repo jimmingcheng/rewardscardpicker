@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CCRWDCreditCard.h"
 
-@interface CCRWDCardCell : UICollectionViewCell
+@class CCRWDCreditCard;
+@class CCRWDReward;
 
-@property (weak, nonatomic) CCRWDCreditCard *card;
+@interface CCRWDCardRewardCell : UICollectionViewCell
+
+@property (nonatomic) CCRWDCreditCard *card;
+@property (nonatomic) CCRWDReward *reward;
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *rewardLabel;

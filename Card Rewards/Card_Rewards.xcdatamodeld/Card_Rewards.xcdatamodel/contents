@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F45" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Card" syncable="YES">
-        <attribute name="cardId" optional="YES" attributeType="String" syncable="YES"/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3400" systemVersion="13A603" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Category" syncable="YES">
+        <attribute name="categoryId" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="rewards" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Reward" inverseName="categories" inverseEntity="Reward" syncable="YES"/>
+    </entity>
+    <entity name="CreditCard" syncable="YES">
+        <attribute name="cardId" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="owned" optional="YES" attributeType="Boolean" defaultValueString="0" syncable="YES"/>
+        <relationship name="rewards" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Reward" inverseName="creditCard" inverseEntity="Reward" syncable="YES"/>
+    </entity>
+    <entity name="Reward" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="unit" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="rewards" inverseEntity="Category" syncable="YES"/>
+        <relationship name="creditCard" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CreditCard" inverseName="rewards" inverseEntity="CreditCard" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Card" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Category" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="CreditCard" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Reward" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

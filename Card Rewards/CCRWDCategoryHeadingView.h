@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CCRWDItemHeadingView : UICollectionReusableView
+@class CCRWDCategory;
 
-@property (nonatomic, copy) NSString * key;
+@interface CCRWDCategoryHeadingView : UICollectionReusableView
+
+@property (nonatomic) CCRWDCategory *category;
 
 @property (weak, nonatomic) IBOutlet UILabel * label;
 

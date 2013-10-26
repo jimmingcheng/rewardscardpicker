@@ -8,21 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CCRWDCategory : NSObject
+@interface CCRWDCategory : NSManagedObject
 
-@property (nonatomic, copy) NSString * name;
+@property (nonatomic) NSString * categoryId;
 
-
-//- (id)initWithName:(NSString *)name categories:(NSArray *)categories;
-
-//+ (NSArray *)creditCardsFromJSON:(NSArray *)json;
-
-//+ (NSDictionary *)creditCardsByCategory:(NSArray *)cards;
-
-
-
-- (id)initWithName:(NSString *)name;
-
-+ (NSArray *)loadAllCategories;
+- (id)initWithId:(NSString *)categoryId context:(NSManagedObjectContext *)context;
++ (NSArray *)updateFromJSON:(NSArray *)json context:(NSManagedObjectContext *)context;
 
 @end

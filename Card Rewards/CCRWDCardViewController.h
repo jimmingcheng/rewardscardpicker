@@ -14,7 +14,6 @@
 @property (weak, nonatomic) CCRWDCreditCard *card;
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *rewardLabel;
 @property (weak, nonatomic) IBOutlet UIButton *toggleOwnsCardButton;
 
 - (IBAction)toggleOwnsCard:(id)sender;

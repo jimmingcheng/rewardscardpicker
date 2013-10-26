@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2518E4E71819F7F400D2D07C /* CCRWDReward.m in Sources */ = {isa = PBXBuildFile; fileRef = 2518E4E61819F7F400D2D07C /* CCRWDReward.m */; };
+		2518E4E8181A2F4D00D2D07C /* CCRWDCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2547DCA0181489170032E748 /* CCRWDCardViewController.m */; };
 		252406FE17B5FF710035CF99 /* CCRWDCreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 252406FD17B5FF710035CF99 /* CCRWDCreditCard.m */; };
 		2524070117B6148E0035CF99 /* CCRWDCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2524070017B6148E0035CF99 /* CCRWDCategory.m */; };
-		2524070417B6152C0035CF99 /* CCRWDCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2524070317B6152C0035CF99 /* CCRWDCardCell.m */; };
-		2547DCA2181489170032E748 /* CCRWDCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2547DCA1181489170032E748 /* CCRWDCardViewController.m */; };
+		2524070417B6152C0035CF99 /* CCRWDCardRewardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2524070317B6152C0035CF99 /* CCRWDCardRewardCell.m */; };
 		258E0E741814F45200E0E10D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258E0E731814F45200E0E10D /* CoreData.framework */; };
 		258E0E7718150A4300E0E10D /* Card_Rewards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 258E0E7518150A4300E0E10D /* Card_Rewards.xcdatamodeld */; };
 		25C76AB617B2150B00F31874 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25C76AB517B2150B00F31874 /* Foundation.framework */; };
@@ -27,7 +28,7 @@
 		25C76ADD17B2150B00F31874 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25C76AB917B2150B00F31874 /* UIKit.framework */; };
 		25C76AE517B2150B00F31874 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 25C76AE317B2150B00F31874 /* InfoPlist.strings */; };
 		25C76AE717B2150B00F31874 /* Card_RewardsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C76AE617B2150B00F31874 /* Card_RewardsTests.m */; };
-		25FBC19417B7858C0038A60A /* CCRWDItemHeadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FBC19317B7858C0038A60A /* CCRWDItemHeadingView.m */; };
+		25FBC19417B7858C0038A60A /* CCRWDCategoryHeadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FBC19317B7858C0038A60A /* CCRWDCategoryHeadingView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,14 +42,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2518E4E51819F7F400D2D07C /* CCRWDReward.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRWDReward.h; sourceTree = "<group>"; };
+		2518E4E61819F7F400D2D07C /* CCRWDReward.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRWDReward.m; sourceTree = "<group>"; };
 		252406FC17B5FF710035CF99 /* CCRWDCreditCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRWDCreditCard.h; sourceTree = "<group>"; };
 		252406FD17B5FF710035CF99 /* CCRWDCreditCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRWDCreditCard.m; sourceTree = "<group>"; };
 		252406FF17B6148E0035CF99 /* CCRWDCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRWDCategory.h; sourceTree = "<group>"; };
 		2524070017B6148E0035CF99 /* CCRWDCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRWDCategory.m; sourceTree = "<group>"; };
-		2524070217B6152C0035CF99 /* CCRWDCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRWDCardCell.h; sourceTree = "<group>"; };
-		2524070317B6152C0035CF99 /* CCRWDCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRWDCardCell.m; sourceTree = "<group>"; };
-		2547DCA0181489170032E748 /* CCRWDCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCRWDCardViewController.h; path = ../CCRWDCardViewController.h; sourceTree = "<group>"; };
-		2547DCA1181489170032E748 /* CCRWDCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCRWDCardViewController.m; path = ../CCRWDCardViewController.m; sourceTree = "<group>"; };
+		2524070217B6152C0035CF99 /* CCRWDCardRewardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRWDCardRewardCell.h; sourceTree = "<group>"; };
+		2524070317B6152C0035CF99 /* CCRWDCardRewardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRWDCardRewardCell.m; sourceTree = "<group>"; };
+		2547DCA0181489170032E748 /* CCRWDCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRWDCardViewController.m; sourceTree = "<group>"; };
+		2547DCA1181489170032E748 /* CCRWDCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRWDCardViewController.h; sourceTree = "<group>"; };
 		258E0E731814F45200E0E10D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		258E0E7618150A4300E0E10D /* Card_Rewards.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Card_Rewards.xcdatamodel; sourceTree = "<group>"; };
 		25C76AB217B2150B00F31874 /* Card Rewards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Card Rewards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,8 +73,8 @@
 		25C76AE217B2150B00F31874 /* Card RewardsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Card RewardsTests-Info.plist"; sourceTree = "<group>"; };
 		25C76AE417B2150B00F31874 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		25C76AE617B2150B00F31874 /* Card_RewardsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Card_RewardsTests.m; sourceTree = "<group>"; };
-		25FBC19217B7858C0038A60A /* CCRWDItemHeadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRWDItemHeadingView.h; sourceTree = "<group>"; };
-		25FBC19317B7858C0038A60A /* CCRWDItemHeadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRWDItemHeadingView.m; sourceTree = "<group>"; };
+		25FBC19217B7858C0038A60A /* CCRWDCategoryHeadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRWDCategoryHeadingView.h; sourceTree = "<group>"; };
+		25FBC19317B7858C0038A60A /* CCRWDCategoryHeadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRWDCategoryHeadingView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,8 +136,8 @@
 		25C76ABB17B2150B00F31874 /* Card Rewards */ = {
 			isa = PBXGroup;
 			children = (
-				2547DCA0181489170032E748 /* CCRWDCardViewController.h */,
-				2547DCA1181489170032E748 /* CCRWDCardViewController.m */,
+				2547DCA1181489170032E748 /* CCRWDCardViewController.h */,
+				2547DCA0181489170032E748 /* CCRWDCardViewController.m */,
 				25C76AC417B2150B00F31874 /* CCRWDAppDelegate.h */,
 				25C76AC517B2150B00F31874 /* CCRWDAppDelegate.m */,
 				25C76AC717B2150B00F31874 /* Main.storyboard */,
@@ -146,11 +149,13 @@
 				252406FD17B5FF710035CF99 /* CCRWDCreditCard.m */,
 				252406FF17B6148E0035CF99 /* CCRWDCategory.h */,
 				2524070017B6148E0035CF99 /* CCRWDCategory.m */,
-				2524070217B6152C0035CF99 /* CCRWDCardCell.h */,
-				2524070317B6152C0035CF99 /* CCRWDCardCell.m */,
-				25FBC19217B7858C0038A60A /* CCRWDItemHeadingView.h */,
-				25FBC19317B7858C0038A60A /* CCRWDItemHeadingView.m */,
+				2524070217B6152C0035CF99 /* CCRWDCardRewardCell.h */,
+				2524070317B6152C0035CF99 /* CCRWDCardRewardCell.m */,
+				25FBC19217B7858C0038A60A /* CCRWDCategoryHeadingView.h */,
+				25FBC19317B7858C0038A60A /* CCRWDCategoryHeadingView.m */,
 				258E0E7518150A4300E0E10D /* Card_Rewards.xcdatamodeld */,
+				2518E4E51819F7F400D2D07C /* CCRWDReward.h */,
+				2518E4E61819F7F400D2D07C /* CCRWDReward.m */,
 			);
 			path = "Card Rewards";
 			sourceTree = "<group>";
@@ -282,15 +287,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2547DCA2181489170032E748 /* CCRWDCardViewController.m in Sources */,
 				252406FE17B5FF710035CF99 /* CCRWDCreditCard.m in Sources */,
 				25C76AD217B2150B00F31874 /* CCRWDCardsViewController.m in Sources */,
 				2524070117B6148E0035CF99 /* CCRWDCategory.m in Sources */,
 				25C76AC617B2150B00F31874 /* CCRWDAppDelegate.m in Sources */,
 				258E0E7718150A4300E0E10D /* Card_Rewards.xcdatamodeld in Sources */,
-				25FBC19417B7858C0038A60A /* CCRWDItemHeadingView.m in Sources */,
+				2518E4E71819F7F400D2D07C /* CCRWDReward.m in Sources */,
+				2518E4E8181A2F4D00D2D07C /* CCRWDCardViewController.m in Sources */,
+				25FBC19417B7858C0038A60A /* CCRWDCategoryHeadingView.m in Sources */,
 				25C76AC217B2150B00F31874 /* main.m in Sources */,
-				2524070417B6152C0035CF99 /* CCRWDCardCell.m in Sources */,
+				2524070417B6152C0035CF99 /* CCRWDCardRewardCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

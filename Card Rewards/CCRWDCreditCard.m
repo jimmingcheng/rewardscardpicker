@@ -7,47 +7,70 @@
 //
 
 #import "CCRWDCreditCard.h"
+#import "CCRWDCategory.h"
+#import "CCRWDReward.h"
 
 @implementation CCRWDCreditCard
 
-- (id)initWithName:(NSString *)cardId categories:(NSArray *)categories reward:(NSString *)reward
+@dynamic cardId;
+@dynamic rewards;
+@dynamic owned;
+
+- (id)initWithId:(NSString *)cardId context:(NSManagedObjectContext *)context
 {
-    self = [super init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"CreditCard" inManagedObjectContext:context];
+    self = [super initWithEntity:entity insertIntoManagedObjectContext:context];
     if (self) {
-        _cardId = cardId;
-        _categories = categories;
-        _reward = reward;
+        [self setCardId:cardId];
         return self;
     }
     return nil;
 }
 
-+ (NSArray *)creditCardsFromJSON:(NSArray *)json
++ (NSManagedObject *)getCardWithId:(NSString *)cardId fromContext:(NSManagedObjectContext *)context
 {
-    NSMutableArray *cards = [[NSMutableArray alloc] init];
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"CreditCard"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"cardId == %@", cardId];
+    [request setPredicate:predicate];
+    NSArray *cards = [[context executeFetchRequest:request error:nil] mutableCopy];
+    if (cards.count == 1) {
+        return [cards objectAtIndex:0];
+    }
+    else {
+        return nil;
+    }
+}
+
++ (NSArray *)updateFromJSON:(NSArray *)json context:(NSManagedObjectContext *)context
+{
+    NSFetchRequest *cardsRequest = [[NSFetchRequest alloc] initWithEntityName:@"CreditCard"];
+    NSArray *existingCards = [[context executeFetchRequest:cardsRequest error:nil] mutableCopy];
+    
+    NSMutableSet *newCardIds = [[NSMutableSet alloc] init];
     for (NSArray *cardJSON in json) {
-        NSString *name = [cardJSON objectAtIndex:0];
-        NSArray *categories = [cardJSON objectAtIndex:2];
-        NSString *reward = [cardJSON objectAtIndex:3];
-        [cards addObject: [[CCRWDCreditCard alloc] initWithName:name categories:categories reward:reward]];
+        [newCardIds addObject:[cardJSON objectAtIndex:0]];
+    }
+    
+    NSMutableSet *existingCardIds = [[NSMutableSet alloc] init];
+    NSMutableArray *cards = [[NSMutableArray alloc] init];
+    for (CCRWDCreditCard *card in existingCards) {
+        [existingCardIds addObject:card.cardId];
+        if (![newCardIds containsObject:card.cardId]) {
+            [context deleteObject:card];
+        }
+        else {
+            [cards addObject:card];
+        }
+    }
+    
+    for (NSString *newCardId in newCardIds) {
+        if (![existingCardIds containsObject:newCardId]) {
+            CCRWDCreditCard *card = [[CCRWDCreditCard alloc] initWithId:newCardId context:context];
+            [cards addObject:card];
+        }
     }
     return cards;
 }
 
-+ (NSDictionary *)creditCardsByCategory:(NSArray *)cards
-{
-    NSMutableDictionary * dict = [[NSMutableDictionary alloc] init];
-    for (CCRWDCreditCard * card in cards) {
-        for (NSString * category in card.categories) {
-            NSMutableArray * cardsWithCategory = [dict objectForKey:category];
-            if (!cardsWithCategory) {
-                cardsWithCategory = [[NSMutableArray alloc] init];
-                [dict setObject:cardsWithCategory forKey:category];
-            }
-            [cardsWithCategory addObject:card];
-        }
-    }
-    return dict;
-}
 
 @end

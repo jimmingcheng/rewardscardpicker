@@ -6,9 +6,11 @@
 //  Copyright (c) 2013 Jimming Cheng. All rights reserved.
 //
 
-#import "CCRWDCardCell.h"
+#import "CCRWDCreditCard.h"
+#import "CCRWDReward.h"
+#import "CCRWDCardRewardCell.h"
 
-@implementation CCRWDCardCell
+@implementation CCRWDCardRewardCell
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -32,8 +34,13 @@
 {
     _card = card;
     _nameLabel.text = _card.cardId;
-    _rewardLabel.text = _card.reward;
-    NSLog(@"setCard");
 }
+
+- (void)setReward:(CCRWDReward *)reward
+{
+    _reward = reward;
+    _rewardLabel.text = [NSString stringWithFormat:@"%@%@", reward.amount, reward.unit];
+}
+
 
 @end
