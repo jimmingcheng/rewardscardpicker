@@ -11,6 +11,7 @@
 @interface CCRWDCategory : NSManagedObject
 
 @property (nonatomic) NSString * categoryId;
+@property (nonatomic) NSArray * rewards;
 
 - (id)initWithId:(NSString *)categoryId context:(NSManagedObjectContext *)context;
 + (NSArray *)updateFromJSON:(NSArray *)json context:(NSManagedObjectContext *)context;

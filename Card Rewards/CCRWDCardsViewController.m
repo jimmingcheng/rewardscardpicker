@@ -20,7 +20,7 @@
 
 @implementation CCRWDCardsViewController
 {
-    NSMutableDictionary * _visibleCardsByCategoryId;
+    NSMutableSet *_expandedCategoryIds;
 }
 
 - (void)viewDidLoad
@@ -37,16 +37,16 @@
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return [[_visibleCardsByCategoryId allKeys] count];
+    return [[[self showableCardsByCategoryId] allKeys] count];
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-    CCRWDCategoryHeadingView *heading = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"ItemHeading" forIndexPath:indexPath];
+    CCRWDCategoryHeadingView *heading = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"CategoryHeading" forIndexPath:indexPath];
     
-    [heading setCategory:[self.categories objectAtIndex:[indexPath indexAtPosition:0]]];
+    [heading setCategory:[[self showableCategories] objectAtIndex:[indexPath indexAtPosition:0]]];
 
-    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapHeading:)];
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toggleCategoryHeading:)];
     [heading addGestureRecognizer:tapRecognizer];
     
     return heading;
@@ -54,16 +54,19 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    CCRWDCategory *category = [self.categories objectAtIndex:section];
-    return [[_visibleCardsByCategoryId objectForKey:category.categoryId] count];
+    CCRWDCategory *category = [[self showableCategories] objectAtIndex:section];
+    NSDictionary *showable = [self showableCardsByCategoryId];
+    NSDictionary *expanded = [self expandedCardsByCategoryId:showable];
+    return [[expanded objectForKey:category.categoryId] count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger i = [indexPath indexAtPosition:0];
     NSInteger j = [indexPath indexAtPosition:1];
-    CCRWDCategory *category = [self.categories objectAtIndex:i];
-    CCRWDCreditCard *card = [[_visibleCardsByCategoryId objectForKey:category.categoryId] objectAtIndex:j];
+    CCRWDCategory *category = [[self showableCategories] objectAtIndex:i];
+
+    CCRWDCreditCard *card = [[[self showableCardsByCategoryId] objectForKey:category.categoryId] objectAtIndex:j];
     
     CCRWDCardRewardCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CardRewardCell" forIndexPath:indexPath];
     [cell setCard:card];
@@ -91,24 +94,99 @@
     }];
 
     self.cardsByCategoryId = [CCRWDReward cardsByCategoryIdFromRewards:self.rewards];
-    _visibleCardsByCategoryId = [self.cardsByCategoryId mutableCopy];
+    _expandedCategoryIds = [[NSMutableSet alloc] init];
     
     [self.collectionView reloadData];
 }
 
-- (void)tapHeading:(UITapGestureRecognizer *)recognizer
+- (NSMutableDictionary *)myCardsByCategoryId
 {
-    CCRWDCategory *category = [(CCRWDCategoryHeadingView *)recognizer.view category];
-    NSUInteger index = [self.categories indexOfObject:category];
-    NSString *catId = category.categoryId;
-    NSArray *visibleCardsForCategory = [_visibleCardsByCategoryId objectForKey:catId];
-    if ([visibleCardsForCategory count] == 0) {
-        [_visibleCardsByCategoryId setObject:[self.cardsByCategoryId objectForKey:catId] forKey:catId];
+    NSMutableDictionary *myCardsByCategoryId = [[NSMutableDictionary alloc] init];
+    for (NSString *categoryId in self.cardsByCategoryId) {
+        NSMutableArray *myCards = [[NSMutableArray alloc] init];
+        for (CCRWDCreditCard *card in [self.cardsByCategoryId objectForKey:categoryId]) {
+            if ([card.owned boolValue]) {
+                [myCards addObject:card];
+            }
+        }
+        if ([myCards count] > 0) {
+            [myCardsByCategoryId setObject:myCards forKey:categoryId];
+        }
+    }
+    return myCardsByCategoryId;
+}
+
+- (NSArray *)showableCategories
+{
+    if ([self.toggleMyCardsControl selectedSegmentIndex] == 0) {
+        NSMutableArray *myCategories = [[NSMutableArray alloc] init];
+        for (CCRWDCategory *category in self.categories) {
+            for (CCRWDReward *reward in category.rewards) {
+                if ([[reward.creditCard owned] boolValue]) {
+                    [myCategories addObject:category];
+                }
+            }
+        }
+        [myCategories sortUsingComparator:^NSComparisonResult(CCRWDCategory *obj1, CCRWDCategory *obj2) {
+            return [obj1.categoryId compare:obj2.categoryId];
+        }];
+
+        return myCategories;
     }
     else {
-        [_visibleCardsByCategoryId setObject:[NSArray array] forKey:catId];
+        return self.categories;
     }
+}
+
+- (NSDictionary *)showableCardsByCategoryId
+{
+    if ([self.toggleMyCardsControl selectedSegmentIndex] == 0) {
+        return [self myCardsByCategoryId];
+    }
+    else {
+        return self.cardsByCategoryId;
+    }
+}
+
+- (NSMutableDictionary *)expandedCardsByCategoryId:(NSDictionary *)cardsByCategoryId
+{
+    NSMutableDictionary *expanded = [[NSMutableDictionary alloc] init];
+    for (NSString *categoryId in cardsByCategoryId) {
+        if ([_expandedCategoryIds containsObject:categoryId]) {
+            [expanded setObject:[cardsByCategoryId objectForKey:categoryId] forKey:categoryId];
+        }
+        else {
+            [expanded setObject:[NSArray array] forKey:categoryId];
+        }
+    }
+    return expanded;
+}
+
+- (void)toggleCategoryHeading:(UITapGestureRecognizer *)recognizer
+{
+    CCRWDCategoryHeadingView *heading = (CCRWDCategoryHeadingView *)recognizer.view;
+    if ([_expandedCategoryIds containsObject:heading.category.categoryId]) {
+        [_expandedCategoryIds removeObject:heading.category.categoryId];
+    }
+    else {
+        [_expandedCategoryIds addObject:heading.category.categoryId];
+    }
+    
+    NSUInteger index = [[self showableCategories] indexOfObject:heading.category];
     [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:index]];
+}
+
+- (IBAction)toggleMyCards:(id)sender
+{
+    UISegmentedControl *segControl = (UISegmentedControl *)sender;
+    if ([segControl selectedSegmentIndex] == 0) {
+        //NSLog(@"0");
+    }
+    else {
+        //NSLog(@"1");
+    }
+    [self.collectionView reloadData];
+
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

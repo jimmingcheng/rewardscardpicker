@@ -11,6 +11,7 @@
 @implementation CCRWDCategory
 
 @dynamic categoryId;
+@dynamic rewards;
 
 - (id)initWithId:(NSString *)categoryId context:(NSManagedObjectContext *)context
 {
