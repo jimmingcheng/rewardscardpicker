@@ -10,7 +10,7 @@
 
 @class CCRWDCategory;
 
-@interface CCRWDCardsViewController : UICollectionViewController<UICollectionViewDataSource, UICollectionViewDelegate, UIGestureRecognizerDelegate>
+@interface CCRWDRewardsViewController : UICollectionViewController<UICollectionViewDataSource, UICollectionViewDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, copy) NSArray * creditCards;
 @property (nonatomic, copy) NSArray * categories;

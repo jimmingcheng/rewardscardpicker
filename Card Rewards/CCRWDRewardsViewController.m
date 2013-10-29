@@ -7,18 +7,18 @@
 //
 
 #import "CCRWDCardViewController.h"
-#import "CCRWDCardsViewController.h"
+#import "CCRWDRewardsViewController.h"
 #import "CCRWDCardRewardCell.h"
 #import "CCRWDCategory.h"
 #import "CCRWDCreditCard.h"
 #import "CCRWDReward.h"
 #import "CCRWDCategoryHeadingView.h"
 
-@interface CCRWDCardsViewController ()
+@interface CCRWDRewardsViewController ()
 
 @end
 
-@implementation CCRWDCardsViewController
+@implementation CCRWDRewardsViewController
 {
     NSMutableSet *_expandedCategoryIds;
     bool _showMyCardsOnly;

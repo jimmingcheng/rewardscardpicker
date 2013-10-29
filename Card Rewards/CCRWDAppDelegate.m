@@ -7,7 +7,7 @@
 //
 
 #import "CCRWDAppDelegate.h"
-#import "CCRWDCardsViewController.h"
+#import "CCRWDRewardsViewController.h"
 
 @implementation CCRWDAppDelegate
 
@@ -68,7 +68,7 @@
     
     UINavigationController *rootViewController = (UINavigationController *)self.window.rootViewController;
 
-    CCRWDCardsViewController *cardsController = (CCRWDCardsViewController *)[rootViewController.viewControllers objectAtIndex:0];
+    CCRWDRewardsViewController *cardsController = (CCRWDRewardsViewController *)[rootViewController.viewControllers objectAtIndex:0];
     [cardsController loadData:json];
 }
 
