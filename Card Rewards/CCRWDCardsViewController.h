@@ -16,12 +16,12 @@
 @property (nonatomic, copy) NSArray * categories;
 @property (nonatomic, copy) NSArray * rewards;
 @property (nonatomic, copy) NSDictionary * cardsByCategoryId;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *toggleMyCardsControl;
+@property (weak, nonatomic) IBOutlet UISwitch *showMyCardsOnlySwitch;
 
 - (void)loadData:(NSArray *)json;
 - (void)toggleCategoryHeading:(UITapGestureRecognizer *)recognizer;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 
-- (IBAction)toggleMyCards:(id)sender;
+- (IBAction)toggleShowMyCardsOnly:(id)sender;
 
 @end

@@ -21,12 +21,15 @@
 @implementation CCRWDCardsViewController
 {
     NSMutableSet *_expandedCategoryIds;
+    bool _showMyCardsOnly;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+
+    [self.showMyCardsOnlySwitch setOn:_showMyCardsOnly];
 }
 
 - (void)didReceiveMemoryWarning
@@ -37,6 +40,7 @@
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
+    NSLog(@"numberOfSectionsInCollectionView");
     return [[[self showableCardsByCategoryId] allKeys] count];
 }
 
@@ -82,6 +86,7 @@
 
 - (void)loadData:(NSArray *)json
 {
+    NSLog(@"loadData");
     NSManagedObjectContext *context = [self managedObjectContext];
     self.creditCards = [CCRWDCreditCard updateFromJSON:json context:context];
     self.categories = [CCRWDCategory updateFromJSON:json context:context];
@@ -95,7 +100,7 @@
 
     self.cardsByCategoryId = [CCRWDReward cardsByCategoryIdFromRewards:self.rewards];
     _expandedCategoryIds = [[NSMutableSet alloc] init];
-    
+
     [self.collectionView reloadData];
 }
 
@@ -118,7 +123,7 @@
 
 - (NSArray *)showableCategories
 {
-    if ([self.toggleMyCardsControl selectedSegmentIndex] == 0) {
+    if (_showMyCardsOnly) {
         NSMutableArray *myCategories = [[NSMutableArray alloc] init];
         for (CCRWDCategory *category in self.categories) {
             for (CCRWDReward *reward in category.rewards) {
@@ -140,7 +145,7 @@
 
 - (NSDictionary *)showableCardsByCategoryId
 {
-    if ([self.toggleMyCardsControl selectedSegmentIndex] == 0) {
+    if (_showMyCardsOnly) {
         return [self myCardsByCategoryId];
     }
     else {
@@ -176,15 +181,11 @@
     [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:index]];
 }
 
-- (IBAction)toggleMyCards:(id)sender
+- (IBAction)toggleShowMyCardsOnly:(id)sender
 {
-    UISegmentedControl *segControl = (UISegmentedControl *)sender;
-    if ([segControl selectedSegmentIndex] == 0) {
-        //NSLog(@"0");
-    }
-    else {
-        //NSLog(@"1");
-    }
+    UISwitch *sw = (UISwitch *)sender;
+    _showMyCardsOnly = sw.on;
+
     [self.collectionView reloadData];
 
 }
