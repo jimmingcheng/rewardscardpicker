@@ -7,7 +7,11 @@
 //
 
 #import "CCRWDAppDelegate.h"
+#import "CCRWDCardsViewController.h"
 #import "CCRWDRewardsViewController.h"
+#import "CCRWDCreditCard.h"
+#import "CCRWDCategory.h"
+#import "CCRWDReward.h"
 
 @implementation CCRWDAppDelegate
 
@@ -68,8 +72,16 @@
     
     UINavigationController *rootViewController = (UINavigationController *)self.window.rootViewController;
 
-    CCRWDRewardsViewController *cardsController = (CCRWDRewardsViewController *)[rootViewController.viewControllers objectAtIndex:0];
-    [cardsController loadData:json];
+    CCRWDRewardsViewController *rewardsController = (CCRWDRewardsViewController *)[rootViewController.viewControllers objectAtIndex:0];
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSArray *creditCards = [CCRWDCreditCard updateFromJSON:json context:context];
+    NSArray *categories = [CCRWDCategory updateFromJSON:json context:context];
+    NSArray *rewards = [CCRWDReward updateFromJSON:json creditCards:creditCards categories:categories toContext:context];
+    
+    [context save:nil];
+    
+    [rewardsController setCreditCards:creditCards categories:categories rewards:rewards];
 }
 
 - (void)saveContext

@@ -12,13 +12,13 @@
 
 @interface CCRWDRewardsViewController : UICollectionViewController<UICollectionViewDataSource, UICollectionViewDelegate, UIGestureRecognizerDelegate>
 
-@property (nonatomic, copy) NSArray * creditCards;
-@property (nonatomic, copy) NSArray * categories;
-@property (nonatomic, copy) NSArray * rewards;
+@property (nonatomic, copy, readonly) NSArray * creditCards;
+@property (nonatomic, copy, readonly) NSArray * categories;
+@property (nonatomic, copy, readonly) NSArray * rewards;
 @property (nonatomic, copy) NSDictionary * cardsByCategoryId;
 @property (weak, nonatomic) IBOutlet UISwitch *showMyCardsOnlySwitch;
 
-- (void)loadData:(NSArray *)json;
+- (void)setCreditCards:(NSArray *)creditCards categories:(NSArray *)categories rewards:(NSArray *)rewards;
 - (void)toggleCategoryHeading:(UITapGestureRecognizer *)recognizer;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 

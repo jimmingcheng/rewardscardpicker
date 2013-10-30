@@ -1,17 +1,16 @@
 //
-//  CCRWDCategoryCell.m
+//  CCRWDCardCell.m
 //  Card Rewards
 //
-//  Created by Jimming Cheng on 8/9/13.
+//  Created by Jimming Cheng on 10/28/13.
 //  Copyright (c) 2013 Jimming Cheng. All rights reserved.
 //
 
-#import "CCRWDCardRewardCell.h"
+#import "CCRWDCardCell.h"
 
 #import "CCRWDCreditCard.h"
-#import "CCRWDReward.h"
 
-@implementation CCRWDCardRewardCell
+@implementation CCRWDCardCell
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -36,12 +35,5 @@
     _card = card;
     _nameLabel.text = _card.cardId;
 }
-
-- (void)setReward:(CCRWDReward *)reward
-{
-    _reward = reward;
-    _rewardLabel.text = [NSString stringWithFormat:@"%@%@", reward.amount, reward.unit];
-}
-
 
 @end

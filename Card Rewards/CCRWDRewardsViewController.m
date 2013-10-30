@@ -7,6 +7,7 @@
 //
 
 #import "CCRWDCardViewController.h"
+#import "CCRWDCardsViewController.h"
 #import "CCRWDRewardsViewController.h"
 #import "CCRWDCardRewardCell.h"
 #import "CCRWDCategory.h"
@@ -40,7 +41,6 @@
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    NSLog(@"numberOfSectionsInCollectionView");
     return [[[self showableCardsByCategoryId] allKeys] count];
 }
 
@@ -84,19 +84,13 @@
     return cell;
 }
 
-- (void)loadData:(NSArray *)json
+- (void)setCreditCards:(NSArray *)creditCards categories:(NSArray *)categories rewards:(NSArray *)rewards
 {
-    NSLog(@"loadData");
-    NSManagedObjectContext *context = [self managedObjectContext];
-    self.creditCards = [CCRWDCreditCard updateFromJSON:json context:context];
-    self.categories = [CCRWDCategory updateFromJSON:json context:context];
-    self.rewards = [CCRWDReward updateFromJSON:json creditCards:self.creditCards categories:self.categories toContext:context];
-    
-    [context save:nil];
-    
-    self.categories = [self.categories sortedArrayUsingComparator:^NSComparisonResult(CCRWDCategory *obj1, CCRWDCategory *obj2) {
+    _creditCards = creditCards;
+    _categories = [categories sortedArrayUsingComparator:^NSComparisonResult(CCRWDCategory *obj1, CCRWDCategory *obj2) {
         return [obj1.categoryId compare:obj2.categoryId];
     }];
+    _rewards = rewards;
 
     self.cardsByCategoryId = [CCRWDReward cardsByCategoryIdFromRewards:self.rewards];
     _expandedCategoryIds = [[NSMutableSet alloc] init];
@@ -192,19 +186,16 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    CCRWDCardRewardCell *cardCell = (CCRWDCardRewardCell *)sender;
-    CCRWDCardViewController *cardViewController = (CCRWDCardViewController *)segue.destinationViewController;
-    cardViewController.card = cardCell.card;
-}
-
-- (NSManagedObjectContext *)managedObjectContext
-{
-    NSManagedObjectContext *context = nil;
-    id delegate = [[UIApplication sharedApplication] delegate];
-    if ([delegate performSelector:@selector(managedObjectContext)]) {
-        context = [delegate managedObjectContext];
+    if ([segue.identifier isEqualToString:@"Card"]) {
+        CCRWDCardRewardCell *cardCell = (CCRWDCardRewardCell *)sender;
+        CCRWDCardViewController *cardViewController = (CCRWDCardViewController *)segue.destinationViewController;
+        cardViewController.card = cardCell.card;
     }
-    return context;
+    else if ([segue.identifier isEqualToString:@"Cards"]) {
+        CCRWDCardsViewController *cardsViewController = (CCRWDCardsViewController *)segue.destinationViewController;
+        [cardsViewController setCreditCards:self.creditCards];
+        [cardsViewController setShowMyCardsOnly:_showMyCardsOnly];
+    }
 }
 
 @end

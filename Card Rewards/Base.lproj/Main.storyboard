@@ -20,7 +20,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CardRewardCell" id="wOU-np-JcW" customClass="CCRWDCardRewardCell">
-                                <rect key="frame" x="0.0" y="50" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="114" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
@@ -47,12 +47,12 @@
                                 <connections>
                                     <outlet property="nameLabel" destination="bid-zz-7aT" id="im0-Uy-TEe"/>
                                     <outlet property="rewardLabel" destination="pug-lS-kbT" id="clc-Tp-7xj"/>
-                                    <segue destination="MZY-U8-DEq" kind="push" id="mtN-oL-w2O"/>
+                                    <segue destination="MZY-U8-DEq" kind="push" identifier="Card" id="mtN-oL-w2O"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategoryHeading" id="UxC-Wt-U7V" customClass="CCRWDCategoryHeadingView">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                            <rect key="frame" x="0.0" y="64" width="320" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Restaurants" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7g2-78-soo">
@@ -82,6 +82,9 @@
                                 <segment title="Cards"/>
                                 <segment title="Rewards"/>
                             </segments>
+                            <connections>
+                                <segue destination="5Ym-F4-krj" kind="push" identifier="Cards" id="IbB-Sp-bcJ"/>
+                            </connections>
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="MES-iQ-BuW">
                             <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="EJo-P8-hBo">
@@ -100,6 +103,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xIS-Iy-9E2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1842" y="-522"/>
+        </scene>
+        <!--Cards View Controller-->
+        <scene sceneID="fqN-Ct-HVM">
+            <objects>
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="5Ym-F4-krj" customClass="CCRWDCardsViewController" sceneMemberID="viewController">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="6h6-LO-aID">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WUU-6T-exs">
+                            <size key="itemSize" width="319" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CardCell" id="CoW-3j-6PR" customClass="CCRWDCardCell">
+                                <rect key="frame" x="1" y="64" width="319" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="319" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTk-aD-gEa">
+                                            <rect key="frame" x="20" y="14" width="279" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="nameLabel" destination="YTk-aD-gEa" id="da0-mB-gOm"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="5Ym-F4-krj" id="SQn-pZ-19X"/>
+                            <outlet property="delegate" destination="5Ym-F4-krj" id="U6y-AT-pwB"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="d7r-Vy-sfh"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GDs-RN-fPd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2384" y="37"/>
         </scene>
         <!--Card View Controller-->
         <scene sceneID="sWV-j5-eP6">
@@ -140,7 +190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U5T-zC-3Ww" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2306" y="-522"/>
+            <point key="canvasLocation" x="2900" y="-522"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VXX-3C-sdw">
