@@ -10,6 +10,7 @@
 #import "CCRWDCreditCard.h"
 #import "CCRWDCardCell.h"
 #import "CCRWDCardViewController.h"
+#import "CCRWDAppDelegate.h"
 
 @interface CCRWDCardsViewController ()
 
@@ -31,7 +32,16 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    [self.showMyCardsOnlySwitch setOn:_showMyCardsOnly];
+    CCRWDAppDelegate *appDelegate = (CCRWDAppDelegate *)[[UIApplication sharedApplication] delegate];
+    self.viewStatesPlist = [appDelegate viewStatesPlist];
+    _showMyCardsOnly = [[self.viewStatesPlist valueForKey:@"showMyCardsOnly"] boolValue];
+    
+    if (_showMyCardsOnly) {
+        [self.showMyCardsOnlySegmentedControl setSelectedSegmentIndex:1];
+    }
+    else {
+        [self.showMyCardsOnlySegmentedControl setSelectedSegmentIndex:0];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,7 +57,6 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    NSLog(@"%@", [self showableCards]);
     return [[self showableCards] count];
 }
 
@@ -61,6 +70,12 @@
     [cell setCard:card];
     
     return cell;
+}
+
+- (void)setShowMyCardsOnly:(bool)showMyCardsOnly
+{
+    _showMyCardsOnly = showMyCardsOnly;
+    [self.viewStatesPlist setObject:[NSNumber numberWithBool:_showMyCardsOnly] forKey:@"showMyCardsOnly"];
 }
 
 - (void)setCreditCards:(NSArray *)creditCards
@@ -87,11 +102,15 @@
 
 - (IBAction)toggleShowMyCardsOnly:(id)sender
 {
-    UISwitch *sw = (UISwitch *)sender;
-    _showMyCardsOnly = sw.on;
+    UISegmentedControl *segControl = (UISegmentedControl *)sender;
+    if ([segControl selectedSegmentIndex] == 0) {
+        [self setShowMyCardsOnly:false];
+    }
+    else {
+        [self setShowMyCardsOnly:true];
+    }
     
     [self.collectionView reloadData];
-    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

@@ -8,7 +8,7 @@
 
 #import "CCRWDAppDelegate.h"
 #import "CCRWDCardsViewController.h"
-#import "CCRWDRewardsViewController.h"
+#import "CCRWDStartPageViewController.h"
 #import "CCRWDCreditCard.h"
 #import "CCRWDCategory.h"
 #import "CCRWDReward.h"
@@ -28,6 +28,9 @@
                                withObject:data waitUntilDone:YES];
     });
     
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"viewStates" ofType:@"plist"];
+    _viewStatesPlist = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+
     return YES;
 }
 
@@ -57,6 +60,13 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     [self saveContext];
+    
+    NSString *error;
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"viewStates" ofType:@"plist"];
+    NSData *plistData = [NSPropertyListSerialization dataFromPropertyList:self.viewStatesPlist
+                                                                   format:NSPropertyListXMLFormat_v1_0
+                                                         errorDescription:&error];
+    [plistData writeToFile:plistPath atomically:YES];
 }
 
 - (void)fetchedData:(NSData *)responseData {
@@ -72,16 +82,18 @@
     
     UINavigationController *rootViewController = (UINavigationController *)self.window.rootViewController;
 
-    CCRWDRewardsViewController *rewardsController = (CCRWDRewardsViewController *)[rootViewController.viewControllers objectAtIndex:0];
+    CCRWDStartPageViewController *startPageViewController = (CCRWDStartPageViewController *)[rootViewController.viewControllers objectAtIndex:0];
     
     NSManagedObjectContext *context = [self managedObjectContext];
     NSArray *creditCards = [CCRWDCreditCard updateFromJSON:json context:context];
     NSArray *categories = [CCRWDCategory updateFromJSON:json context:context];
     NSArray *rewards = [CCRWDReward updateFromJSON:json creditCards:creditCards categories:categories toContext:context];
     
-    [context save:nil];
+    [startPageViewController setCreditCards:creditCards];
+    [startPageViewController setCategories:categories];
+    [startPageViewController setRewards:rewards];
     
-    [rewardsController setCreditCards:creditCards categories:categories rewards:rewards];
+    [context save:nil];
 }
 
 - (void)saveContext

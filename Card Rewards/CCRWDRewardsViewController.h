@@ -16,7 +16,9 @@
 @property (nonatomic, copy, readonly) NSArray * categories;
 @property (nonatomic, copy, readonly) NSArray * rewards;
 @property (nonatomic, copy) NSDictionary * cardsByCategoryId;
-@property (weak, nonatomic) IBOutlet UISwitch *showMyCardsOnlySwitch;
+@property (nonatomic) bool showMyCardsOnly;
+@property NSMutableDictionary *viewStatesPlist;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *showMyCardsOnlySegmentedControl;
 
 - (void)setCreditCards:(NSArray *)creditCards categories:(NSArray *)categories rewards:(NSArray *)rewards;
 - (void)toggleCategoryHeading:(UITapGestureRecognizer *)recognizer;

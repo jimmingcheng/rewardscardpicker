@@ -76,33 +76,65 @@
                     <navigationItem key="navigationItem" id="bEI-CX-B5G">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="xAu-rL-QbJ">
-                            <rect key="frame" x="88" y="6" width="145" height="32"/>
+                            <rect key="frame" x="76" y="5" width="169" height="34"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
-                                <segment title="Cards"/>
-                                <segment title="Rewards"/>
+                                <segment title="All rewards"/>
+                                <segment title="My rewards"/>
                             </segments>
                             <connections>
-                                <segue destination="5Ym-F4-krj" kind="push" identifier="Cards" id="IbB-Sp-bcJ"/>
+                                <action selector="toggleShowMyCardsOnly:" destination="0Ey-r6-AYq" eventType="valueChanged" id="TMm-Xp-dFm"/>
                             </connections>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="MES-iQ-BuW">
-                            <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="EJo-P8-hBo">
-                                <rect key="frame" x="255" y="6" width="51" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="toggleShowMyCardsOnly:" destination="0Ey-r6-AYq" eventType="valueChanged" id="eAS-bX-U6W"/>
-                                </connections>
-                            </switch>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="showMyCardsOnlySwitch" destination="EJo-P8-hBo" id="hNN-Vg-CMx"/>
+                        <outlet property="showMyCardsOnlySegmentedControl" destination="xAu-rL-QbJ" id="dHO-Ov-nus"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xIS-Iy-9E2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1842" y="-522"/>
+            <point key="canvasLocation" x="1930" y="-64"/>
+        </scene>
+        <!--Start Page View Controller-->
+        <scene sceneID="Wu0-8w-Zu1">
+            <objects>
+                <viewController id="MNF-7G-xjc" customClass="CCRWDStartPageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IOk-Y7-FL0"/>
+                        <viewControllerLayoutGuide type="bottom" id="yF9-8k-RSd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oBW-Ms-2tN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Zv-nv-8aR">
+                                <rect key="frame" x="127" y="224" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Rewards">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="0Ey-r6-AYq" kind="push" identifier="Rewards" id="hEb-j3-GH4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1h6-TR-UF0">
+                                <rect key="frame" x="137" y="86" width="41" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cards">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="5Ym-F4-krj" kind="push" identifier="Cards" id="aSq-Wf-x5q"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="roy-g1-Cws"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZyN-xY-Kic" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1340" y="-522"/>
         </scene>
         <!--Cards View Controller-->
         <scene sceneID="fqN-Ct-HVM">
@@ -137,6 +169,7 @@
                                 </view>
                                 <connections>
                                     <outlet property="nameLabel" destination="YTk-aD-gEa" id="da0-mB-gOm"/>
+                                    <segue destination="MZY-U8-DEq" kind="push" identifier="Card" id="nNR-Vm-Xtf"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -145,11 +178,27 @@
                             <outlet property="delegate" destination="5Ym-F4-krj" id="U6y-AT-pwB"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="d7r-Vy-sfh"/>
+                    <navigationItem key="navigationItem" id="d7r-Vy-sfh">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="QiN-C1-TyN">
+                            <rect key="frame" x="79" y="7" width="163" height="31"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="All cards"/>
+                                <segment title="My cards"/>
+                            </segments>
+                            <connections>
+                                <action selector="toggleShowMyCardsOnly:" destination="5Ym-F4-krj" eventType="valueChanged" id="Xkw-eY-f7F"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="showMyCardsOnlySegmentedControl" destination="QiN-C1-TyN" id="XNu-wp-pSe"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GDs-RN-fPd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2384" y="37"/>
+            <point key="canvasLocation" x="1930" y="-948"/>
         </scene>
         <!--Card View Controller-->
         <scene sceneID="sWV-j5-eP6">
@@ -190,7 +239,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U5T-zC-3Ww" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2900" y="-522"/>
+            <point key="canvasLocation" x="2518" y="-522"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VXX-3C-sdw">
@@ -200,12 +249,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="0Ey-r6-AYq" kind="relationship" relationship="rootViewController" id="SV4-Aj-xMa"/>
+                        <segue destination="MNF-7G-xjc" kind="relationship" relationship="rootViewController" id="scz-tw-hUN"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4mK-O3-IYs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1371" y="-522"/>
+            <point key="canvasLocation" x="831" y="-522"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -213,4 +262,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="nNR-Vm-Xtf"/>
+    </inferredMetricsTieBreakers>
 </document>

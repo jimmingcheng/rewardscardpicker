@@ -11,8 +11,9 @@
 @interface CCRWDCardsViewController : UICollectionViewController<UICollectionViewDataSource, UICollectionViewDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, copy) NSArray * creditCards;
-@property bool showMyCardsOnly;
-@property (weak, nonatomic) IBOutlet UISwitch *showMyCardsOnlySwitch;
+@property (nonatomic) bool showMyCardsOnly;
+@property NSMutableDictionary *viewStatesPlist;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *showMyCardsOnlySegmentedControl;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 
