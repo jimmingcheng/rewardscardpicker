@@ -26,9 +26,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _nameLabel.text = _card.cardId;
+    _nameLabel.text = _card.name;
+    _cardImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", _card.cardId]];
 
-    [_toggleOwnsCardButton setSelected:[_card.owned boolValue]];
+    [_toggleStarButton setSelected:[_card.starred boolValue]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -37,12 +38,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)toggleOwnsCard:(id)sender
+- (IBAction)toggleStar:(id)sender
 {
     UIButton *button = (UIButton *)sender;
     [button setSelected:![button isSelected]];
     
-    [_card setOwned:[NSNumber numberWithBool:[button isSelected]]];
+    [_card setStarred:[NSNumber numberWithBool:[button isSelected]]];
 }
 
 @end

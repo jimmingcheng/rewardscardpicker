@@ -34,7 +34,8 @@
 - (void)setCard:(CCRWDCreditCard *)card
 {
     _card = card;
-    _nameLabel.text = _card.cardId;
+    _nameLabel.text = _card.name;
+    _cardImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", _card.cardId]];
 }
 
 - (void)setReward:(CCRWDReward *)reward

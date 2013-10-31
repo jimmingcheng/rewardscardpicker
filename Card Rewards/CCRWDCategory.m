@@ -28,7 +28,7 @@
 {
     NSMutableSet *newCategoryIds = [[NSMutableSet alloc] init];
     for (NSArray *cardJSON in json) {
-        [newCategoryIds addObjectsFromArray:[cardJSON objectAtIndex:2]];
+        [newCategoryIds addObjectsFromArray:[cardJSON objectAtIndex:3]];
     }
     
     NSFetchRequest *categoriesRequest = [[NSFetchRequest alloc] initWithEntityName:@"Category"];

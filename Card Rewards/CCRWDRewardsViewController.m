@@ -119,7 +119,7 @@
     for (NSString *categoryId in self.cardsByCategoryId) {
         NSMutableArray *myCards = [[NSMutableArray alloc] init];
         for (CCRWDCreditCard *card in [self.cardsByCategoryId objectForKey:categoryId]) {
-            if ([card.owned boolValue]) {
+            if ([card.starred boolValue]) {
                 [myCards addObject:card];
             }
         }
@@ -136,7 +136,7 @@
         NSMutableArray *myCategories = [[NSMutableArray alloc] init];
         for (CCRWDCategory *category in self.categories) {
             for (CCRWDReward *reward in category.rewards) {
-                if ([[reward.creditCard owned] boolValue]) {
+                if ([[reward.creditCard starred] boolValue] && ![myCategories containsObject:category]) {
                     [myCategories addObject:category];
                 }
             }

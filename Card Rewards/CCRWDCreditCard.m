@@ -13,15 +13,17 @@
 @implementation CCRWDCreditCard
 
 @dynamic cardId;
+@dynamic name;
 @dynamic rewards;
-@dynamic owned;
+@dynamic starred;
 
-- (id)initWithId:(NSString *)cardId context:(NSManagedObjectContext *)context
+- (id)initWithId:(NSString *)cardId name:(NSString *)name context:(NSManagedObjectContext *)context
 {
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"CreditCard" inManagedObjectContext:context];
     self = [super initWithEntity:entity insertIntoManagedObjectContext:context];
     if (self) {
         [self setCardId:cardId];
+        [self setName:name];
         return self;
     }
     return nil;
@@ -47,8 +49,11 @@
     NSArray *existingCards = [[context executeFetchRequest:cardsRequest error:nil] mutableCopy];
     
     NSMutableSet *newCardIds = [[NSMutableSet alloc] init];
+    NSMutableDictionary *newCardNames = [[NSMutableDictionary alloc] init];
     for (NSArray *cardJSON in json) {
-        [newCardIds addObject:[cardJSON objectAtIndex:0]];
+        NSString *cardId = [cardJSON objectAtIndex:0];
+        [newCardIds addObject:cardId];
+        [newCardNames setObject:[cardJSON objectAtIndex:1] forKey:cardId];
     }
     
     NSMutableSet *existingCardIds = [[NSMutableSet alloc] init];
@@ -59,13 +64,15 @@
             [context deleteObject:card];
         }
         else {
+            [card setName:[newCardNames objectForKey:card.cardId]];
             [cards addObject:card];
         }
     }
     
     for (NSString *newCardId in newCardIds) {
         if (![existingCardIds containsObject:newCardId]) {
-            CCRWDCreditCard *card = [[CCRWDCreditCard alloc] initWithId:newCardId context:context];
+            NSString *name = [newCardNames objectForKey:newCardId];
+            CCRWDCreditCard *card = [[CCRWDCreditCard alloc] initWithId:newCardId name: name context:context];
             [cards addObject:card];
         }
     }

@@ -6,7 +6,8 @@
     </entity>
     <entity name="CreditCard" syncable="YES">
         <attribute name="cardId" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
-        <attribute name="owned" optional="YES" attributeType="Boolean" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="starred" optional="YES" attributeType="Boolean" defaultValueString="0" syncable="YES"/>
         <relationship name="rewards" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Reward" inverseName="creditCard" inverseEntity="Reward" syncable="YES"/>
     </entity>
     <entity name="Reward" syncable="YES">

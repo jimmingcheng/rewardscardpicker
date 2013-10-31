@@ -89,7 +89,7 @@
     if (_showMyCardsOnly) {
         NSMutableArray *showable = [[NSMutableArray alloc] init];
         for (CCRWDCreditCard *card in self.creditCards) {
-            if ([card.owned boolValue]) {
+            if ([card.starred boolValue]) {
                 [showable addObject:card];
             }
         }

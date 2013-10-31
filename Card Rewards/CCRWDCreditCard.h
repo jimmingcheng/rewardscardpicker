@@ -11,10 +11,11 @@
 @interface CCRWDCreditCard : NSManagedObject
 
 @property (nonatomic) NSString *cardId;
+@property (nonatomic) NSString *name;
 @property (nonatomic) NSSet *rewards;
-@property (nonatomic) NSNumber *owned;
+@property (nonatomic) NSNumber *starred;
 
-- (id)initWithId:(NSString *)cardId context:(NSManagedObjectContext *)context;
+- (id)initWithId:(NSString *)cardId name:(NSString *)name context:(NSManagedObjectContext *)context;
 + (NSArray *)updateFromJSON:(NSArray *)json context:(NSManagedObjectContext *)context;
 
 @end

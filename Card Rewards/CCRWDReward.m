@@ -53,9 +53,9 @@
     [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
     for (NSArray *cardJSON in json) {
         NSString *cardId = [cardJSON objectAtIndex:0];
-        NSArray *categoryIds = [cardJSON objectAtIndex:2];
-        NSNumber *rewardAmount = [formatter numberFromString:[cardJSON objectAtIndex:3]];
-        NSString *rewardUnit = [cardJSON objectAtIndex: 4];
+        NSArray *categoryIds = [cardJSON objectAtIndex:3];
+        NSNumber *rewardAmount = [formatter numberFromString:[cardJSON objectAtIndex:4]];
+        NSString *rewardUnit = [cardJSON objectAtIndex: 5];
         
         NSMutableSet *categoriesForCard = [[NSMutableSet alloc] init];
         for (NSString *categoryId in categoryIds) {

@@ -32,7 +32,7 @@
 - (void)setCategory:(CCRWDCategory *)category
 {
     _category = category;
-    _label.text = _category.categoryId;
+    _label.text = [_category.categoryId stringByReplacingOccurrencesOfString:@"_" withString:@" "];
 }
 
 @end
