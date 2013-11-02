@@ -29,6 +29,7 @@
     _nameLabel.text = _card.name;
     _cardImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", _card.cardId]];
 
+    [_toggleStarButton.layer setCornerRadius:4];
     [_toggleStarButton setSelected:[_card.starred boolValue]];
     [self updateToggleStarButton:_toggleStarButton];
 }

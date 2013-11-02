@@ -113,7 +113,7 @@
     _rewards = rewards;
 
     self.cardsByCategoryId = [CCRWDReward cardsByCategoryIdFromRewards:self.rewards];
-    _expandedCategoryIds = [[NSMutableSet alloc] init];
+    _expandedCategoryIds = [[NSMutableSet alloc] initWithArray:[self.cardsByCategoryId allKeys]];
 
     [self.collectionView reloadData];
 }

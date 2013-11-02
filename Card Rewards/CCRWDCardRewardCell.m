@@ -51,6 +51,8 @@
     [button setSelected:![button isSelected]];
     
     [_card setStarred:[NSNumber numberWithBool:[button isSelected]]];
+    UICollectionView *collectionView = (UICollectionView *)[self superview];
+    [collectionView reloadData];
 }
 
 @end

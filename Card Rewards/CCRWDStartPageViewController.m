@@ -29,6 +29,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.cardsButton.layer setCornerRadius:5];
+    [self.rewardsButton.layer setCornerRadius:5];
 	// Do any additional setup after loading the view.
 }
 

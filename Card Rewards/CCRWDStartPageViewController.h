@@ -13,5 +13,8 @@
 @property (nonatomic, copy) NSArray *creditCards;
 @property (nonatomic, copy) NSArray *categories;
 @property (nonatomic, copy) NSArray *rewards;
+@property (weak, nonatomic) IBOutlet UIButton *cardsButton;
+@property (weak, nonatomic) IBOutlet UIButton *rewardsButton;
+
 
 @end
