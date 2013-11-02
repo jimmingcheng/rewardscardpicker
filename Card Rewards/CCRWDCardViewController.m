@@ -30,6 +30,7 @@
     _cardImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", _card.cardId]];
 
     [_toggleStarButton setSelected:[_card.starred boolValue]];
+    [self updateToggleStarButton:_toggleStarButton];
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,10 +39,22 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)toggleStar:(id)sender
+- (void)updateToggleStarButton:(UIButton *)button
 {
+    if ([button isSelected]) {
+        [button setBackgroundColor:[self.view tintColor]];
+    }
+    else {
+        [button setBackgroundColor:[UIColor lightGrayColor]];
+    }
+}
+
+- (IBAction)toggleStar:(id)sender
+{    
     UIButton *button = (UIButton *)sender;
     [button setSelected:![button isSelected]];
+ 
+    [self updateToggleStarButton:button];
     
     [_card setStarred:[NSNumber numberWithBool:[button isSelected]]];
 }

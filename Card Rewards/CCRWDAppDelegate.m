@@ -12,6 +12,7 @@
 #import "CCRWDCreditCard.h"
 #import "CCRWDCategory.h"
 #import "CCRWDReward.h"
+#import "Reachability.h"
 
 @implementation CCRWDAppDelegate
 
@@ -21,16 +22,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSData* data = [NSData dataWithContentsOfURL:[[NSURL alloc] initWithString:@"http://cccal.herokuapp.com/api/0/"]];
-        [self performSelectorOnMainThread:@selector(fetchedData:)
-                               withObject:data waitUntilDone:YES];
-    });
-    
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"viewStates" ofType:@"plist"];
     _viewStatesPlist = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
 
+
+    [self initCardData];
+    if ([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] != NotReachable) {
+        [self fetchCardData];
+    }
+    
     return YES;
 }
 
@@ -44,6 +44,14 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [self saveContext];
+    
+    NSString *error;
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"viewStates" ofType:@"plist"];
+    NSData *plistData = [NSPropertyListSerialization dataFromPropertyList:self.viewStatesPlist
+                                                                   format:NSPropertyListXMLFormat_v1_0
+                                                         errorDescription:&error];
+    [plistData writeToFile:plistPath atomically:YES];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -69,7 +77,28 @@
     [plistData writeToFile:plistPath atomically:YES];
 }
 
-- (void)fetchedData:(NSData *)responseData {
+- (void)initCardData
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    UINavigationController *rootViewController = (UINavigationController *)self.window.rootViewController;
+    CCRWDStartPageViewController *startPageViewController = (CCRWDStartPageViewController *)[rootViewController.viewControllers objectAtIndex:0];
+
+    [startPageViewController setCreditCards:[CCRWDCreditCard cardsFromContext:context]];
+    [startPageViewController setCategories:[CCRWDCategory categoriesFromContext:context]];
+    [startPageViewController setRewards:[CCRWDReward rewardsFromContext:context]];
+}
+
+- (void)fetchCardData
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSData* data = [NSData dataWithContentsOfURL:[[NSURL alloc] initWithString:@"http://cccal.herokuapp.com/api/0/"]];
+        [self performSelectorOnMainThread:@selector(fetchedCardData:)
+                               withObject:data waitUntilDone:YES];
+    });
+}
+
+- (void)fetchedCardData:(NSData *)responseData {
     NSString *strData = [[NSString alloc]initWithData:responseData encoding:NSUTF8StringEncoding];
 
     NSLog(@"%@", strData);
@@ -85,9 +114,9 @@
     CCRWDStartPageViewController *startPageViewController = (CCRWDStartPageViewController *)[rootViewController.viewControllers objectAtIndex:0];
     
     NSManagedObjectContext *context = [self managedObjectContext];
-    NSArray *creditCards = [CCRWDCreditCard updateFromJSON:json context:context];
-    NSArray *categories = [CCRWDCategory updateFromJSON:json context:context];
-    NSArray *rewards = [CCRWDReward updateFromJSON:json creditCards:creditCards categories:categories toContext:context];
+    NSArray *creditCards = [CCRWDCreditCard updatedCardsFromJSON:json context:context];
+    NSArray *categories = [CCRWDCategory updatedCategoriesFromJSON:json context:context];
+    NSArray *rewards = [CCRWDReward updatedRewardsFromJSON:json creditCards:creditCards categories:categories toContext:context];
     
     [startPageViewController setCreditCards:creditCards];
     [startPageViewController setCategories:categories];

@@ -43,10 +43,15 @@
     }
 }
 
-+ (NSArray *)updateFromJSON:(NSArray *)json context:(NSManagedObjectContext *)context
++ (NSArray *)cardsFromContext:(NSManagedObjectContext *)context
 {
     NSFetchRequest *cardsRequest = [[NSFetchRequest alloc] initWithEntityName:@"CreditCard"];
-    NSArray *existingCards = [[context executeFetchRequest:cardsRequest error:nil] mutableCopy];
+    return [[context executeFetchRequest:cardsRequest error:nil] mutableCopy];
+}
+
++ (NSArray *)updatedCardsFromJSON:(NSArray *)json context:(NSManagedObjectContext *)context
+{
+    NSArray *existingCards = [self cardsFromContext:context];
     
     NSMutableSet *newCardIds = [[NSMutableSet alloc] init];
     NSMutableDictionary *newCardNames = [[NSMutableDictionary alloc] init];

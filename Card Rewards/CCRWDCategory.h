@@ -14,6 +14,7 @@
 @property (nonatomic) NSArray * rewards;
 
 - (id)initWithId:(NSString *)categoryId context:(NSManagedObjectContext *)context;
-+ (NSArray *)updateFromJSON:(NSArray *)json context:(NSManagedObjectContext *)context;
++ (NSArray *)categoriesFromContext:(NSManagedObjectContext *)context;
++ (NSArray *)updatedCategoriesFromJSON:(NSArray *)json context:(NSManagedObjectContext *)context;
 
 @end

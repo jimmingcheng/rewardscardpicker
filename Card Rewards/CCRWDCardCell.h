@@ -16,5 +16,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *cardImage;
+@property (weak, nonatomic) IBOutlet UIButton *toggleStarButton;
+
+- (IBAction)toggleStar:(id)sender;
 
 @end

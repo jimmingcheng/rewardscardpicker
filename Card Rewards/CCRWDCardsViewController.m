@@ -44,6 +44,11 @@
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.collectionView reloadData];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

@@ -36,6 +36,7 @@
     _card = card;
     _nameLabel.text = _card.name;
     _cardImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", _card.cardId]];
+    [_toggleStarButton setSelected:[_card.starred boolValue]];
 }
 
 - (void)setReward:(CCRWDReward *)reward
@@ -44,5 +45,12 @@
     _rewardLabel.text = [NSString stringWithFormat:@"%@%@", reward.amount, reward.unit];
 }
 
+- (IBAction)toggleStar:(id)sender
+{
+    UIButton *button = (UIButton *)sender;
+    [button setSelected:![button isSelected]];
+    
+    [_card setStarred:[NSNumber numberWithBool:[button isSelected]]];
+}
 
 @end

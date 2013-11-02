@@ -24,15 +24,20 @@
     return nil;
 }
 
-+ (NSArray *)updateFromJSON:(NSArray *)json context:(NSManagedObjectContext *)context
++ (NSArray *)categoriesFromContext:(NSManagedObjectContext *)context
+{
+    NSFetchRequest *categoriesRequest = [[NSFetchRequest alloc] initWithEntityName:@"Category"];
+    return [[context executeFetchRequest:categoriesRequest error:nil] mutableCopy];
+}
+
++ (NSArray *)updatedCategoriesFromJSON:(NSArray *)json context:(NSManagedObjectContext *)context
 {
     NSMutableSet *newCategoryIds = [[NSMutableSet alloc] init];
     for (NSArray *cardJSON in json) {
         [newCategoryIds addObjectsFromArray:[cardJSON objectAtIndex:3]];
     }
     
-    NSFetchRequest *categoriesRequest = [[NSFetchRequest alloc] initWithEntityName:@"Category"];
-    NSArray *existingCategories = [[context executeFetchRequest:categoriesRequest error:nil] mutableCopy];
+    NSArray *existingCategories = [self categoriesFromContext:context];
     for (CCRWDCategory *category in existingCategories) {
         [context deleteObject:category];
     }

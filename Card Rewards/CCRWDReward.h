@@ -18,7 +18,8 @@
 @property (nonatomic) NSSet *categories;
 
 - (id)initWithAmount:(NSNumber *)amount unit:(NSString *)unit context:(NSManagedObjectContext *)context;
-+ (NSArray *)updateFromJSON:(NSArray *)json creditCards:(NSArray *)creditCards categories:(NSArray *)categories toContext:(NSManagedObjectContext *)context;
++ (NSArray *)rewardsFromContext:(NSManagedObjectContext *)context;
++ (NSArray *)updatedRewardsFromJSON:(NSArray *)json creditCards:(NSArray *)creditCards categories:(NSArray *)categories toContext:(NSManagedObjectContext *)context;
 + (NSDictionary *)cardsByCategoryIdFromRewards:(NSArray *)rewards;
 
 @end

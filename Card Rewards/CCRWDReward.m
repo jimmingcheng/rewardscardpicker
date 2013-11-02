@@ -29,7 +29,13 @@
     return nil;
 }
 
-+ (NSArray *)updateFromJSON:(NSArray *)json creditCards:(NSArray *)creditCards categories:(NSArray *)categories toContext:(NSManagedObjectContext *)context
++ (NSArray *)rewardsFromContext:(NSManagedObjectContext *)context
+{
+    NSFetchRequest *rewardsRequest = [[NSFetchRequest alloc] initWithEntityName:@"Reward"];
+    return [[context executeFetchRequest:rewardsRequest error:nil] mutableCopy];
+}
+
++ (NSArray *)updatedRewardsFromJSON:(NSArray *)json creditCards:(NSArray *)creditCards categories:(NSArray *)categories toContext:(NSManagedObjectContext *)context
 {
     
     NSMutableDictionary *cardsById = [[NSMutableDictionary alloc] init];
@@ -42,8 +48,7 @@
         [categoriesById setObject:category forKey:category.categoryId];
     }
     
-    NSFetchRequest *rewardsRequest = [[NSFetchRequest alloc] initWithEntityName:@"Reward"];
-    NSArray *existingRewards = [[context executeFetchRequest:rewardsRequest error:nil] mutableCopy];
+    NSArray *existingRewards = [self rewardsFromContext:context];
     for (CCRWDReward *reward in existingRewards) {
         [context deleteObject:reward];
     }

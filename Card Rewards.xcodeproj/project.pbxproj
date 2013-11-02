@@ -32,6 +32,7 @@
 		25C76ADD17B2150B00F31874 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25C76AB917B2150B00F31874 /* UIKit.framework */; };
 		25C76AE517B2150B00F31874 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 25C76AE317B2150B00F31874 /* InfoPlist.strings */; };
 		25C76AE717B2150B00F31874 /* Card_RewardsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C76AE617B2150B00F31874 /* Card_RewardsTests.m */; };
+		25C7AAA4182585B000B3A77F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C7AAA3182585B000B3A77F /* Reachability.m */; };
 		25FBC19417B7858C0038A60A /* CCRWDCategoryHeadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FBC19317B7858C0038A60A /* CCRWDCategoryHeadingView.m */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +85,9 @@
 		25C76AE217B2150B00F31874 /* Card RewardsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Card RewardsTests-Info.plist"; sourceTree = "<group>"; };
 		25C76AE417B2150B00F31874 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		25C76AE617B2150B00F31874 /* Card_RewardsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Card_RewardsTests.m; sourceTree = "<group>"; };
+		25C7AAA01825820C00B3A77F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		25C7AAA2182585B000B3A77F /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		25C7AAA3182585B000B3A77F /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		25FBC19217B7858C0038A60A /* CCRWDCategoryHeadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRWDCategoryHeadingView.h; sourceTree = "<group>"; };
 		25FBC19317B7858C0038A60A /* CCRWDCategoryHeadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRWDCategoryHeadingView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,6 +139,7 @@
 		25C76AB417B2150B00F31874 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				25C7AAA01825820C00B3A77F /* SystemConfiguration.framework */,
 				258E0E731814F45200E0E10D /* CoreData.framework */,
 				25C76AB517B2150B00F31874 /* Foundation.framework */,
 				25C76AB717B2150B00F31874 /* CoreGraphics.framework */,
@@ -147,6 +152,8 @@
 		25C76ABB17B2150B00F31874 /* Card Rewards */ = {
 			isa = PBXGroup;
 			children = (
+				25C7AAA2182585B000B3A77F /* Reachability.h */,
+				25C7AAA3182585B000B3A77F /* Reachability.m */,
 				2547DCA1181489170032E748 /* CCRWDCardViewController.h */,
 				2547DCA0181489170032E748 /* CCRWDCardViewController.m */,
 				25C76AC417B2150B00F31874 /* CCRWDAppDelegate.h */,
@@ -316,6 +323,7 @@
 				255765C11820DE8A001709E4 /* CCRWDStartPageViewController.m in Sources */,
 				25054C31181F8302008142AD /* CCRWDCardCell.m in Sources */,
 				2518E4E8181A2F4D00D2D07C /* CCRWDCardViewController.m in Sources */,
+				25C7AAA4182585B000B3A77F /* Reachability.m in Sources */,
 				25FBC19417B7858C0038A60A /* CCRWDCategoryHeadingView.m in Sources */,
 				25C76AC217B2150B00F31874 /* main.m in Sources */,
 				2524070417B6152C0035CF99 /* CCRWDCardRewardCell.m in Sources */,

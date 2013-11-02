@@ -38,9 +38,9 @@
     NSArray *json = [self parseJSON:
                      @"[[\"chase_freedom\", [], [\"gas\", \"groceries\", \"restaurants\"], \"5\", \"%\"]]"
                      ];
-    NSArray *creditCards = [CCRWDCreditCard updateFromJSON:json context:_managedObjectContext];
-    NSArray *categories = [CCRWDCategory updateFromJSON:json context:_managedObjectContext];
-    NSArray *rewards = [CCRWDReward updateFromJSON:json creditCards:creditCards categories:categories toContext:_managedObjectContext];
+    NSArray *creditCards = [CCRWDCreditCard updatedCardsFromJSON:json context:_managedObjectContext];
+    NSArray *categories = [CCRWDCategory updatedCategoriesFromJSON:json context:_managedObjectContext];
+    NSArray *rewards = [CCRWDReward updatedRewardsFromJSON:json creditCards:creditCards categories:categories toContext:_managedObjectContext];
     
     [_managedObjectContext save:nil];
     
@@ -55,9 +55,9 @@
     NSArray *json = [self parseJSON:
                      @"[[\"chase_freedom\", [], [\"gas\", \"groceries\", \"restaurants\"], \"5\", \"%\"]]"
                      ];
-    NSArray *creditCards = [CCRWDCreditCard updateFromJSON:json context:_managedObjectContext];
-    NSArray *categories = [CCRWDCategory updateFromJSON:json context:_managedObjectContext];
-    NSArray *rewards = [CCRWDReward updateFromJSON:json creditCards:creditCards categories:categories toContext:_managedObjectContext];
+    NSArray *creditCards = [CCRWDCreditCard updatedCardsFromJSON:json context:_managedObjectContext];
+    NSArray *categories = [CCRWDCategory updatedCategoriesFromJSON:json context:_managedObjectContext];
+    NSArray *rewards = [CCRWDReward updatedRewardsFromJSON:json creditCards:creditCards categories:categories toContext:_managedObjectContext];
 
     [_managedObjectContext save:nil];
     
@@ -74,9 +74,9 @@
                       "[\"citi_forward\", [], [\"amazon\", \"music_stores\", \"restaurants\"], \"5\", \"%\"]]"
                      ];
     
-    NSArray *creditCards = [CCRWDCreditCard updateFromJSON:json context:_managedObjectContext];
-    NSArray *categories = [CCRWDCategory updateFromJSON:json context:_managedObjectContext];
-    NSArray *rewards = [CCRWDReward updateFromJSON:json creditCards:creditCards categories:categories toContext:_managedObjectContext];
+    NSArray *creditCards = [CCRWDCreditCard updatedCardsFromJSON:json context:_managedObjectContext];
+    NSArray *categories = [CCRWDCategory updatedCategoriesFromJSON:json context:_managedObjectContext];
+    NSArray *rewards = [CCRWDReward updatedRewardsFromJSON:json creditCards:creditCards categories:categories toContext:_managedObjectContext];
     
     XCTAssertEqual([creditCards count], 2u, @"Should have correct number of credit cards");
     XCTAssertEqual([categories count], 5u, @"Should have correct number of categories");

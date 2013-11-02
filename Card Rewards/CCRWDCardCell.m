@@ -39,6 +39,15 @@
     _card = card;
     _nameLabel.text = _card.name;
     _cardImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", _card.cardId]];
+    [_toggleStarButton setSelected:[_card.starred boolValue]];
+}
+
+- (IBAction)toggleStar:(id)sender
+{
+    UIButton *button = (UIButton *)sender;
+    [button setSelected:![button isSelected]];
+    
+    [_card setStarred:[NSNumber numberWithBool:[button isSelected]]];
 }
 
 @end

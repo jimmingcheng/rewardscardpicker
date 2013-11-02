@@ -29,20 +29,31 @@
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Chase Freedom" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bid-zz-7aT">
                                             <rect key="frame" x="126" y="0.0" width="143" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pug-lS-kbT">
                                             <rect key="frame" x="20" y="0.0" width="38" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chase_freedom" translatesAutoresizingMaskIntoConstraints="NO" id="L5o-u4-Taa">
                                             <rect key="frame" x="66" y="9" width="52" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWz-DA-CTf">
+                                            <rect key="frame" x="277" y="10" width="30" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" image="star_grey">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="selected" image="star_blue"/>
+                                            <connections>
+                                                <action selector="toggleStar:" destination="wOU-np-JcW" eventType="touchUpInside" id="php-a3-CX6"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -50,6 +61,7 @@
                                     <outlet property="cardImage" destination="L5o-u4-Taa" id="W48-W1-bbt"/>
                                     <outlet property="nameLabel" destination="bid-zz-7aT" id="im0-Uy-TEe"/>
                                     <outlet property="rewardLabel" destination="pug-lS-kbT" id="clc-Tp-7xj"/>
+                                    <outlet property="toggleStarButton" destination="pWz-DA-CTf" id="g2p-FN-cjc"/>
                                     <segue destination="MZY-U8-DEq" kind="push" identifier="Card" id="mtN-oL-w2O"/>
                                 </connections>
                             </collectionViewCell>
@@ -62,10 +74,11 @@
                                     <rect key="frame" x="20" y="0.0" width="280" height="50"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.050000000000000003" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <gestureRecognizers/>
                             <connections>
                                 <outlet property="label" destination="7g2-78-soo" id="pKj-Dm-Mt7"/>
@@ -111,9 +124,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Zv-nv-8aR">
-                                <rect key="frame" x="127" y="224" width="60" height="30"/>
+                                <rect key="frame" x="20" y="218" width="280" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Rewards">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -121,9 +136,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1h6-TR-UF0">
-                                <rect key="frame" x="137" y="86" width="41" height="30"/>
+                                <rect key="frame" x="20" y="96" width="280" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Cards">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -148,43 +165,48 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="WUU-6T-exs">
-                            <size key="itemSize" width="320" height="154"/>
+                            <size key="itemSize" width="320" height="132"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CardCell" id="CoW-3j-6PR" customClass="CCRWDCardCell">
-                                <rect key="frame" x="0.0" y="64" width="320" height="154"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="132"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="154"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="132"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Chase Freedom" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTk-aD-gEa">
-                                            <rect key="frame" x="20" y="119" width="279" height="15"/>
+                                            <rect key="frame" x="81" y="109" width="157" height="15"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nK-A1-Rcv">
-                                            <rect key="frame" x="249" y="0.0" width="50" height="50"/>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nK-A1-Rcv">
+                                            <rect key="frame" x="260" y="36" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="X">
+                                            <state key="normal" title="X" image="star_grey" backgroundImage="star_grey">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <state key="selected" image="star_blue"/>
+                                            <connections>
+                                                <action selector="toggleStar:" destination="CoW-3j-6PR" eventType="touchUpInside" id="Zwb-c9-Xee"/>
+                                            </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chase_freedom" translatesAutoresizingMaskIntoConstraints="NO" id="6oP-sw-Pn9">
-                                            <rect key="frame" x="87" y="17" width="145" height="91"/>
+                                            <rect key="frame" x="87" y="10" width="145" height="91"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <size key="customSize" width="320" height="154"/>
+                                <size key="customSize" width="320" height="132"/>
                                 <connections>
                                     <outlet property="cardImage" destination="6oP-sw-Pn9" id="n9r-Dr-wwb"/>
                                     <outlet property="nameLabel" destination="YTk-aD-gEa" id="da0-mB-gOm"/>
+                                    <outlet property="toggleStarButton" destination="5nK-A1-Rcv" id="7LD-66-bcO"/>
                                     <segue destination="MZY-U8-DEq" kind="push" identifier="Card" id="nNR-Vm-Xtf"/>
                                 </connections>
                             </collectionViewCell>
@@ -228,28 +250,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpg-d1-33v">
-                                <rect key="frame" x="108" y="272" width="105" height="30"/>
+                            <button opaque="NO" contentMode="left" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpg-d1-33v">
+                                <rect key="frame" x="73" y="293" width="174" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="I have this card">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="toggleStar:" destination="MZY-U8-DEq" eventType="touchUpInside" id="T2A-oo-5Bg"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Chase Freedom" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRN-Ya-kjh">
-                                <rect key="frame" x="20" y="86" width="280" height="20"/>
+                                <rect key="frame" x="56" y="247" width="208" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chase_freedom" translatesAutoresizingMaskIntoConstraints="NO" id="tXL-Lg-wa9">
-                                <rect key="frame" x="40" y="114" width="240" height="150"/>
+                                <rect key="frame" x="40" y="89" width="240" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star_white" translatesAutoresizingMaskIntoConstraints="NO" id="WHz-lJ-U3P">
+                                <rect key="frame" x="79" y="295" width="25" height="25"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add to favorites" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKd-HS-JMw">
+                                <rect key="frame" x="112" y="297" width="129" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                     </view>
                     <navigationItem key="navigationItem" id="3iU-vw-GKT"/>
                     <connections>
@@ -280,6 +317,9 @@
     </scenes>
     <resources>
         <image name="chase_freedom" width="1000" height="629"/>
+        <image name="star_blue" width="500" height="500"/>
+        <image name="star_grey" width="500" height="500"/>
+        <image name="star_white" width="500" height="500"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -287,6 +327,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="mtN-oL-w2O"/>
+        <segue reference="nNR-Vm-Xtf"/>
     </inferredMetricsTieBreakers>
 </document>
