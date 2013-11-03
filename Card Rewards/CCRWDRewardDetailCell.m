@@ -1,15 +1,14 @@
 //
-//  CCRWDCategoryHeadingView.m
+//  CCRWDRewardDetailCell.m
 //  Card Rewards
 //
-//  Created by Jimming Cheng on 8/11/13.
+//  Created by Jimming Cheng on 11/3/13.
 //  Copyright (c) 2013 Jimming Cheng. All rights reserved.
 //
 
-#import "CCRWDCategoryHeadingView.h"
-#import "CCRWDCategory.h"
+#import "CCRWDRewardDetailCell.h"
 
-@implementation CCRWDCategoryHeadingView
+@implementation CCRWDRewardDetailCell
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -28,11 +27,5 @@
     // Drawing code
 }
 */
-
-- (void)setCategory:(CCRWDCategory *)category
-{
-    _category = category;
-    _label.text = category.name;
-}
 
 @end

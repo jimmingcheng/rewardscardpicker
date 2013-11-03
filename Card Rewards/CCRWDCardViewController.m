@@ -7,6 +7,9 @@
 //
 
 #import "CCRWDCardViewController.h"
+#import "CCRWDRewardDetailCell.h"
+#import "CCRWDCategory.h"
+#import "CCRWDReward.h"
 
 @interface CCRWDCardViewController ()
 
@@ -30,8 +33,7 @@
     _cardImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", _card.cardId]];
 
     [_toggleStarButton.layer setCornerRadius:4];
-    [_toggleStarButton setSelected:[_card.starred boolValue]];
-    [self updateToggleStarButton:_toggleStarButton];
+    [self updateToggleStarButton];
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,24 +42,47 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)updateToggleStarButton:(UIButton *)button
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    if ([button isSelected]) {
-        [button setBackgroundColor:[self.view tintColor]];
+    return [[_card rewards] count];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger i = [indexPath indexAtPosition:1];
+
+    NSMutableArray *rewards = [[_card.rewards allObjects] mutableCopy];
+    [rewards sortUsingComparator:^NSComparisonResult(CCRWDReward *obj1, CCRWDReward *obj2) {
+        return [obj2.amount compare:obj1.amount];
+    }];
+    CCRWDReward *reward = [rewards objectAtIndex:i];
+    
+    CCRWDRewardDetailCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"RewardDetailCell" forIndexPath:indexPath];
+    NSMutableArray *categories = [[NSMutableArray alloc] init];
+    for (CCRWDCategory *category in [reward categories]) {
+        [categories addObject:[category name]];
+    }
+    
+    [cell.rewardLabel setText:[[reward amount] stringValue]];
+    [cell.categoriesLabel setText:[categories componentsJoinedByString:@", "]];
+
+    return cell;
+}
+
+- (void)updateToggleStarButton
+{
+    if ([[_card starred] boolValue]) {
+        [_toggleStarButton setBackgroundColor:[self.view tintColor]];
     }
     else {
-        [button setBackgroundColor:[UIColor lightGrayColor]];
+        [_toggleStarButton setBackgroundColor:[UIColor lightGrayColor]];
     }
 }
 
-- (IBAction)toggleStar:(id)sender
-{    
-    UIButton *button = (UIButton *)sender;
-    [button setSelected:![button isSelected]];
- 
-    [self updateToggleStarButton:button];
-    
-    [_card setStarred:[NSNumber numberWithBool:[button isSelected]]];
+- (IBAction)toggleStar:(UITapGestureRecognizer *)tap
+{
+    [_card setStarred:[NSNumber numberWithBool:![[_card starred] boolValue]]];
+    [self updateToggleStarButton];
 }
 
 @end

@@ -9,14 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "CCRWDCreditCard.h"
 
-@interface CCRWDCardViewController : UIViewController
+@interface CCRWDCardViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) CCRWDCreditCard *card;
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UIButton *toggleStarButton;
+@property (weak, nonatomic) IBOutlet UIView *toggleStarButton;
 @property (weak, nonatomic) IBOutlet UIImageView *cardImage;
 
-- (IBAction)toggleStar:(id)sender;
+- (IBAction)toggleStar:(UITapGestureRecognizer *)tap;
 
 @end

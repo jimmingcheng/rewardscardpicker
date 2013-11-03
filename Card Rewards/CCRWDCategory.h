@@ -10,8 +10,9 @@
 
 @interface CCRWDCategory : NSManagedObject
 
-@property (nonatomic) NSString * categoryId;
-@property (nonatomic) NSArray * rewards;
+@property (nonatomic) NSString *categoryId;
+@property (nonatomic) NSString *name;
+@property (nonatomic) NSArray *rewards;
 
 - (id)initWithId:(NSString *)categoryId context:(NSManagedObjectContext *)context;
 + (NSArray *)categoriesFromContext:(NSManagedObjectContext *)context;

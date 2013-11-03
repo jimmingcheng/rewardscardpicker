@@ -11,6 +11,7 @@
 @implementation CCRWDCategory
 
 @dynamic categoryId;
+@dynamic name;
 @dynamic rewards;
 
 - (id)initWithId:(NSString *)categoryId context:(NSManagedObjectContext *)context
@@ -19,9 +20,15 @@
     self = [super initWithEntity:entity insertIntoManagedObjectContext:context];
     if (self) {
         [self setCategoryId:categoryId];
+        [self setName:[categoryId stringByReplacingOccurrencesOfString:@"_" withString:@" "]];
         return self;
     }
     return nil;
+}
+
+- (NSString *)name
+{
+    return [self.categoryId stringByReplacingOccurrencesOfString:@"_" withString:@" "];
 }
 
 + (NSArray *)categoriesFromContext:(NSManagedObjectContext *)context
