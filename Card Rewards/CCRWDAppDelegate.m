@@ -27,7 +27,7 @@
 
 
     [self initCardData];
-    if ([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] != NotReachable) {
+    if (false && [[Reachability reachabilityForInternetConnection] currentReachabilityStatus] != NotReachable) {
         [self fetchCardData];
     }
     

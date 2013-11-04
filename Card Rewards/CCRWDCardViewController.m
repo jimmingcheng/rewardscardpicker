@@ -65,9 +65,7 @@
     
     [cell.rewardLabel setText:[NSString stringWithFormat:@"%@%@", reward.amount, reward.unit]];
     [cell.categoriesLabel setText:[categories componentsJoinedByString:@", "]];
-    
-    [self.rewardDetailsView sizeToFit];
-    
+        
     return cell;
 }
 
