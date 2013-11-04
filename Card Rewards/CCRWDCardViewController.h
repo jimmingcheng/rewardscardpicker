@@ -15,6 +15,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIView *toggleStarButton;
+@property (weak, nonatomic) IBOutlet UICollectionView *rewardDetailsView;
 @property (weak, nonatomic) IBOutlet UIImageView *cardImage;
 
 - (IBAction)toggleStar:(UITapGestureRecognizer *)tap;

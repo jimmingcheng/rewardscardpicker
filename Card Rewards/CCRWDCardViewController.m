@@ -63,9 +63,11 @@
         [categories addObject:[category name]];
     }
     
-    [cell.rewardLabel setText:[[reward amount] stringValue]];
+    [cell.rewardLabel setText:[NSString stringWithFormat:@"%@%@", reward.amount, reward.unit]];
     [cell.categoriesLabel setText:[categories componentsJoinedByString:@", "]];
-
+    
+    [self.rewardDetailsView sizeToFit];
+    
     return cell;
 }
 

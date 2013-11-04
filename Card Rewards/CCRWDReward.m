@@ -32,7 +32,7 @@
 + (NSArray *)rewardsFromContext:(NSManagedObjectContext *)context
 {
     NSFetchRequest *rewardsRequest = [[NSFetchRequest alloc] initWithEntityName:@"Reward"];
-    return [[context executeFetchRequest:rewardsRequest error:nil] mutableCopy];
+    return [context executeFetchRequest:rewardsRequest error:nil];
 }
 
 + (NSArray *)updatedRewardsFromJSON:(NSArray *)json creditCards:(NSArray *)creditCards categories:(NSArray *)categories toContext:(NSManagedObjectContext *)context

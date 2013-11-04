@@ -34,7 +34,7 @@
 + (NSArray *)categoriesFromContext:(NSManagedObjectContext *)context
 {
     NSFetchRequest *categoriesRequest = [[NSFetchRequest alloc] initWithEntityName:@"Category"];
-    return [[context executeFetchRequest:categoriesRequest error:nil] mutableCopy];
+    return [context executeFetchRequest:categoriesRequest error:nil];
 }
 
 + (NSArray *)updatedCategoriesFromJSON:(NSArray *)json context:(NSManagedObjectContext *)context

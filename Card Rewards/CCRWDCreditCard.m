@@ -29,24 +29,10 @@
     return nil;
 }
 
-+ (NSManagedObject *)getCardWithId:(NSString *)cardId fromContext:(NSManagedObjectContext *)context
-{
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"CreditCard"];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"cardId == %@", cardId];
-    [request setPredicate:predicate];
-    NSArray *cards = [[context executeFetchRequest:request error:nil] mutableCopy];
-    if (cards.count == 1) {
-        return [cards objectAtIndex:0];
-    }
-    else {
-        return nil;
-    }
-}
-
 + (NSArray *)cardsFromContext:(NSManagedObjectContext *)context
 {
     NSFetchRequest *cardsRequest = [[NSFetchRequest alloc] initWithEntityName:@"CreditCard"];
-    return [[context executeFetchRequest:cardsRequest error:nil] mutableCopy];
+    return [context executeFetchRequest:cardsRequest error:nil];
 }
 
 + (NSArray *)updatedCardsFromJSON:(NSArray *)json context:(NSManagedObjectContext *)context
