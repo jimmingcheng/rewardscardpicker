@@ -26,26 +26,38 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Chase Freedom" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bid-zz-7aT">
-                                            <rect key="frame" x="126" y="0.0" width="143" height="50"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chase Freedom" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bid-zz-7aT">
+                                            <rect key="frame" x="130" y="17" width="139" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pug-lS-kbT">
-                                            <rect key="frame" x="20" y="0.0" width="38" height="50"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pug-lS-kbT">
+                                            <rect key="frame" x="20" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="AUh-LG-cp8"/>
+                                                <constraint firstAttribute="height" constant="50" id="f1C-Tq-NPW"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                             <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chase_freedom" translatesAutoresizingMaskIntoConstraints="NO" id="L5o-u4-Taa">
-                                            <rect key="frame" x="66" y="9" width="52" height="32"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chase_freedom" translatesAutoresizingMaskIntoConstraints="NO" id="L5o-u4-Taa">
+                                            <rect key="frame" x="70" y="9" width="52" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="52" id="KV4-zB-gRD"/>
+                                                <constraint firstAttribute="height" constant="32" id="pEG-7w-31j"/>
+                                            </constraints>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWz-DA-CTf">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWz-DA-CTf">
                                             <rect key="frame" x="270" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="Yc3-nE-bnp"/>
+                                                <constraint firstAttribute="height" constant="50" id="kP6-l4-kPo"/>
+                                            </constraints>
                                             <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                             <state key="normal" image="star_grey">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -58,6 +70,17 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="pug-lS-kbT" firstAttribute="centerY" secondItem="bid-zz-7aT" secondAttribute="centerY" id="CDX-z3-UsC"/>
+                                    <constraint firstItem="bid-zz-7aT" firstAttribute="leading" secondItem="L5o-u4-Taa" secondAttribute="trailing" constant="8" id="MF0-kd-Ct9"/>
+                                    <constraint firstItem="pug-lS-kbT" firstAttribute="leading" secondItem="wOU-np-JcW" secondAttribute="leading" constant="20" id="Me0-b3-XPZ"/>
+                                    <constraint firstItem="pWz-DA-CTf" firstAttribute="leading" secondItem="bid-zz-7aT" secondAttribute="trailing" constant="1" id="VEz-Q6-OyN"/>
+                                    <constraint firstItem="pug-lS-kbT" firstAttribute="centerY" secondItem="pWz-DA-CTf" secondAttribute="centerY" id="WSx-ca-aGD"/>
+                                    <constraint firstAttribute="trailing" secondItem="pWz-DA-CTf" secondAttribute="trailing" id="czV-4a-7Iw"/>
+                                    <constraint firstItem="pug-lS-kbT" firstAttribute="centerY" secondItem="L5o-u4-Taa" secondAttribute="centerY" id="ek3-zL-pE1"/>
+                                    <constraint firstAttribute="centerY" secondItem="pug-lS-kbT" secondAttribute="centerY" id="hzB-HA-YmT"/>
+                                    <constraint firstItem="L5o-u4-Taa" firstAttribute="leading" secondItem="pug-lS-kbT" secondAttribute="trailing" id="iva-Nn-hCB"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="cardImage" destination="L5o-u4-Taa" id="W48-W1-bbt"/>
                                     <outlet property="nameLabel" destination="bid-zz-7aT" id="im0-Uy-TEe"/>
@@ -329,19 +352,19 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="groceries, gas, books, amazon, department stores" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="190" translatesAutoresizingMaskIntoConstraints="NO" id="Zpb-oq-MOE">
-                                                            <rect key="frame" x="50" y="0.0" width="190" height="40"/>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="groceries, gas, books, amazon, department stores" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="180" translatesAutoresizingMaskIntoConstraints="NO" id="Zpb-oq-MOE">
+                                                            <rect key="frame" x="60" y="0.0" width="180" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4d-ak-OXV">
-                                                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="40" id="aTX-lU-gux"/>
+                                                                <constraint firstAttribute="width" constant="50" id="aTX-lU-gux"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -404,6 +427,7 @@
                         <outlet property="nameLabel" destination="dRN-Ya-kjh" id="KUN-eK-4Cn"/>
                         <outlet property="rewardDetailsView" destination="AhU-On-2cG" id="AZ4-gG-ppQ"/>
                         <outlet property="toggleStarButton" destination="ByH-id-Sth" id="X3g-d0-bA7"/>
+                        <outlet property="toggleStarLabel" destination="NKd-HS-JMw" id="BCE-4V-PAI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U5T-zC-3Ww" userLabel="First Responder" sceneMemberID="firstResponder"/>

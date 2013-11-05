@@ -73,9 +73,11 @@
 {
     if ([[_card starred] boolValue]) {
         [_toggleStarButton setBackgroundColor:[self.view tintColor]];
+        [_toggleStarLabel setText:@"Remove favorite"];
     }
     else {
         [_toggleStarButton setBackgroundColor:[UIColor lightGrayColor]];
+        [_toggleStarLabel setText:@"Add to favorites"];
     }
 }
 

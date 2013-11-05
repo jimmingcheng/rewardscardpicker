@@ -20,7 +20,4 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
-- (void)initCardData;
-- (void)fetchedCardData:(NSData *)responseData;
-
 @end

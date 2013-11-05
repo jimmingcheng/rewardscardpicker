@@ -58,9 +58,9 @@
     [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
     for (NSArray *cardJSON in json) {
         NSString *cardId = [cardJSON objectAtIndex:0];
-        NSArray *categoryIds = [cardJSON objectAtIndex:3];
-        NSNumber *rewardAmount = [formatter numberFromString:[cardJSON objectAtIndex:4]];
-        NSString *rewardUnit = [cardJSON objectAtIndex: 5];
+        NSNumber *rewardAmount = [formatter numberFromString:[cardJSON objectAtIndex:2]];
+        NSString *rewardUnit = [cardJSON objectAtIndex: 3];
+        NSArray *categoryIds = [cardJSON objectAtIndex:4];
         
         NSMutableSet *categoriesForCard = [[NSMutableSet alloc] init];
         for (NSString *categoryId in categoryIds) {
@@ -93,7 +93,13 @@
     for (NSString *categoryId in rewardsByCategoryId) {
         NSMutableArray *rewards = [rewardsByCategoryId objectForKey:categoryId];
         [rewards sortUsingComparator:^NSComparisonResult(CCRWDReward *obj1, CCRWDReward *obj2) {
-            return [obj2.amount compare:obj1.amount];
+            NSComparisonResult amountComparison = [obj2.amount compare:obj1.amount];
+            if (amountComparison == NSOrderedSame) {
+                return [obj1.unit compare: obj2.unit];
+            }
+            else {
+                return amountComparison;
+            }
         }];
         NSMutableArray *cards = [[NSMutableArray alloc] init];
         for (CCRWDReward *reward in rewards) {

@@ -108,12 +108,20 @@
 {
     _creditCards = creditCards;
     _categories = [categories sortedArrayUsingComparator:^NSComparisonResult(CCRWDCategory *obj1, CCRWDCategory *obj2) {
-        return [obj1.categoryId compare:obj2.categoryId];
+        if ([obj1.categoryId isEqualToString:@"default_reward"]) {
+            return NSOrderedAscending;
+        }
+        else if ([obj2.categoryId isEqualToString:@"default_reward"]) {
+            return NSOrderedDescending;
+        }
+        else {
+            return [obj1.categoryId compare:obj2.categoryId];
+        }
     }];
     _rewards = rewards;
 
     self.cardsByCategoryId = [CCRWDReward cardsByCategoryIdFromRewards:self.rewards];
-    _expandedCategoryIds = [[NSMutableSet alloc] initWithArray:[self.cardsByCategoryId allKeys]];
+    _expandedCategoryIds = [[NSMutableSet alloc] init];
 
     [self.collectionView reloadData];
 }
@@ -147,7 +155,15 @@
             }
         }
         [myCategories sortUsingComparator:^NSComparisonResult(CCRWDCategory *obj1, CCRWDCategory *obj2) {
-            return [obj1.categoryId compare:obj2.categoryId];
+            if ([obj1.categoryId isEqualToString:@"default_reward"]) {
+                return NSOrderedAscending;
+            }
+            else if ([obj2.categoryId isEqualToString:@"default_reward"]) {
+                return NSOrderedDescending;
+            }
+            else {
+                return [obj1.categoryId compare:obj2.categoryId];
+            }
         }];
 
         return myCategories;
@@ -214,11 +230,6 @@
         CCRWDCardRewardCell *cardCell = (CCRWDCardRewardCell *)sender;
         CCRWDCardViewController *cardViewController = (CCRWDCardViewController *)segue.destinationViewController;
         cardViewController.card = cardCell.card;
-    }
-    else if ([segue.identifier isEqualToString:@"Cards"]) {
-        CCRWDCardsViewController *cardsViewController = (CCRWDCardsViewController *)segue.destinationViewController;
-        [cardsViewController setCreditCards:self.creditCards];
-        [cardsViewController setShowMyCardsOnly:_showMyCardsOnly];
     }
 }
 

@@ -15,6 +15,11 @@
 #import "Reachability.h"
 
 @implementation CCRWDAppDelegate
+{
+    NSArray *_creditCards;
+    NSArray *_categories;
+    NSArray *_rewards;
+}
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
@@ -26,9 +31,9 @@
     _viewStatesPlist = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
 
 
-    [self initCardData];
-    if (false && [[Reachability reachabilityForInternetConnection] currentReachabilityStatus] != NotReachable) {
-        [self fetchCardData];
+    [self initCardsAndRewardsData];
+    if ([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] != NotReachable) {
+        [self fetchCardsAndRewardsData];
     }
     
     return YES;
@@ -77,7 +82,7 @@
     [plistData writeToFile:plistPath atomically:YES];
 }
 
-- (void)initCardData
+- (void)initCardsAndRewardsData
 {
     NSManagedObjectContext *context = [self managedObjectContext];
     
@@ -89,16 +94,37 @@
     [startPageViewController setRewards:[CCRWDReward rewardsFromContext:context]];
 }
 
-- (void)fetchCardData
+- (void)fetchCardsAndRewardsData
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSData* data = [NSData dataWithContentsOfURL:[[NSURL alloc] initWithString:@"http://cccal.herokuapp.com/api/0/"]];
-        [self performSelectorOnMainThread:@selector(fetchedCardData:)
+        NSData* data = [NSData dataWithContentsOfURL:[[NSURL alloc] initWithString:@"http://cccal.herokuapp.com/api/0/cards/"]];
+        [self performSelectorOnMainThread:@selector(fetchedCardsData:)
                                withObject:data waitUntilDone:YES];
     });
 }
 
-- (void)fetchedCardData:(NSData *)responseData {
+- (void)fetchedCardsData:(NSData *)responseData {
+    NSString *strData = [[NSString alloc]initWithData:responseData encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"%@", strData);
+    
+    NSError * error;
+    NSArray * json = [NSJSONSerialization
+                      JSONObjectWithData:responseData
+                      options:kNilOptions
+                      error:&error];
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    _creditCards = [CCRWDCreditCard updatedCardsFromJSON:json context:context];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSData* data = [NSData dataWithContentsOfURL:[[NSURL alloc] initWithString:@"http://cccal.herokuapp.com/api/0/rewards/"]];
+        [self performSelectorOnMainThread:@selector(fetchedRewardsData:)
+                               withObject:data waitUntilDone:YES];
+    });
+}
+
+- (void)fetchedRewardsData:(NSData *)responseData {
     NSString *strData = [[NSString alloc]initWithData:responseData encoding:NSUTF8StringEncoding];
 
     NSLog(@"%@", strData);
@@ -114,13 +140,12 @@
     CCRWDStartPageViewController *startPageViewController = (CCRWDStartPageViewController *)[rootViewController.viewControllers objectAtIndex:0];
     
     NSManagedObjectContext *context = [self managedObjectContext];
-    NSArray *creditCards = [CCRWDCreditCard updatedCardsFromJSON:json context:context];
-    NSArray *categories = [CCRWDCategory updatedCategoriesFromJSON:json context:context];
-    NSArray *rewards = [CCRWDReward updatedRewardsFromJSON:json creditCards:creditCards categories:categories toContext:context];
+    _categories = [CCRWDCategory updatedCategoriesFromJSON:json context:context];
+    _rewards = [CCRWDReward updatedRewardsFromJSON:json creditCards:_creditCards categories:_categories toContext:context];
     
-    [startPageViewController setCreditCards:creditCards];
-    [startPageViewController setCategories:categories];
-    [startPageViewController setRewards:rewards];
+    [startPageViewController setCreditCards:_creditCards];
+    [startPageViewController setCategories:_categories];
+    [startPageViewController setRewards:_rewards];
     
     [context save:nil];
 }

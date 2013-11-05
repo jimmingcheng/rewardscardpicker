@@ -32,6 +32,10 @@
 + (NSArray *)cardsFromContext:(NSManagedObjectContext *)context
 {
     NSFetchRequest *cardsRequest = [[NSFetchRequest alloc] initWithEntityName:@"CreditCard"];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+                                        initWithKey:@"name" ascending:YES];
+    [cardsRequest setSortDescriptors:@[sortDescriptor]];
+    
     return [context executeFetchRequest:cardsRequest error:nil];
 }
 
@@ -67,6 +71,11 @@
             [cards addObject:card];
         }
     }
+    
+    [cards sortUsingComparator:^NSComparisonResult(CCRWDCreditCard *obj1, CCRWDCreditCard *obj2) {
+        return [obj1.name compare:obj2.name];
+    }];
+    
     return cards;
 }
 

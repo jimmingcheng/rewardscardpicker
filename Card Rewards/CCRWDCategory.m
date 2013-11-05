@@ -41,7 +41,7 @@
 {
     NSMutableSet *newCategoryIds = [[NSMutableSet alloc] init];
     for (NSArray *cardJSON in json) {
-        [newCategoryIds addObjectsFromArray:[cardJSON objectAtIndex:3]];
+        [newCategoryIds addObjectsFromArray:[cardJSON objectAtIndex:4]];
     }
     
     NSArray *existingCategories = [self categoriesFromContext:context];
