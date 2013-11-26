@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		25054C2E181F7F62008142AD /* CCRWDCardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25054C2D181F7F62008142AD /* CCRWDCardsViewController.m */; };
 		25054C31181F8302008142AD /* CCRWDCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25054C30181F8302008142AD /* CCRWDCardCell.m */; };
+		251877D51841B9E900C74C92 /* CCRWDBestCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 251877D41841B9E900C74C92 /* CCRWDBestCardViewController.m */; };
+		251877D81841F4F300C74C92 /* CCRWDBestCardCategoriesLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 251877D71841F4F300C74C92 /* CCRWDBestCardCategoriesLayout.m */; };
+		251877DB1841FF1000C74C92 /* CCRWDBestCardMagnifiedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 251877DA1841FF1000C74C92 /* CCRWDBestCardMagnifiedLayout.m */; };
+		251877DE1843366000C74C92 /* CCRWDBestCardMagnifiedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 251877DD1843366000C74C92 /* CCRWDBestCardMagnifiedCell.m */; };
+		251877E41844733400C74C92 /* CCRWDBestCardCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 251877E31844733400C74C92 /* CCRWDBestCardCategoryCell.m */; };
 		2518E4E71819F7F400D2D07C /* CCRWDReward.m in Sources */ = {isa = PBXBuildFile; fileRef = 2518E4E61819F7F400D2D07C /* CCRWDReward.m */; };
 		2518E4E8181A2F4D00D2D07C /* CCRWDCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2547DCA0181489170032E748 /* CCRWDCardViewController.m */; };
 		252406FE17B5FF710035CF99 /* CCRWDCreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 252406FD17B5FF710035CF99 /* CCRWDCreditCard.m */; };
@@ -53,6 +58,16 @@
 		25054C2D181F7F62008142AD /* CCRWDCardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRWDCardsViewController.m; sourceTree = "<group>"; };
 		25054C2F181F8302008142AD /* CCRWDCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRWDCardCell.h; sourceTree = "<group>"; };
 		25054C30181F8302008142AD /* CCRWDCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRWDCardCell.m; sourceTree = "<group>"; };
+		251877D31841B9E900C74C92 /* CCRWDBestCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRWDBestCardViewController.h; sourceTree = "<group>"; };
+		251877D41841B9E900C74C92 /* CCRWDBestCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRWDBestCardViewController.m; sourceTree = "<group>"; };
+		251877D61841F4F300C74C92 /* CCRWDBestCardCategoriesLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRWDBestCardCategoriesLayout.h; sourceTree = "<group>"; };
+		251877D71841F4F300C74C92 /* CCRWDBestCardCategoriesLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRWDBestCardCategoriesLayout.m; sourceTree = "<group>"; };
+		251877D91841FF1000C74C92 /* CCRWDBestCardMagnifiedLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRWDBestCardMagnifiedLayout.h; sourceTree = "<group>"; };
+		251877DA1841FF1000C74C92 /* CCRWDBestCardMagnifiedLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRWDBestCardMagnifiedLayout.m; sourceTree = "<group>"; };
+		251877DC1843366000C74C92 /* CCRWDBestCardMagnifiedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRWDBestCardMagnifiedCell.h; sourceTree = "<group>"; };
+		251877DD1843366000C74C92 /* CCRWDBestCardMagnifiedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRWDBestCardMagnifiedCell.m; sourceTree = "<group>"; };
+		251877E21844733400C74C92 /* CCRWDBestCardCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRWDBestCardCategoryCell.h; sourceTree = "<group>"; };
+		251877E31844733400C74C92 /* CCRWDBestCardCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRWDBestCardCategoryCell.m; sourceTree = "<group>"; };
 		2518E4E51819F7F400D2D07C /* CCRWDReward.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRWDReward.h; sourceTree = "<group>"; };
 		2518E4E61819F7F400D2D07C /* CCRWDReward.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRWDReward.m; sourceTree = "<group>"; };
 		252406FC17B5FF710035CF99 /* CCRWDCreditCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRWDCreditCard.h; sourceTree = "<group>"; };
@@ -158,38 +173,48 @@
 		25C76ABB17B2150B00F31874 /* Card Rewards */ = {
 			isa = PBXGroup;
 			children = (
-				25C7AAA2182585B000B3A77F /* Reachability.h */,
-				25C7AAA3182585B000B3A77F /* Reachability.m */,
-				2547DCA1181489170032E748 /* CCRWDCardViewController.h */,
-				2547DCA0181489170032E748 /* CCRWDCardViewController.m */,
+				258E0E7518150A4300E0E10D /* Card_Rewards.xcdatamodeld */,
 				25C76AC417B2150B00F31874 /* CCRWDAppDelegate.h */,
 				25C76AC517B2150B00F31874 /* CCRWDAppDelegate.m */,
-				25C76AC717B2150B00F31874 /* Main.storyboard */,
-				25C76AD017B2150B00F31874 /* CCRWDRewardsViewController.h */,
-				25C76AD117B2150B00F31874 /* CCRWDRewardsViewController.m */,
-				25C76AD317B2150B00F31874 /* Images.xcassets */,
-				25C76ABC17B2150B00F31874 /* Supporting Files */,
-				252406FC17B5FF710035CF99 /* CCRWDCreditCard.h */,
-				252406FD17B5FF710035CF99 /* CCRWDCreditCard.m */,
-				252406FF17B6148E0035CF99 /* CCRWDCategory.h */,
-				2524070017B6148E0035CF99 /* CCRWDCategory.m */,
-				2524070217B6152C0035CF99 /* CCRWDCardRewardCell.h */,
-				2524070317B6152C0035CF99 /* CCRWDCardRewardCell.m */,
-				25FBC19217B7858C0038A60A /* CCRWDCategoryHeadingView.h */,
-				25FBC19317B7858C0038A60A /* CCRWDCategoryHeadingView.m */,
-				258E0E7518150A4300E0E10D /* Card_Rewards.xcdatamodeld */,
-				2518E4E51819F7F400D2D07C /* CCRWDReward.h */,
-				2518E4E61819F7F400D2D07C /* CCRWDReward.m */,
-				25054C2C181F7F62008142AD /* CCRWDCardsViewController.h */,
-				25054C2D181F7F62008142AD /* CCRWDCardsViewController.m */,
+				251877D61841F4F300C74C92 /* CCRWDBestCardCategoriesLayout.h */,
+				251877D71841F4F300C74C92 /* CCRWDBestCardCategoriesLayout.m */,
+				251877E21844733400C74C92 /* CCRWDBestCardCategoryCell.h */,
+				251877E31844733400C74C92 /* CCRWDBestCardCategoryCell.m */,
+				251877DC1843366000C74C92 /* CCRWDBestCardMagnifiedCell.h */,
+				251877DD1843366000C74C92 /* CCRWDBestCardMagnifiedCell.m */,
+				251877D91841FF1000C74C92 /* CCRWDBestCardMagnifiedLayout.h */,
+				251877DA1841FF1000C74C92 /* CCRWDBestCardMagnifiedLayout.m */,
+				251877D31841B9E900C74C92 /* CCRWDBestCardViewController.h */,
+				251877D41841B9E900C74C92 /* CCRWDBestCardViewController.m */,
 				25054C2F181F8302008142AD /* CCRWDCardCell.h */,
 				25054C30181F8302008142AD /* CCRWDCardCell.m */,
-				255765BF1820DE8A001709E4 /* CCRWDStartPageViewController.h */,
-				255765C01820DE8A001709E4 /* CCRWDStartPageViewController.m */,
+				2524070217B6152C0035CF99 /* CCRWDCardRewardCell.h */,
+				2524070317B6152C0035CF99 /* CCRWDCardRewardCell.m */,
+				25054C2C181F7F62008142AD /* CCRWDCardsViewController.h */,
+				25054C2D181F7F62008142AD /* CCRWDCardsViewController.m */,
+				2547DCA1181489170032E748 /* CCRWDCardViewController.h */,
+				2547DCA0181489170032E748 /* CCRWDCardViewController.m */,
+				252406FF17B6148E0035CF99 /* CCRWDCategory.h */,
+				2524070017B6148E0035CF99 /* CCRWDCategory.m */,
+				25FBC19217B7858C0038A60A /* CCRWDCategoryHeadingView.h */,
+				25FBC19317B7858C0038A60A /* CCRWDCategoryHeadingView.m */,
+				252406FC17B5FF710035CF99 /* CCRWDCreditCard.h */,
+				252406FD17B5FF710035CF99 /* CCRWDCreditCard.m */,
+				2518E4E51819F7F400D2D07C /* CCRWDReward.h */,
+				2518E4E61819F7F400D2D07C /* CCRWDReward.m */,
 				25C7AAA5182631D500B3A77F /* CCRWDRewardDetailCell.h */,
 				25C7AAA6182631D500B3A77F /* CCRWDRewardDetailCell.m */,
 				25C7AAB1182771FA00B3A77F /* CCRWDRewardDetailLayout.h */,
 				25C7AAB2182771FA00B3A77F /* CCRWDRewardDetailLayout.m */,
+				25C76AD017B2150B00F31874 /* CCRWDRewardsViewController.h */,
+				25C76AD117B2150B00F31874 /* CCRWDRewardsViewController.m */,
+				255765BF1820DE8A001709E4 /* CCRWDStartPageViewController.h */,
+				255765C01820DE8A001709E4 /* CCRWDStartPageViewController.m */,
+				25C76AD317B2150B00F31874 /* Images.xcassets */,
+				25C76AC717B2150B00F31874 /* Main.storyboard */,
+				25C7AAA2182585B000B3A77F /* Reachability.h */,
+				25C7AAA3182585B000B3A77F /* Reachability.m */,
+				25C76ABC17B2150B00F31874 /* Supporting Files */,
 			);
 			path = "Card Rewards";
 			sourceTree = "<group>";
@@ -324,20 +349,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				252406FE17B5FF710035CF99 /* CCRWDCreditCard.m in Sources */,
+				251877D51841B9E900C74C92 /* CCRWDBestCardViewController.m in Sources */,
 				25C76AD217B2150B00F31874 /* CCRWDRewardsViewController.m in Sources */,
 				2524070117B6148E0035CF99 /* CCRWDCategory.m in Sources */,
 				25C76AC617B2150B00F31874 /* CCRWDAppDelegate.m in Sources */,
+				251877DE1843366000C74C92 /* CCRWDBestCardMagnifiedCell.m in Sources */,
 				258E0E7718150A4300E0E10D /* Card_Rewards.xcdatamodeld in Sources */,
 				25054C2E181F7F62008142AD /* CCRWDCardsViewController.m in Sources */,
 				2518E4E71819F7F400D2D07C /* CCRWDReward.m in Sources */,
 				255765C11820DE8A001709E4 /* CCRWDStartPageViewController.m in Sources */,
+				251877DB1841FF1000C74C92 /* CCRWDBestCardMagnifiedLayout.m in Sources */,
 				25C7AAA7182631D500B3A77F /* CCRWDRewardDetailCell.m in Sources */,
 				25054C31181F8302008142AD /* CCRWDCardCell.m in Sources */,
 				2518E4E8181A2F4D00D2D07C /* CCRWDCardViewController.m in Sources */,
 				25C7AAA4182585B000B3A77F /* Reachability.m in Sources */,
+				251877D81841F4F300C74C92 /* CCRWDBestCardCategoriesLayout.m in Sources */,
 				25FBC19417B7858C0038A60A /* CCRWDCategoryHeadingView.m in Sources */,
 				25C7AAB3182771FA00B3A77F /* CCRWDRewardDetailLayout.m in Sources */,
 				25C76AC217B2150B00F31874 /* main.m in Sources */,
+				251877E41844733400C74C92 /* CCRWDBestCardCategoryCell.m in Sources */,
 				2524070417B6152C0035CF99 /* CCRWDCardRewardCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

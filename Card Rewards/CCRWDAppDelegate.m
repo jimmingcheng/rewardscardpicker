@@ -8,7 +8,7 @@
 
 #import "CCRWDAppDelegate.h"
 #import "CCRWDCardsViewController.h"
-#import "CCRWDStartPageViewController.h"
+#import "CCRWDBestCardViewController.h"
 #import "CCRWDCreditCard.h"
 #import "CCRWDCategory.h"
 #import "CCRWDReward.h"
@@ -29,7 +29,6 @@
 {
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"viewStates" ofType:@"plist"];
     _viewStatesPlist = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
-
 
     [self initCardsAndRewardsData];
     if ([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] != NotReachable) {
@@ -86,12 +85,12 @@
 {
     NSManagedObjectContext *context = [self managedObjectContext];
     
-    UINavigationController *rootViewController = (UINavigationController *)self.window.rootViewController;
-    CCRWDStartPageViewController *startPageViewController = (CCRWDStartPageViewController *)[rootViewController.viewControllers objectAtIndex:0];
+    UINavigationController *rootVC = (UINavigationController *)self.window.rootViewController;
+    CCRWDBestCardViewController *bestCardVC = (CCRWDBestCardViewController *)[rootVC.viewControllers objectAtIndex:0];
 
-    [startPageViewController setCreditCards:[CCRWDCreditCard cardsFromContext:context]];
-    [startPageViewController setCategories:[CCRWDCategory categoriesFromContext:context]];
-    [startPageViewController setRewards:[CCRWDReward rewardsFromContext:context]];
+    [bestCardVC setCreditCards:[CCRWDCreditCard cardsFromContext:context]
+                    categories:[CCRWDCategory categoriesFromContext:context]
+                       rewards:[CCRWDReward rewardsFromContext:context]];
 }
 
 - (void)fetchCardsAndRewardsData
@@ -135,17 +134,14 @@
                       options:kNilOptions
                       error:&error];
     
-    UINavigationController *rootViewController = (UINavigationController *)self.window.rootViewController;
-
-    CCRWDStartPageViewController *startPageViewController = (CCRWDStartPageViewController *)[rootViewController.viewControllers objectAtIndex:0];
+    UINavigationController *rootVC = (UINavigationController *)self.window.rootViewController;
+    CCRWDBestCardViewController *bestCardVC = (CCRWDBestCardViewController *)[rootVC.viewControllers objectAtIndex:0];
     
     NSManagedObjectContext *context = [self managedObjectContext];
     _categories = [CCRWDCategory updatedCategoriesFromJSON:json context:context];
     _rewards = [CCRWDReward updatedRewardsFromJSON:json creditCards:_creditCards categories:_categories toContext:context];
     
-    [startPageViewController setCreditCards:_creditCards];
-    [startPageViewController setCategories:_categories];
-    [startPageViewController setRewards:_rewards];
+    [bestCardVC setCreditCards:_creditCards categories:_categories rewards:_rewards];
     
     [context save:nil];
 }
