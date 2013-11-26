@@ -21,6 +21,7 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *categoriesListView;
 @property (weak, nonatomic) IBOutlet UICollectionView *magnifiedView;
+@property (weak, nonatomic) IBOutlet UIView *glassView;
 
 - (void)setCreditCards:(NSArray *)creditCards categories:(NSArray *)categories rewards:(NSArray *)rewards;
 

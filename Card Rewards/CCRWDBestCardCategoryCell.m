@@ -13,14 +13,26 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    // Drawing code
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextMoveToPoint(context, CGRectGetMinX(rect), CGRectGetMinY(rect));
-    CGContextAddLineToPoint(context, CGRectGetMinX(rect), CGRectGetMaxY(rect));
-    CGContextMoveToPoint(context, CGRectGetMaxX(rect), CGRectGetMinY(rect));
-    CGContextAddLineToPoint(context, CGRectGetMaxX(rect), CGRectGetMaxY(rect));
-    CGContextSetStrokeColorWithColor(context, [[UIColor lightGrayColor] CGColor] );
-    CGContextSetLineWidth(context, 100.0);
+    CGFloat minX = CGRectGetMinX(rect);
+    CGFloat maxX = CGRectGetMaxX(rect);
+    CGFloat minY = CGRectGetMinY(rect);
+    CGFloat maxY = CGRectGetMaxY(rect);
+    
+    CGContextSetStrokeColorWithColor(context, [[UIColor lightGrayColor] CGColor]);
+    CGContextSetLineWidth(context, 60.0);
+    
+    CGContextMoveToPoint(context, minX, minY);
+    CGContextAddLineToPoint(context, minX, maxY);
+    CGContextStrokePath(context);
+    
+    CGContextMoveToPoint(context, maxX, minY);
+    CGContextAddLineToPoint(context, maxX, maxY);
+    CGContextStrokePath(context);
+    
+    CGContextSetLineWidth(context, 0.5);
+    CGContextMoveToPoint(context, minX, maxY);
+    CGContextAddLineToPoint(context, maxX, maxY);
     CGContextStrokePath(context);
 }
 

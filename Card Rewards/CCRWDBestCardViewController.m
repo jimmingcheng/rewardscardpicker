@@ -20,12 +20,12 @@
 
 - (void)viewDidLoad
 {
-    CALayer *layer = _magnifiedView.layer;
-    layer.shadowOffset = CGSizeMake(1, 1);
+    CALayer *layer = _glassView.layer;
+    layer.shadowOffset = CGSizeMake(0,0);
     layer.shadowColor = [[UIColor blackColor] CGColor];
     layer.shadowRadius = 4.0f;
     layer.shadowOpacity = 0.80f;
-    layer.shadowPath = [[UIBezierPath bezierPathWithRect:layer.bounds] CGPath];
+    layer.shadowPath = [[UIBezierPath bezierPathWithRect:CGRectMake(layer.bounds.origin.x - 10.0, layer.bounds.origin.y, layer.bounds.size.width + 20.0, layer.bounds.size.height)] CGPath];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -49,6 +49,18 @@
     else {
         return nil;
     }
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    for(NSIndexPath *path in collectionView.indexPathsForSelectedItems) {
+        [collectionView deselectItemAtIndexPath:path animated:NO];
+    }
+    
+    UICollectionViewCell *cell = [self collectionView:collectionView cellForItemAtIndexPath:indexPath];
+    CGPoint offset = collectionView.contentOffset;
+    offset.y = cell.layer.bounds.size.height * indexPath.row;
+    [collectionView setContentOffset:offset animated:YES];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
