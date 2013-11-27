@@ -20,7 +20,8 @@
     CGFloat maxY = CGRectGetMaxY(rect);
     
     CGContextSetStrokeColorWithColor(context, [[UIColor lightGrayColor] CGColor]);
-    CGContextSetLineWidth(context, 60.0);
+    
+    CGContextSetLineWidth(context, 35.0);
     
     CGContextMoveToPoint(context, minX, minY);
     CGContextAddLineToPoint(context, minX, maxY);
@@ -31,6 +32,13 @@
     CGContextStrokePath(context);
     
     CGContextSetLineWidth(context, 0.5);
+    
+    CGContextSetStrokeColorWithColor(context, [[UIColor colorWithWhite:1.0 alpha:0.25] CGColor]);
+    CGContextMoveToPoint(context, minX, minY);
+    CGContextAddLineToPoint(context, maxX, minY);
+    CGContextStrokePath(context);
+    
+    CGContextSetStrokeColorWithColor(context, [[UIColor colorWithWhite:0.0 alpha:0.25] CGColor]);
     CGContextMoveToPoint(context, minX, maxY);
     CGContextAddLineToPoint(context, maxX, maxY);
     CGContextStrokePath(context);

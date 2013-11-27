@@ -40,6 +40,7 @@
 		25C7AAA4182585B000B3A77F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C7AAA3182585B000B3A77F /* Reachability.m */; };
 		25C7AAA7182631D500B3A77F /* CCRWDRewardDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C7AAA6182631D500B3A77F /* CCRWDRewardDetailCell.m */; };
 		25C7AAB3182771FA00B3A77F /* CCRWDRewardDetailLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C7AAB2182771FA00B3A77F /* CCRWDRewardDetailLayout.m */; };
+		25F4CF111845605500A3237F /* CCRWDMyBestCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F4CF101845605500A3237F /* CCRWDMyBestCardViewController.m */; };
 		25FBC19417B7858C0038A60A /* CCRWDCategoryHeadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FBC19317B7858C0038A60A /* CCRWDCategoryHeadingView.m */; };
 /* End PBXBuildFile section */
 
@@ -109,6 +110,8 @@
 		25C7AAA6182631D500B3A77F /* CCRWDRewardDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRWDRewardDetailCell.m; sourceTree = "<group>"; };
 		25C7AAB1182771FA00B3A77F /* CCRWDRewardDetailLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRWDRewardDetailLayout.h; sourceTree = "<group>"; };
 		25C7AAB2182771FA00B3A77F /* CCRWDRewardDetailLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRWDRewardDetailLayout.m; sourceTree = "<group>"; };
+		25F4CF0F1845605500A3237F /* CCRWDMyBestCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRWDMyBestCardViewController.h; sourceTree = "<group>"; };
+		25F4CF101845605500A3237F /* CCRWDMyBestCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRWDMyBestCardViewController.m; sourceTree = "<group>"; };
 		25FBC19217B7858C0038A60A /* CCRWDCategoryHeadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRWDCategoryHeadingView.h; sourceTree = "<group>"; };
 		25FBC19317B7858C0038A60A /* CCRWDCategoryHeadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRWDCategoryHeadingView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -215,6 +218,8 @@
 				25C7AAA2182585B000B3A77F /* Reachability.h */,
 				25C7AAA3182585B000B3A77F /* Reachability.m */,
 				25C76ABC17B2150B00F31874 /* Supporting Files */,
+				25F4CF0F1845605500A3237F /* CCRWDMyBestCardViewController.h */,
+				25F4CF101845605500A3237F /* CCRWDMyBestCardViewController.m */,
 			);
 			path = "Card Rewards";
 			sourceTree = "<group>";
@@ -366,6 +371,7 @@
 				251877D81841F4F300C74C92 /* CCRWDBestCardCategoriesLayout.m in Sources */,
 				25FBC19417B7858C0038A60A /* CCRWDCategoryHeadingView.m in Sources */,
 				25C7AAB3182771FA00B3A77F /* CCRWDRewardDetailLayout.m in Sources */,
+				25F4CF111845605500A3237F /* CCRWDMyBestCardViewController.m in Sources */,
 				25C76AC217B2150B00F31874 /* main.m in Sources */,
 				251877E41844733400C74C92 /* CCRWDBestCardCategoryCell.m in Sources */,
 				2524070417B6152C0035CF99 /* CCRWDCardRewardCell.m in Sources */,

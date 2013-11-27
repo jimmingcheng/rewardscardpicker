@@ -9,6 +9,7 @@
 #import "CCRWDBestCardViewController.h"
 #import "CCRWDBestCardCategoryCell.h"
 #import "CCRWDBestCardMagnifiedCell.h"
+#import "CCRWDCardViewController.h"
 #import "CCRWDCategory.h"
 #import "CCRWDReward.h"
 
@@ -26,6 +27,15 @@
     layer.shadowRadius = 4.0f;
     layer.shadowOpacity = 0.80f;
     layer.shadowPath = [[UIBezierPath bezierPathWithRect:CGRectMake(layer.bounds.origin.x - 10.0, layer.bounds.origin.y, layer.bounds.size.width + 20.0, layer.bounds.size.height)] CGPath];
+    
+    [self setAutomaticallyAdjustsScrollViewInsets:NO];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    [self.myOrAllRewardsSelector setSelectedSegmentIndex:1];
+    [super viewWillAppear:animated];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -82,9 +92,37 @@
     }
 }
 
-- (void)setCreditCards:(NSArray *)creditCards categories:(NSArray *)categories rewards:(NSArray *)rewards
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    _creditCards = creditCards;
+    if (!_controlPanel.hidden) {
+        CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"opacity"];
+        anim.duration = 0.25;
+        anim.fromValue = [NSNumber numberWithFloat:1.0];
+        anim.toValue = [NSNumber numberWithFloat:0.0];
+        [CATransaction setCompletionBlock:^{
+            [_controlPanel setHidden:YES];
+        }];
+        [_controlPanel.layer addAnimation:anim forKey:@"opacity"];
+        _controlPanel.layer.opacity = 0.0;
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    if (_categoriesListView.contentOffset.y == 0.0 && _controlPanel.hidden) {
+        [_controlPanel setHidden:NO];
+        CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"opacity"];
+        anim.duration = 0.25;
+        anim.fromValue = [NSNumber numberWithFloat:0.0];
+        anim.toValue = [NSNumber numberWithFloat:1.0];
+        [_controlPanel.layer addAnimation:anim forKey:@"opacity"];
+        _controlPanel.layer.opacity = 1.0;
+    }
+}
+
+- (void)setCards:(NSArray *)cards categories:(NSArray *)categories rewards:(NSArray *)rewards
+{
+    _cards = cards;
     _categories = [categories sortedArrayUsingComparator:^NSComparisonResult(CCRWDCategory *obj1, CCRWDCategory *obj2) {
         if ([obj1.categoryId isEqualToString:@"default_reward"]) {
             return NSOrderedAscending;
@@ -99,6 +137,19 @@
     _rewards = rewards;
     
     _cardsByCategoryId = [CCRWDReward cardsByCategoryIdFromRewards:_rewards];
+}
+
+- (IBAction)goBack:(id)sender
+{
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    UIButton *button = (UIButton *)sender;
+    CCRWDBestCardMagnifiedCell *cell = (CCRWDBestCardMagnifiedCell *)button.superview.superview;
+    CCRWDCardViewController *cardVC = (CCRWDCardViewController *)segue.destinationViewController;
+    [cardVC setCard:[cell.cards objectAtIndex:0]];
 }
 
 //- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView

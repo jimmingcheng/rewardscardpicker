@@ -21,7 +21,7 @@
     CGFloat maxY = CGRectGetMaxY(rect);
     
     CGContextSetStrokeColorWithColor(context, [[UIColor lightGrayColor] CGColor]);
-    CGContextSetLineWidth(context, 50.0);
+    CGContextSetLineWidth(context, 30.0);
     
     CGContextMoveToPoint(context, minX, minY);
     CGContextAddLineToPoint(context, minX, maxY);
@@ -31,8 +31,14 @@
     CGContextAddLineToPoint(context, maxX, maxY);
     CGContextStrokePath(context);
     
-    CGContextSetStrokeColorWithColor(context, [[UIColor darkGrayColor] CGColor]);
-    CGContextSetLineWidth(context, 1.0);
+    CGContextSetLineWidth(context, 1.5);
+    
+    CGContextSetStrokeColorWithColor(context, [[UIColor colorWithWhite:1.0 alpha:0.15] CGColor]);
+    CGContextMoveToPoint(context, minX, minY);
+    CGContextAddLineToPoint(context, maxX, minY);
+    CGContextStrokePath(context);
+    
+    CGContextSetStrokeColorWithColor(context, [[UIColor colorWithWhite:0.0 alpha:0.15] CGColor]);
     CGContextMoveToPoint(context, minX, maxY);
     CGContextAddLineToPoint(context, maxX, maxY);
     CGContextStrokePath(context);
@@ -46,6 +52,6 @@
     CCRWDCreditCard *bestCard = [_cards objectAtIndex:0];
     
     [_categoryLabel setText:_category.name];
-    [_cardImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", bestCard.cardId]]];
+    [_cardImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", bestCard.cardId]] forState:UIControlStateNormal];
 }
 @end

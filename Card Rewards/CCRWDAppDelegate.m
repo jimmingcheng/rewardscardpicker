@@ -88,7 +88,7 @@
     UINavigationController *rootVC = (UINavigationController *)self.window.rootViewController;
     CCRWDBestCardViewController *bestCardVC = (CCRWDBestCardViewController *)[rootVC.viewControllers objectAtIndex:0];
 
-    [bestCardVC setCreditCards:[CCRWDCreditCard cardsFromContext:context]
+    [bestCardVC setCards:[CCRWDCreditCard cardsFromContext:context]
                     categories:[CCRWDCategory categoriesFromContext:context]
                        rewards:[CCRWDReward rewardsFromContext:context]];
 }
@@ -141,7 +141,7 @@
     _categories = [CCRWDCategory updatedCategoriesFromJSON:json context:context];
     _rewards = [CCRWDReward updatedRewardsFromJSON:json creditCards:_creditCards categories:_categories toContext:context];
     
-    [bestCardVC setCreditCards:_creditCards categories:_categories rewards:_rewards];
+    [bestCardVC setCards:_creditCards categories:_categories rewards:_rewards];
     
     [context save:nil];
 }

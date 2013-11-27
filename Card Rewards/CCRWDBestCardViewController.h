@@ -14,15 +14,19 @@
 
 @interface CCRWDBestCardViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate>
 
-@property (copy, readonly) NSArray *creditCards;
-@property (copy, readonly) NSArray *categories;
-@property (copy, readonly) NSArray *rewards;
-@property (copy, readonly) NSDictionary * cardsByCategoryId;
+@property (copy) NSArray *cards;
+@property (copy) NSArray *categories;
+@property (copy) NSArray *rewards;
+@property (copy) NSDictionary * cardsByCategoryId;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *categoriesListView;
 @property (weak, nonatomic) IBOutlet UICollectionView *magnifiedView;
 @property (weak, nonatomic) IBOutlet UIView *glassView;
+@property (weak, nonatomic) IBOutlet UIView *controlPanel;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *myOrAllRewardsSelector;
 
-- (void)setCreditCards:(NSArray *)creditCards categories:(NSArray *)categories rewards:(NSArray *)rewards;
+- (void)setCards:(NSArray *)cards categories:(NSArray *)categories rewards:(NSArray *)rewards;
+
+- (IBAction)goBack:(id)sender;
 
 @end

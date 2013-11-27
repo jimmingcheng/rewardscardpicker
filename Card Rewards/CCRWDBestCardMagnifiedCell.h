@@ -16,7 +16,7 @@
 @property (copy, readonly) NSArray *cards;
 
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *cardImage;
+@property (weak, nonatomic) IBOutlet UIButton *cardImage;
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
 
 - (void)setCategory:(CCRWDCategory *)category cards:(NSArray *)cards;
