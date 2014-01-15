@@ -75,7 +75,7 @@
     return rewards;
 }
 
-+ (NSDictionary *)cardsByCategoryIdFromRewards:(NSArray *)rewards
++ (NSDictionary *)rewardsByCategoryIdFromRewards:(NSArray *)rewards
 {
     NSMutableDictionary *rewardsByCategoryId = [[NSMutableDictionary alloc] init];
     for (CCRWDReward *reward in rewards) {
@@ -88,6 +88,12 @@
             [rewards addObject:reward];
         }
     }
+    return rewardsByCategoryId;
+}
+
++ (NSDictionary *)cardsByCategoryIdFromRewards:(NSArray *)rewards
+{
+    NSDictionary *rewardsByCategoryId = [CCRWDReward rewardsByCategoryIdFromRewards:rewards];
     
     NSMutableDictionary *cardsByCategoryId = [[NSMutableDictionary alloc] init];
     for (NSString *categoryId in rewardsByCategoryId) {

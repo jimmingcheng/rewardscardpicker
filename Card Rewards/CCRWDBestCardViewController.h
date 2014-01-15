@@ -11,13 +11,14 @@
 #define CATEGORY_CELL_HEIGHT 40.0
 #define MAGNIFIED_CELL_HEIGHT 200.0
 #define NUM_CELLS_PRECEDING_MAGNIFY 4
+#define REWARD_CELL_WIDTH 280.0
 
-@interface CCRWDBestCardViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate>
+@interface CCRWDBestCardViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (copy) NSArray *cards;
 @property (copy) NSArray *categories;
 @property (copy) NSArray *rewards;
-@property (copy) NSDictionary * cardsByCategoryId;
+@property (copy) NSDictionary * rewardsByCategoryId;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *categoriesListView;
 @property (weak, nonatomic) IBOutlet UICollectionView *magnifiedView;

@@ -13,12 +13,13 @@
 @interface CCRWDBestCardMagnifiedCell : UICollectionViewCell
 
 @property (readonly) CCRWDCategory *category;
-@property (copy, readonly) NSArray *cards;
+@property (copy, readonly) NSArray *rewards;
 
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (weak, nonatomic) IBOutlet UIButton *cardImage;
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
+@property (weak, nonatomic) IBOutlet UICollectionView *rewardsCollectionView;
 
-- (void)setCategory:(CCRWDCategory *)category cards:(NSArray *)cards;
+- (void)setCategory:(CCRWDCategory *)category rewards:(NSArray *)rewards;
 
 @end

@@ -20,6 +20,7 @@
 - (id)initWithAmount:(NSNumber *)amount unit:(NSString *)unit context:(NSManagedObjectContext *)context;
 + (NSArray *)rewardsFromContext:(NSManagedObjectContext *)context;
 + (NSArray *)updatedRewardsFromJSON:(NSArray *)json creditCards:(NSArray *)creditCards categories:(NSArray *)categories toContext:(NSManagedObjectContext *)context;
++ (NSDictionary *)rewardsByCategoryIdFromRewards:(NSArray *)rewards;
 + (NSDictionary *)cardsByCategoryIdFromRewards:(NSArray *)rewards;
 
 @end

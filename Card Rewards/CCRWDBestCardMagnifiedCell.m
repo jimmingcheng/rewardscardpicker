@@ -9,6 +9,7 @@
 #import "CCRWDBestCardMagnifiedCell.h"
 #import "CCRWDCreditCard.h"
 #import "CCRWDCategory.h"
+#import "CCRWDBestCardRewardCell.h"
 
 @implementation CCRWDBestCardMagnifiedCell
 
@@ -44,14 +45,14 @@
     CGContextStrokePath(context);
 }
 
-- (void)setCategory:(CCRWDCategory *)category cards:(NSArray *)cards
+- (void)setCategory:(CCRWDCategory *)category rewards:(NSArray *)rewards
 {
     _category = category;
-    _cards = cards;
+    _rewards = rewards;
     
-    CCRWDCreditCard *bestCard = [_cards objectAtIndex:0];
+    [_rewardsCollectionView reloadData];
     
     [_categoryLabel setText:_category.name];
-    [_cardImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", bestCard.cardId]] forState:UIControlStateNormal];
 }
+
 @end

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "25C76AB117B2150B00F31874"
-               BuildableName = "Card Rewards.app"
+               BuildableName = "Rewards.app"
                BlueprintName = "Card Rewards"
                ReferencedContainer = "container:Card Rewards.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "25C76AB117B2150B00F31874"
-            BuildableName = "Card Rewards.app"
+            BuildableName = "Rewards.app"
             BlueprintName = "Card Rewards"
             ReferencedContainer = "container:Card Rewards.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "25C76AB117B2150B00F31874"
-            BuildableName = "Card Rewards.app"
+            BuildableName = "Rewards.app"
             BlueprintName = "Card Rewards"
             ReferencedContainer = "container:Card Rewards.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "25C76AB117B2150B00F31874"
-            BuildableName = "Card Rewards.app"
+            BuildableName = "Rewards.app"
             BlueprintName = "Card Rewards"
             ReferencedContainer = "container:Card Rewards.xcodeproj">
          </BuildableReference>

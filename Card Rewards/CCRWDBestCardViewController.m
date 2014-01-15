@@ -9,6 +9,7 @@
 #import "CCRWDBestCardViewController.h"
 #import "CCRWDBestCardCategoryCell.h"
 #import "CCRWDBestCardMagnifiedCell.h"
+#import "CCRWDBestCardRewardCell.h"
 #import "CCRWDCardViewController.h"
 #import "CCRWDCategory.h"
 #import "CCRWDReward.h"
@@ -40,31 +41,49 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return _cardsByCategoryId.allKeys.count;
+    if (collectionView == _categoriesListView || collectionView == _magnifiedView) {
+        return _rewardsByCategoryId.allKeys.count;
+    }
+    else {
+        CCRWDCategory *category = [_categories objectAtIndex:section];
+        
+        CCRWDBestCardMagnifiedCell *magnifiedCell = (CCRWDBestCardMagnifiedCell *)collectionView.superview.superview;
+        NSLog(@"%d", [[_rewardsByCategoryId objectForKey:magnifiedCell.category.categoryId] count]);
+        return [[_rewardsByCategoryId objectForKey:magnifiedCell.category.categoryId] count];
+    }
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    CCRWDCategory *category = [_categories objectAtIndex:indexPath.row];
     if (collectionView == _categoriesListView) {
+        CCRWDCategory *category = [_categories objectAtIndex:indexPath.row];
         CCRWDBestCardCategoryCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CategoryCell" forIndexPath:indexPath];
         [cell setCategory:category];
         return cell;
     }
     else if (collectionView == _magnifiedView) {
+        CCRWDCategory *category = [_categories objectAtIndex:indexPath.row];
         CCRWDBestCardMagnifiedCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MagnifiedCategoryCell" forIndexPath:indexPath];
-        [cell setCategory:category cards:[_cardsByCategoryId objectForKey:category.categoryId]];
+        [cell setCategory:category rewards:[_rewardsByCategoryId objectForKey:category.categoryId]];
         return cell;
     }
     else {
-        return nil;
+        CCRWDBestCardMagnifiedCell *magnifiedCell = (CCRWDBestCardMagnifiedCell *)collectionView.superview.superview;
+        CCRWDReward *reward = [[_rewardsByCategoryId objectForKey:magnifiedCell.category.categoryId] objectAtIndex:indexPath.row];
+        CCRWDBestCardRewardCell *rewardCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"RewardCell" forIndexPath:indexPath];
+        [rewardCell setReward:reward];
+        NSLog(@"%@", magnifiedCell.category.categoryId);
+        
+        return rewardCell;
     }
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     for(NSIndexPath *path in collectionView.indexPathsForSelectedItems) {
-        [collectionView deselectItemAtIndexPath:path animated:NO];
+        if (path != indexPath) {
+            [collectionView deselectItemAtIndexPath:path animated:NO];
+        }
     }
     
     UICollectionViewCell *cell = [self collectionView:collectionView cellForItemAtIndexPath:indexPath];
@@ -136,7 +155,7 @@
     }];
     _rewards = rewards;
     
-    _cardsByCategoryId = [CCRWDReward cardsByCategoryIdFromRewards:_rewards];
+    _rewardsByCategoryId = [CCRWDReward rewardsByCategoryIdFromRewards:_rewards];
 }
 
 - (IBAction)goBack:(id)sender
@@ -149,34 +168,7 @@
     UIButton *button = (UIButton *)sender;
     CCRWDBestCardMagnifiedCell *cell = (CCRWDBestCardMagnifiedCell *)button.superview.superview;
     CCRWDCardViewController *cardVC = (CCRWDCardViewController *)segue.destinationViewController;
-    [cardVC setCard:[cell.cards objectAtIndex:0]];
+    //[cardVC setCard:[cell.cards objectAtIndex:0]];
 }
-
-//- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-//{
-//    for (CCRWDBestCardCell *cell in _magnifiedView.visibleCells) {
-//        [cell.nameLabel.layer setTransform:CATransform3DMakeScale(1.0, 1.0, 1.0)];
-//    }
-//}
-//
-//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-//{
-//    for (CCRWDBestCardCell *cell in _magnifiedView.visibleCells) {
-//        
-//        CAAnimationGroup *anim = [CAAnimationGroup animation];
-//        [anim setAnimations:[NSArray arrayWithObjects:
-//                             [CABasicAnimation animationWithKeyPath:@"transform"],
-//                             [CABasicAnimation animationWithKeyPath:@"opacity"]
-//                             , nil]];
-//        [anim setDuration:0.25];
-//        
-//        //[self.layer addAnimation:anim forKey:nil];
-//        //[self.layer setTransform:CATransform3DMakeScale(1.1, 1.1, 1.1)];
-//        //[self.layer setOpacity:1.0];
-//        
-//        [cell.nameLabel.layer setTransform:CATransform3DMakeScale(1.0, 2.0, 1.0)];
-//    }
-//}
-
 
 @end
