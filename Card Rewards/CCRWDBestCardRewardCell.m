@@ -16,5 +16,12 @@
 {
     _reward = reward;
     [_cardButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", _reward.creditCard.cardId]] forState:UIControlStateNormal];
+
+    if ([_reward.unit isEqualToString:@"cash back"]) {
+        [_rewardLabel setText:[NSString stringWithFormat:@"%@%% %@", _reward.amount, _reward.unit]];
+    }
+    else {
+        [_rewardLabel setText:[NSString stringWithFormat:@"%@x %@", _reward.amount, _reward.unit]];
+    }
 }
 @end

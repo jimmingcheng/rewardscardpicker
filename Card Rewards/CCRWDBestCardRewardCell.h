@@ -15,5 +15,6 @@
 @property (nonatomic) CCRWDReward *reward;
 
 @property (weak, nonatomic) IBOutlet UIButton *cardButton;
+@property (weak, nonatomic) IBOutlet UILabel *rewardLabel;
 
 @end
