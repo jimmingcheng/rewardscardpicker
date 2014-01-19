@@ -35,9 +35,17 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:YES animated:NO];
-    [self.myOrAllRewardsSelector setSelectedSegmentIndex:1];
     [super viewWillAppear:animated];
+    [self.myOrAllRewardsSelector setSelectedSegmentIndex:1];
 }
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [_categoriesListView reloadData];
+    [_magnifiedView reloadData];
+}
+
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -45,10 +53,7 @@
         return _rewardsByCategoryId.allKeys.count;
     }
     else {
-        CCRWDCategory *category = [_categories objectAtIndex:section];
-        
         CCRWDBestCardMagnifiedCell *magnifiedCell = (CCRWDBestCardMagnifiedCell *)collectionView.superview.superview;
-        NSLog(@"%d", [[_rewardsByCategoryId objectForKey:magnifiedCell.category.categoryId] count]);
         return [[_rewardsByCategoryId objectForKey:magnifiedCell.category.categoryId] count];
     }
 }
@@ -72,8 +77,6 @@
         CCRWDReward *reward = [[_rewardsByCategoryId objectForKey:magnifiedCell.category.categoryId] objectAtIndex:indexPath.row];
         CCRWDBestCardRewardCell *rewardCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"RewardCell" forIndexPath:indexPath];
         [rewardCell setReward:reward];
-        NSLog(@"%@", magnifiedCell.category.categoryId);
-        
         return rewardCell;
     }
 }
@@ -156,6 +159,8 @@
     _rewards = rewards;
     
     _rewardsByCategoryId = [CCRWDReward rewardsByCategoryIdFromRewards:_rewards];
+    
+    NSLog(@"setCards");
 }
 
 - (IBAction)goBack:(id)sender
@@ -165,10 +170,12 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    UIButton *button = (UIButton *)sender;
-    CCRWDBestCardMagnifiedCell *cell = (CCRWDBestCardMagnifiedCell *)button.superview.superview;
-    CCRWDCardViewController *cardVC = (CCRWDCardViewController *)segue.destinationViewController;
-    //[cardVC setCard:[cell.cards objectAtIndex:0]];
+    if ([segue.identifier isEqualToString:@"Card"]) {
+        UIButton *button = (UIButton *)sender;
+        CCRWDBestCardRewardCell *cell = (CCRWDBestCardRewardCell *)button.superview.superview;
+        CCRWDCardViewController *cardVC = (CCRWDCardViewController *)segue.destinationViewController;
+        [cardVC setCard:cell.reward.creditCard];
+    }
 }
 
 @end

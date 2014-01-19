@@ -88,6 +88,10 @@
             [rewards addObject:reward];
         }
     }
+    for (NSString *categoryId in rewardsByCategoryId) {
+        NSMutableArray *rewards = [rewardsByCategoryId objectForKey:categoryId];
+        [CCRWDReward sort:rewards];
+    }
     return rewardsByCategoryId;
 }
 
@@ -98,15 +102,7 @@
     NSMutableDictionary *cardsByCategoryId = [[NSMutableDictionary alloc] init];
     for (NSString *categoryId in rewardsByCategoryId) {
         NSMutableArray *rewards = [rewardsByCategoryId objectForKey:categoryId];
-        [rewards sortUsingComparator:^NSComparisonResult(CCRWDReward *obj1, CCRWDReward *obj2) {
-            NSComparisonResult amountComparison = [obj2.amount compare:obj1.amount];
-            if (amountComparison == NSOrderedSame) {
-                return [obj1.unit compare: obj2.unit];
-            }
-            else {
-                return amountComparison;
-            }
-        }];
+        [CCRWDReward sort:rewards];
         NSMutableArray *cards = [[NSMutableArray alloc] init];
         for (CCRWDReward *reward in rewards) {
             [cards addObject:reward.creditCard];
@@ -115,6 +111,19 @@
     }
 
     return cardsByCategoryId;
+}
+
++ (void)sort:(NSMutableArray *)rewards
+{
+    [rewards sortUsingComparator:^NSComparisonResult(CCRWDReward *obj1, CCRWDReward *obj2) {
+        NSComparisonResult amountComparison = [obj2.amount compare:obj1.amount];
+        if (amountComparison == NSOrderedSame) {
+            return [obj1.unit compare: obj2.unit];
+        }
+        else {
+            return amountComparison;
+        }
+    }];
 }
 
 @end

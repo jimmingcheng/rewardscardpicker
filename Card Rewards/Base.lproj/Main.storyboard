@@ -523,47 +523,81 @@
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5% cash back" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Gi-iZ-6ha">
-                                                            <rect key="frame" x="0.0" y="150" width="320" height="50"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lg7-LR-qH4">
-                                                            <rect key="frame" x="81" y="50" width="158" height="100"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="100" id="CMW-Ff-JIe"/>
-                                                                <constraint firstAttribute="width" constant="158" id="ldi-JX-Xmm"/>
-                                                            </constraints>
-                                                            <state key="normal" image="chase_freedom">
-                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                            </state>
+                                                        <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5Lg-9A-wcc">
+                                                            <rect key="frame" x="20" y="50" width="280" height="150"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="cgN-zS-pia">
+                                                                <size key="itemSize" width="280" height="150"/>
+                                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                            </collectionViewFlowLayout>
+                                                            <cells>
+                                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RewardCell" id="oXl-nC-Vm0" customClass="CCRWDBestCardRewardCell">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="280" height="150"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="150"/>
+                                                                        <autoresizingMask key="autoresizingMask"/>
+                                                                        <subviews>
+                                                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JaM-Nq-djb">
+                                                                                <rect key="frame" x="61" y="0.0" width="158" height="100"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="158" id="XYF-vZ-VQ4"/>
+                                                                                    <constraint firstAttribute="height" constant="100" id="jXN-N2-hHs"/>
+                                                                                </constraints>
+                                                                                <state key="normal" image="chase_freedom">
+                                                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                </state>
+                                                                                <connections>
+                                                                                    <segue destination="54n-G3-pK1" kind="push" identifier="Card" id="7ro-GE-IeP"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5% cash back" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGQ-00-ELI">
+                                                                                <rect key="frame" x="0.0" y="100" width="280" height="50"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                    </view>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="trailing" secondItem="wGQ-00-ELI" secondAttribute="trailing" id="39V-Cp-1Jn"/>
+                                                                        <constraint firstItem="JaM-Nq-djb" firstAttribute="top" secondItem="oXl-nC-Vm0" secondAttribute="top" id="7Ap-aa-scg"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="wGQ-00-ELI" secondAttribute="bottom" id="JeO-YM-bCn"/>
+                                                                        <constraint firstAttribute="centerX" secondItem="JaM-Nq-djb" secondAttribute="centerX" id="bQ3-CJ-CBC"/>
+                                                                        <constraint firstItem="wGQ-00-ELI" firstAttribute="leading" secondItem="oXl-nC-Vm0" secondAttribute="leading" id="hUu-p8-Ttw"/>
+                                                                        <constraint firstItem="wGQ-00-ELI" firstAttribute="top" secondItem="JaM-Nq-djb" secondAttribute="bottom" id="lVv-35-5Qz"/>
+                                                                    </constraints>
+                                                                    <size key="customSize" width="280" height="150"/>
+                                                                    <connections>
+                                                                        <outlet property="cardButton" destination="JaM-Nq-djb" id="AEm-dp-anV"/>
+                                                                        <outlet property="rewardLabel" destination="wGQ-00-ELI" id="fOv-Sw-3Yf"/>
+                                                                    </connections>
+                                                                </collectionViewCell>
+                                                            </cells>
                                                             <connections>
-                                                                <segue destination="54n-G3-pK1" kind="push" identifier="Card" id="K6a-oY-zHb"/>
+                                                                <outlet property="dataSource" destination="6Le-Fd-xb9" id="QTQ-Aq-NkP"/>
+                                                                <outlet property="delegate" destination="6Le-Fd-xb9" id="xlu-nf-ZlV"/>
                                                             </connections>
-                                                        </button>
+                                                        </collectionView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstItem="wXj-wY-5WV" firstAttribute="leading" secondItem="5AY-T3-TM8" secondAttribute="leading" id="6DT-M1-q8J"/>
-                                                    <constraint firstItem="Lg7-LR-qH4" firstAttribute="top" secondItem="wXj-wY-5WV" secondAttribute="bottom" id="9x6-OG-8GS"/>
                                                     <constraint firstAttribute="trailing" secondItem="wXj-wY-5WV" secondAttribute="trailing" id="J3p-D0-P9i"/>
-                                                    <constraint firstAttribute="centerX" secondItem="Lg7-LR-qH4" secondAttribute="centerX" id="L3F-3n-bVF"/>
-                                                    <constraint firstAttribute="trailing" secondItem="6Gi-iZ-6ha" secondAttribute="trailing" id="MSA-6F-Zcg"/>
-                                                    <constraint firstAttribute="bottom" secondItem="6Gi-iZ-6ha" secondAttribute="bottom" id="PiB-LR-LoC"/>
                                                     <constraint firstItem="wXj-wY-5WV" firstAttribute="top" secondItem="5AY-T3-TM8" secondAttribute="top" id="SlG-dP-TGM"/>
-                                                    <constraint firstItem="6Gi-iZ-6ha" firstAttribute="leading" secondItem="5AY-T3-TM8" secondAttribute="leading" id="dpV-iq-ff8"/>
-                                                    <constraint firstItem="6Gi-iZ-6ha" firstAttribute="top" secondItem="Lg7-LR-qH4" secondAttribute="bottom" id="fEZ-8M-Fch"/>
                                                 </constraints>
                                                 <size key="customSize" width="320" height="200"/>
                                                 <connections>
-                                                    <outlet property="captionLabel" destination="6Gi-iZ-6ha" id="ct3-Yy-BVK"/>
-                                                    <outlet property="cardImage" destination="Lg7-LR-qH4" id="XH5-Bv-Ts6"/>
                                                     <outlet property="categoryLabel" destination="wXj-wY-5WV" id="jeT-gX-d42"/>
+                                                    <outlet property="rewardsCollectionView" destination="5Lg-9A-wcc" id="m9P-3J-i8f"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -961,6 +995,9 @@
                                                                                 <state key="normal" image="chase_freedom">
                                                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <segue destination="54n-G3-pK1" kind="push" identifier="Card" id="jBc-7y-TDb"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5% cash back" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUE-dd-p42">
                                                                                 <rect key="frame" x="0.0" y="100" width="280" height="50"/>
@@ -1094,5 +1131,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="mtN-oL-w2O"/>
+        <segue reference="7ro-GE-IeP"/>
     </inferredMetricsTieBreakers>
 </document>

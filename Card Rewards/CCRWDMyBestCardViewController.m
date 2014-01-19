@@ -18,6 +18,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [self loadMyCards];
     [super viewWillAppear:animated];
     [self.myOrAllRewardsSelector setSelectedSegmentIndex:0];
 }
@@ -27,7 +28,12 @@
     _allCards = cards;
     _allCategories = categories;
     _allRewards = rewards;
-    
+
+    [self loadMyCards];
+}
+
+- (void)loadMyCards
+{
     NSMutableArray *myCards = [[NSMutableArray alloc] init];
     NSMutableSet *myRewards = [[NSMutableSet alloc] init];
     for (CCRWDCreditCard *card in _allCards) {
