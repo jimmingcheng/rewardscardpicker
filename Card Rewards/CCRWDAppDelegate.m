@@ -7,7 +7,6 @@
 //
 
 #import "CCRWDAppDelegate.h"
-#import "CCRWDCardsViewController.h"
 #import "CCRWDBestCardViewController.h"
 #import "CCRWDCreditCard.h"
 #import "CCRWDCategory.h"
