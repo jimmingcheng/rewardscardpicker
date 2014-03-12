@@ -104,6 +104,8 @@
         CGRect bounds = _magnifiedView.bounds;
         bounds.origin = offset;
         [_magnifiedView setBounds:bounds];
+        
+        [self toggleControlPanel];
     }
     else if (scrollView == _magnifiedView) {
         CGPoint offset = _magnifiedView.contentOffset;
@@ -114,7 +116,7 @@
     }
 }
 
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+- (void)toggleControlPanel
 {
     if (!_controlPanel.hidden) {
         CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"opacity"];
@@ -127,11 +129,7 @@
         [_controlPanel.layer addAnimation:anim forKey:@"opacity"];
         _controlPanel.layer.opacity = 0.0;
     }
-}
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
-    if (_categoriesListView.contentOffset.y == 0.0 && _controlPanel.hidden) {
+    else if (_categoriesListView.contentOffset.y == 0.0 && _controlPanel.hidden) {
         [_controlPanel setHidden:NO];
         CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"opacity"];
         anim.duration = 0.25;
@@ -160,7 +158,8 @@
     
     _rewardsByCategoryId = [CCRWDReward rewardsByCategoryIdFromRewards:_rewards];
     
-    NSLog(@"setCards");
+    [_categoriesListView reloadData];
+    [_magnifiedView reloadData];
 }
 
 - (IBAction)goBack:(id)sender

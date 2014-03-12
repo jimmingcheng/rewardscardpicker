@@ -196,10 +196,11 @@
                                             <segue destination="Xag-33-ULL" kind="modal" identifier="AllCards" modalTransitionStyle="flipHorizontal" id="J2G-iT-nju"/>
                                         </connections>
                                     </segmentedControl>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K4F-Lz-O4q">
-                                        <rect key="frame" x="137" y="114" width="48" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K4F-Lz-O4q">
+                                        <rect key="frame" x="76" y="118" width="169" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Search">
+                                        <state key="normal" title="Search for a card...">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -209,6 +210,9 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="centerY" secondItem="yGh-ld-imZ" secondAttribute="centerY" id="Apo-z9-CPf"/>
+                                    <constraint firstItem="K4F-Lz-O4q" firstAttribute="top" secondItem="yGh-ld-imZ" secondAttribute="bottom" constant="12" id="MxY-oa-ogP"/>
+                                    <constraint firstItem="K4F-Lz-O4q" firstAttribute="trailing" secondItem="yGh-ld-imZ" secondAttribute="trailing" id="dmh-hv-Gth"/>
+                                    <constraint firstItem="K4F-Lz-O4q" firstAttribute="leading" secondItem="yGh-ld-imZ" secondAttribute="leading" id="fx1-uq-fPf"/>
                                     <constraint firstAttribute="centerX" secondItem="yGh-ld-imZ" secondAttribute="centerX" id="yhv-7b-a2U"/>
                                 </constraints>
                             </view>
@@ -309,7 +313,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="577" y="-526"/>
+            <point key="canvasLocation" x="1160" y="-2304"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Wko-ot-JpD">
@@ -508,7 +512,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1348" y="-1328"/>
+            <point key="canvasLocation" x="1744" y="-1328"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hQw-FZ-h0C">
@@ -725,8 +729,22 @@
                                             <action selector="goBack:" destination="mof-Zf-TS9" eventType="valueChanged" id="FbJ-b8-mWV"/>
                                         </connections>
                                     </segmentedControl>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lXV-1q-ANK">
+                                        <rect key="frame" x="76" y="118" width="169" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Search for a card...">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="A5v-ZC-rp5" kind="push" id="eqH-FI-GBU"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="lXV-1q-ANK" firstAttribute="leading" secondItem="txh-Hs-8Uz" secondAttribute="leading" id="HK8-z3-iAh"/>
+                                    <constraint firstItem="lXV-1q-ANK" firstAttribute="top" secondItem="txh-Hs-8Uz" secondAttribute="bottom" constant="12" id="I6B-jM-Agc"/>
+                                    <constraint firstItem="lXV-1q-ANK" firstAttribute="trailing" secondItem="txh-Hs-8Uz" secondAttribute="trailing" id="QhH-QH-Swt"/>
                                     <constraint firstAttribute="centerY" secondItem="txh-Hs-8Uz" secondAttribute="centerY" id="iRR-Kk-bO7"/>
                                     <constraint firstAttribute="centerX" secondItem="txh-Hs-8Uz" secondAttribute="centerX" id="jTh-7f-WiB"/>
                                 </constraints>
@@ -772,6 +790,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="7ro-GE-IeP"/>
+        <segue reference="UQ9-db-GmX"/>
+        <segue reference="nEN-gf-dGw"/>
     </inferredMetricsTieBreakers>
 </document>
