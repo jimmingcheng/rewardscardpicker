@@ -356,7 +356,7 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhJ-or-Qlj" userLabel="Add to favorites button">
-                                <rect key="frame" x="70" y="268" width="181" height="35"/>
+                                <rect key="frame" x="40" y="322" width="240" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_white" translatesAutoresizingMaskIntoConstraints="NO" id="F2u-gz-VHR">
@@ -367,8 +367,8 @@
                                             <constraint firstAttribute="width" constant="25" id="pSi-kO-zFB"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add to favorites" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lm2-MC-QDk">
-                                        <rect key="frame" x="49" y="5" width="122" height="25"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I don't have this card" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lm2-MC-QDk">
+                                        <rect key="frame" x="49" y="5" width="181" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -391,7 +391,7 @@
                                 </connections>
                             </view>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="COz-Qb-Obk">
-                                <rect key="frame" x="40" y="208" width="240" height="50"/>
+                                <rect key="frame" x="40" y="262" width="240" height="50"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
@@ -417,14 +417,14 @@
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjC-D6-uke">
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjC-D6-uke">
                                                             <rect key="frame" x="0.0" y="0.0" width="50" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="50" id="3Uh-K5-NYO"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -462,15 +462,27 @@
                                     <outlet property="delegate" destination="54n-G3-pK1" id="4T1-N5-duc"/>
                                 </connections>
                             </collectionView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cash back" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVC-zw-2Oj">
+                                <rect key="frame" x="40" y="218" width="240" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="mVC-zw-2Oj" firstAttribute="trailing" secondItem="ObY-Th-mtg" secondAttribute="trailing" id="3uo-NK-KoR"/>
                             <constraint firstItem="zBJ-wq-gmE" firstAttribute="centerX" secondItem="i0p-GZ-Gb0" secondAttribute="centerX" id="4ni-Xs-Gdm"/>
+                            <constraint firstItem="mVC-zw-2Oj" firstAttribute="top" secondItem="zBJ-wq-gmE" secondAttribute="bottom" constant="20" id="81J-7B-fFi"/>
+                            <constraint firstItem="nhJ-or-Qlj" firstAttribute="leading" secondItem="COz-Qb-Obk" secondAttribute="leading" id="Bx0-BP-HUV"/>
                             <constraint firstItem="nhJ-or-Qlj" firstAttribute="centerX" secondItem="i0p-GZ-Gb0" secondAttribute="centerX" id="D6z-fq-fzY"/>
                             <constraint firstAttribute="bottom" secondItem="nhJ-or-Qlj" secondAttribute="bottom" priority="999" constant="26" id="Efr-zh-zKA"/>
                             <constraint firstItem="COz-Qb-Obk" firstAttribute="trailing" secondItem="ObY-Th-mtg" secondAttribute="trailing" id="Ieu-ij-vey"/>
                             <constraint firstAttribute="trailing" secondItem="ObY-Th-mtg" secondAttribute="trailing" constant="40" id="JTP-8f-UZN"/>
-                            <constraint firstItem="COz-Qb-Obk" firstAttribute="top" secondItem="zBJ-wq-gmE" secondAttribute="bottom" constant="10" id="Wrb-Rz-yjZ"/>
+                            <constraint firstItem="COz-Qb-Obk" firstAttribute="top" secondItem="mVC-zw-2Oj" secondAttribute="bottom" constant="20" id="hfq-mE-Nzl"/>
+                            <constraint firstItem="nhJ-or-Qlj" firstAttribute="trailing" secondItem="COz-Qb-Obk" secondAttribute="trailing" id="hk2-pp-chA"/>
+                            <constraint firstItem="mVC-zw-2Oj" firstAttribute="leading" secondItem="ObY-Th-mtg" secondAttribute="leading" id="jVn-iU-7h8"/>
                             <constraint firstItem="ObY-Th-mtg" firstAttribute="leading" secondItem="i0p-GZ-Gb0" secondAttribute="leading" constant="40" id="keM-c6-UXc"/>
                             <constraint firstItem="ObY-Th-mtg" firstAttribute="top" secondItem="i0p-GZ-Gb0" secondAttribute="top" constant="20" id="p51-ds-EC6"/>
                             <constraint firstItem="zBJ-wq-gmE" firstAttribute="top" secondItem="ObY-Th-mtg" secondAttribute="bottom" constant="8" id="vss-GX-ojI"/>
@@ -484,6 +496,7 @@
                         <outlet property="cardImage" destination="ObY-Th-mtg" id="AMw-Vq-GFL"/>
                         <outlet property="nameLabel" destination="zBJ-wq-gmE" id="9Fh-t8-KeV"/>
                         <outlet property="rewardDetailsView" destination="COz-Qb-Obk" id="b0O-l4-5r3"/>
+                        <outlet property="rewardUnitLabel" destination="mVC-zw-2Oj" id="gRt-oe-w6X"/>
                         <outlet property="toggleStarButton" destination="nhJ-or-Qlj" id="uMx-e4-fSr"/>
                         <outlet property="toggleStarLabel" destination="Lm2-MC-QDk" id="GQ4-hk-BVG"/>
                     </connections>
@@ -759,6 +772,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="UQ9-db-GmX"/>
+        <segue reference="7ro-GE-IeP"/>
     </inferredMetricsTieBreakers>
 </document>

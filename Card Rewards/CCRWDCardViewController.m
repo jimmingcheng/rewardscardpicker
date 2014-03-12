@@ -54,8 +54,15 @@
         [categories addObject:[category name]];
     }
     
-    [cell.rewardLabel setText:[NSString stringWithFormat:@"%@%@", reward.amount, reward.unit]];
+    if ([reward.unit isEqualToString:@"cash back"]) {
+        [cell.rewardLabel setText:[NSString stringWithFormat:@"%@%%", reward.amount]];
+    }
+    else {
+        [cell.rewardLabel setText:[reward.amount stringValue]];
+    }
+    [cell.rewardLabel.layer setCornerRadius:10.0];
     [cell.categoriesLabel setText:[categories componentsJoinedByString:@", "]];
+    [_rewardUnitLabel setText:reward.unit];
         
     return cell;
 }
@@ -64,11 +71,11 @@
 {
     if ([[_card starred] boolValue]) {
         [_toggleStarButton setBackgroundColor:[self.view tintColor]];
-        [_toggleStarLabel setText:@"Remove favorite"];
+        [_toggleStarLabel setText:@"I have this card"];
     }
     else {
         [_toggleStarButton setBackgroundColor:[UIColor lightGrayColor]];
-        [_toggleStarLabel setText:@"Add to favorites"];
+        [_toggleStarLabel setText:@"I don't have this card"];
     }
 }
 
