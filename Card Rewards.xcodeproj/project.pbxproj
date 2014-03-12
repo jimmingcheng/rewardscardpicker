@@ -17,6 +17,8 @@
 		252406FE17B5FF710035CF99 /* CCRWDCreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 252406FD17B5FF710035CF99 /* CCRWDCreditCard.m */; };
 		2524070117B6148E0035CF99 /* CCRWDCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2524070017B6148E0035CF99 /* CCRWDCategory.m */; };
 		255765C51820ECEC001709E4 /* viewStates.plist in Resources */ = {isa = PBXBuildFile; fileRef = 255765C41820ECEC001709E4 /* viewStates.plist */; };
+		2565A45C1893A34A002FB4BE /* CCRWDCardSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2565A45B1893A34A002FB4BE /* CCRWDCardSearchViewController.m */; };
+		2565A45F1893AAE8002FB4BE /* CCRWDCardSearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2565A45E1893AAE8002FB4BE /* CCRWDCardSearchResultCell.m */; };
 		258E0E741814F45200E0E10D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258E0E731814F45200E0E10D /* CoreData.framework */; };
 		258E0E7718150A4300E0E10D /* Card_Rewards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 258E0E7518150A4300E0E10D /* Card_Rewards.xcdatamodeld */; };
 		25C76AB617B2150B00F31874 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25C76AB517B2150B00F31874 /* Foundation.framework */; };
@@ -69,6 +71,10 @@
 		2547DCA0181489170032E748 /* CCRWDCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRWDCardViewController.m; sourceTree = "<group>"; };
 		2547DCA1181489170032E748 /* CCRWDCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRWDCardViewController.h; sourceTree = "<group>"; };
 		255765C41820ECEC001709E4 /* viewStates.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = viewStates.plist; sourceTree = "<group>"; };
+		2565A45A1893A34A002FB4BE /* CCRWDCardSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRWDCardSearchViewController.h; sourceTree = "<group>"; };
+		2565A45B1893A34A002FB4BE /* CCRWDCardSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRWDCardSearchViewController.m; sourceTree = "<group>"; };
+		2565A45D1893AAE8002FB4BE /* CCRWDCardSearchResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRWDCardSearchResultCell.h; sourceTree = "<group>"; };
+		2565A45E1893AAE8002FB4BE /* CCRWDCardSearchResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRWDCardSearchResultCell.m; sourceTree = "<group>"; };
 		258E0E731814F45200E0E10D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		258E0E7618150A4300E0E10D /* Card_Rewards.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Card_Rewards.xcdatamodel; sourceTree = "<group>"; };
 		25C76AB217B2150B00F31874 /* Rewards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rewards.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,6 +201,10 @@
 				25C7AAA2182585B000B3A77F /* Reachability.h */,
 				25C7AAA3182585B000B3A77F /* Reachability.m */,
 				25C76ABC17B2150B00F31874 /* Supporting Files */,
+				2565A45A1893A34A002FB4BE /* CCRWDCardSearchViewController.h */,
+				2565A45B1893A34A002FB4BE /* CCRWDCardSearchViewController.m */,
+				2565A45D1893AAE8002FB4BE /* CCRWDCardSearchResultCell.h */,
+				2565A45E1893AAE8002FB4BE /* CCRWDCardSearchResultCell.m */,
 			);
 			path = "Card Rewards";
 			sourceTree = "<group>";
@@ -277,6 +287,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Jimming Cheng";
 				TargetAttributes = {
+					25C76AB117B2150B00F31874 = {
+						DevelopmentTeam = QC38S2HZTP;
+					};
 					25C76AD817B2150B00F31874 = {
 						TestTargetID = 25C76AB117B2150B00F31874;
 					};
@@ -336,6 +349,7 @@
 				258E0E7718150A4300E0E10D /* Card_Rewards.xcdatamodeld in Sources */,
 				2518E4E71819F7F400D2D07C /* CCRWDReward.m in Sources */,
 				251877DB1841FF1000C74C92 /* CCRWDBestCardMagnifiedLayout.m in Sources */,
+				2565A45C1893A34A002FB4BE /* CCRWDCardSearchViewController.m in Sources */,
 				25C7AAA7182631D500B3A77F /* CCRWDRewardDetailCell.m in Sources */,
 				2518E4E8181A2F4D00D2D07C /* CCRWDCardViewController.m in Sources */,
 				25C7AAA4182585B000B3A77F /* Reachability.m in Sources */,
@@ -345,6 +359,7 @@
 				25C76AC217B2150B00F31874 /* main.m in Sources */,
 				251877E41844733400C74C92 /* CCRWDBestCardCategoryCell.m in Sources */,
 				25F4CF141846C01100A3237F /* CCRWDBestCardRewardCell.m in Sources */,
+				2565A45F1893AAE8002FB4BE /* CCRWDCardSearchResultCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,10 +484,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Card Rewards/Card Rewards-Prefix.pch";
 				INFOPLIST_FILE = "Card Rewards/Card Rewards-Info.plist";
 				PRODUCT_NAME = Rewards;
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -483,10 +501,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Card Rewards/Card Rewards-Prefix.pch";
 				INFOPLIST_FILE = "Card Rewards/Card Rewards-Info.plist";
 				PRODUCT_NAME = Rewards;
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

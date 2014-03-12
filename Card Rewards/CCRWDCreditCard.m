@@ -79,5 +79,18 @@
     return cards;
 }
 
++ (NSArray *)searchCardsWithWords:(NSString *)searchString context:(NSManagedObjectContext *)context
+{
+    NSFetchRequest *cardsRequest = [[NSFetchRequest alloc] initWithEntityName:@"CreditCard"];
+    NSPredicate * predicate = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@", searchString];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+                                        initWithKey:@"name" ascending:YES];
+    
+    [cardsRequest setPredicate:predicate];
+    [cardsRequest setSortDescriptors:@[sortDescriptor]];
+    
+    return [context executeFetchRequest:cardsRequest error:nil];
+}
+
 
 @end

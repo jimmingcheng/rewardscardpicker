@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Lqp-nu-Nc1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Lqp-nu-Nc1">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--My Best Card View Controller-->
@@ -196,6 +196,16 @@
                                             <segue destination="Xag-33-ULL" kind="modal" identifier="AllCards" modalTransitionStyle="flipHorizontal" id="J2G-iT-nju"/>
                                         </connections>
                                     </segmentedControl>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K4F-Lz-O4q">
+                                        <rect key="frame" x="137" y="114" width="48" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Search">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="A5v-ZC-rp5" kind="push" id="nEN-gf-dGw"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="centerY" secondItem="yGh-ld-imZ" secondAttribute="centerY" id="Apo-z9-CPf"/>
@@ -231,6 +241,75 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nB9-z9-XAL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="577" y="-1328"/>
+        </scene>
+        <!--Card Search View Controller - Search for a card-->
+        <scene sceneID="NDx-uD-Pb0">
+            <objects>
+                <tableViewController id="A5v-ZC-rp5" customClass="CCRWDCardSearchViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="EVS-OM-UVS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="e.g. Chase Freedom" id="1Bq-O5-PyR">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="A5v-ZC-rp5" id="Mc0-s3-rw9"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CardSearchResultCell" id="dUQ-vU-tSb" customClass="CCRWDCardSearchResultCell">
+                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dUQ-vU-tSb" id="nEP-e2-Q7c">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chase Freedom" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uwY-qS-GBO">
+                                            <rect key="frame" x="20" y="10" width="280" height="23"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="uwY-qS-GBO" firstAttribute="leading" secondItem="nEP-e2-Q7c" secondAttribute="leading" constant="20" id="88O-Kw-vkX"/>
+                                        <constraint firstItem="uwY-qS-GBO" firstAttribute="top" secondItem="nEP-e2-Q7c" secondAttribute="top" constant="10" id="Q3q-NC-BBb"/>
+                                        <constraint firstAttribute="trailing" secondItem="uwY-qS-GBO" secondAttribute="trailing" constant="20" id="fmh-5C-uqF"/>
+                                        <constraint firstAttribute="bottom" secondItem="uwY-qS-GBO" secondAttribute="bottom" constant="10" id="p5S-oU-Rsx"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="uwY-qS-GBO" id="jwK-sI-AKB"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="A5v-ZC-rp5" id="h91-op-zeg"/>
+                            <outlet property="delegate" destination="A5v-ZC-rp5" id="294-qG-k0A"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Search for a card" id="rsl-Rj-V9g"/>
+                    <connections>
+                        <outlet property="searchBar" destination="1Bq-O5-PyR" id="QYU-to-SwB"/>
+                        <outlet property="searchDisplayController" destination="46i-rK-LEc" id="sQF-4R-hLt"/>
+                        <segue destination="54n-G3-pK1" kind="push" identifier="Card" id="UQ9-db-GmX"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v5H-XE-eRg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="46i-rK-LEc">
+                    <connections>
+                        <outlet property="delegate" destination="A5v-ZC-rp5" id="jqm-aX-eT3"/>
+                        <outlet property="searchBar" destination="1Bq-O5-PyR" id="wd2-6I-0Fs"/>
+                        <outlet property="searchContentsController" destination="A5v-ZC-rp5" id="QHw-i3-eqD"/>
+                        <outlet property="searchResultsDataSource" destination="A5v-ZC-rp5" id="tad-iK-JWv"/>
+                        <outlet property="searchResultsDelegate" destination="A5v-ZC-rp5" id="avl-qw-pid"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="577" y="-526"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Wko-ot-JpD">
@@ -416,15 +495,19 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1312" y="-1716"/>
+            <point key="canvasLocation" x="1348" y="-1328"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hQw-FZ-h0C">
             <objects>
-                <navigationController definesPresentationContext="YES" id="Xag-33-ULL" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="Xag-33-ULL" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KH3-cs-tmY">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="YBh-tW-d3N">
+                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="mof-Zf-TS9" kind="relationship" relationship="rootViewController" id="aUy-5b-tdJ"/>
                     </connections>
@@ -452,7 +535,7 @@
                                 <collectionViewLayout key="collectionViewLayout" id="m4N-YA-PaJ" customClass="CCRWDBestCardCategoriesLayout"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategoryCell" id="6Fp-gX-DXf" customClass="CCRWDBestCardCategoryCell">
-                                        <rect key="frame" x="0.0" y="64" width="320" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
@@ -676,6 +759,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="7ro-GE-IeP"/>
+        <segue reference="UQ9-db-GmX"/>
     </inferredMetricsTieBreakers>
 </document>

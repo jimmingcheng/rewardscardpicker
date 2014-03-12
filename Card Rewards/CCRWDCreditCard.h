@@ -18,5 +18,6 @@
 - (id)initWithId:(NSString *)cardId name:(NSString *)name context:(NSManagedObjectContext *)context;
 + (NSArray *)cardsFromContext:(NSManagedObjectContext *)context;
 + (NSArray *)updatedCardsFromJSON:(NSArray *)json context:(NSManagedObjectContext *)context;
++ (NSArray *)searchCardsWithWords:(NSString *)searchString context:(NSManagedObjectContext *)context;
 
 @end
