@@ -102,9 +102,9 @@
 }
 
 - (void)fetchedCardsData:(NSData *)responseData {
-    NSString *strData = [[NSString alloc]initWithData:responseData encoding:NSUTF8StringEncoding];
+    //NSString *strData = [[NSString alloc]initWithData:responseData encoding:NSUTF8StringEncoding];
     
-    NSLog(@"%@", strData);
+    //NSLog(@"%@", strData);
     
     NSError * error;
     NSArray * json = [NSJSONSerialization
