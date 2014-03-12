@@ -31,6 +31,14 @@
 {
     _card = card;
     [_nameLabel setText:_card.name];
+    _cardImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", _card.cardId]];
+
+    if ([_card.starred boolValue]) {
+        _starImage.image = [UIImage imageNamed:@"star_blue.png"];
+    }
+    else {
+        _starImage.image = [UIImage imageNamed:@"star_white.png"];
+    }
 }
 
 

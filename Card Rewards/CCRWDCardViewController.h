@@ -14,12 +14,12 @@
 @property (weak, nonatomic) CCRWDCreditCard *card;
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *starredSwitch;
 @property (weak, nonatomic) IBOutlet UILabel *rewardUnitLabel;
-@property (weak, nonatomic) IBOutlet UIView *toggleStarButton;
-@property (weak, nonatomic) IBOutlet UILabel *toggleStarLabel;
+@property (weak, nonatomic) IBOutlet UIView *rewardDetailsFrameView;
 @property (weak, nonatomic) IBOutlet UICollectionView *rewardDetailsView;
 @property (weak, nonatomic) IBOutlet UIImageView *cardImage;
 
-- (IBAction)toggleStar:(UITapGestureRecognizer *)tap;
+- (IBAction)toggleStar:(id)sender;
 
 @end

@@ -23,8 +23,11 @@
     _nameLabel.text = _card.name;
     _cardImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", _card.cardId]];
 
-    [_toggleStarButton.layer setCornerRadius:4];
-    [self updateToggleStarButton];
+    [_starredSwitch setOn:[_card.starred boolValue]];
+    
+    [_rewardDetailsFrameView.layer setCornerRadius:4];
+    [_rewardDetailsFrameView.layer setBorderColor:[[UIColor lightGrayColor] CGColor]];
+    [_rewardDetailsFrameView.layer setBorderWidth:1];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -60,29 +63,19 @@
     else {
         [cell.rewardLabel setText:[reward.amount stringValue]];
     }
-    [cell.rewardLabel.layer setCornerRadius:10.0];
+    [cell.rewardLabel.layer setCornerRadius:10];
     [cell.categoriesLabel setText:[categories componentsJoinedByString:@", "]];
     [_rewardUnitLabel setText:reward.unit];
         
     return cell;
 }
 
-- (void)updateToggleStarButton
-{
-    if ([[_card starred] boolValue]) {
-        [_toggleStarButton setBackgroundColor:[self.view tintColor]];
-        [_toggleStarLabel setText:@"I have this card"];
-    }
-    else {
-        [_toggleStarButton setBackgroundColor:[UIColor lightGrayColor]];
-        [_toggleStarLabel setText:@"I don't have this card"];
-    }
-}
 
-- (IBAction)toggleStar:(UITapGestureRecognizer *)tap
+
+- (IBAction)toggleStar:(id)sender
 {
-    [_card setStarred:[NSNumber numberWithBool:![[_card starred] boolValue]]];
-    [self updateToggleStarButton];
+    UISwitch *starredSwitch = (UISwitch *)sender;
+    [_card setStarred:[NSNumber numberWithBool:starredSwitch.on]];
 }
 
 @end

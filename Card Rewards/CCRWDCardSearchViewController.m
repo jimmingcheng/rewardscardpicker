@@ -38,6 +38,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [self.tableView reloadData];
+    [self.searchDisplayController.searchResultsTableView reloadData];
     [super viewWillAppear:animated];
 }
 
