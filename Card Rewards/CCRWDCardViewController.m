@@ -61,7 +61,7 @@
         [cell.rewardLabel setText:[NSString stringWithFormat:@"%@%%", reward.amount]];
     }
     else {
-        [cell.rewardLabel setText:[reward.amount stringValue]];
+        [cell.rewardLabel setText:[NSString stringWithFormat:@"%@x", reward.amount]];
     }
     [cell.rewardLabel.layer setCornerRadius:10];
     [cell.categoriesLabel setText:[categories componentsJoinedByString:@", "]];
