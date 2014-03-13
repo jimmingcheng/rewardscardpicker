@@ -110,9 +110,12 @@
     else if (scrollView == _magnifiedView) {
         CGPoint offset = _magnifiedView.contentOffset;
         offset.y = offset.y * CATEGORY_CELL_HEIGHT/MAGNIFIED_CELL_HEIGHT;
+
         CGRect bounds = _categoriesListView.bounds;
         bounds.origin = offset;
         [_categoriesListView setBounds:bounds];
+        
+        [self toggleControlPanel];
     }
 }
 

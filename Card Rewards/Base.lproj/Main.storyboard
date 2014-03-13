@@ -90,6 +90,7 @@
                                                         <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5Lg-9A-wcc">
                                                             <rect key="frame" x="20" y="50" width="280" height="150"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="cgN-zS-pia">
                                                                 <size key="itemSize" width="280" height="150"/>
                                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -196,9 +197,10 @@
                                             <segue destination="Xag-33-ULL" kind="modal" identifier="AllCards" modalTransitionStyle="flipHorizontal" id="J2G-iT-nju"/>
                                         </connections>
                                     </segmentedControl>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K4F-Lz-O4q">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K4F-Lz-O4q">
                                         <rect key="frame" x="76" y="118" width="169" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <state key="normal" title="Search for a card...">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -365,7 +367,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chase Freedom" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBJ-wq-gmE">
-                                <rect key="frame" x="119" y="178" width="82" height="20"/>
+                                <rect key="frame" x="40" y="178" width="240" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="34A-WK-isb"/>
@@ -494,12 +496,14 @@
                         <constraints>
                             <constraint firstItem="YaU-z1-Yr8" firstAttribute="leading" secondItem="i0p-GZ-Gb0" secondAttribute="leading" constant="60" id="1wI-Jc-5Ox"/>
                             <constraint firstItem="zBJ-wq-gmE" firstAttribute="centerX" secondItem="i0p-GZ-Gb0" secondAttribute="centerX" id="4ni-Xs-Gdm"/>
-                            <constraint firstItem="mKT-aB-A1c" firstAttribute="top" secondItem="xZU-j0-MD8" secondAttribute="bottom" priority="999" constant="183" id="9qw-bM-VMw"/>
+                            <constraint firstItem="mKT-aB-A1c" firstAttribute="top" secondItem="xZU-j0-MD8" secondAttribute="bottom" priority="999" constant="20" id="9qw-bM-VMw"/>
                             <constraint firstAttribute="trailing" secondItem="EEu-53-bB4" secondAttribute="trailing" constant="60" id="AVB-J8-aaw"/>
+                            <constraint firstItem="zBJ-wq-gmE" firstAttribute="leading" secondItem="ObY-Th-mtg" secondAttribute="leading" id="GC4-dR-YWn"/>
                             <constraint firstItem="xZU-j0-MD8" firstAttribute="leading" secondItem="i0p-GZ-Gb0" secondAttribute="leading" constant="20" id="GGU-6q-6ZH"/>
                             <constraint firstAttribute="trailing" secondItem="ObY-Th-mtg" secondAttribute="trailing" constant="40" id="JTP-8f-UZN"/>
                             <constraint firstItem="YaU-z1-Yr8" firstAttribute="centerY" secondItem="EEu-53-bB4" secondAttribute="centerY" id="Vc3-TE-Fjy"/>
                             <constraint firstAttribute="trailing" secondItem="xZU-j0-MD8" secondAttribute="trailing" constant="20" id="a05-8s-L6Y"/>
+                            <constraint firstItem="zBJ-wq-gmE" firstAttribute="trailing" secondItem="ObY-Th-mtg" secondAttribute="trailing" id="huq-Kf-yH7"/>
                             <constraint firstItem="ObY-Th-mtg" firstAttribute="leading" secondItem="i0p-GZ-Gb0" secondAttribute="leading" constant="40" id="keM-c6-UXc"/>
                             <constraint firstItem="ObY-Th-mtg" firstAttribute="top" secondItem="i0p-GZ-Gb0" secondAttribute="top" constant="20" id="p51-ds-EC6"/>
                             <constraint firstItem="YaU-z1-Yr8" firstAttribute="top" secondItem="zBJ-wq-gmE" secondAttribute="bottom" constant="24" id="tqc-cG-btT"/>
@@ -627,6 +631,7 @@
                                                         <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XnW-av-Ht9">
                                                             <rect key="frame" x="20" y="50" width="280" height="150"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="T2E-Ud-jAX">
                                                                 <size key="itemSize" width="280" height="150"/>
                                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -737,9 +742,10 @@
                                             <action selector="goBack:" destination="mof-Zf-TS9" eventType="valueChanged" id="FbJ-b8-mWV"/>
                                         </connections>
                                     </segmentedControl>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lXV-1q-ANK">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lXV-1q-ANK">
                                         <rect key="frame" x="76" y="118" width="169" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <state key="normal" title="Search for a card...">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -798,7 +804,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="UQ9-db-GmX"/>
-        <segue reference="nEN-gf-dGw"/>
+        <segue reference="eqH-FI-GBU"/>
+        <segue reference="jBc-7y-TDb"/>
     </inferredMetricsTieBreakers>
 </document>
