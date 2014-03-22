@@ -74,9 +74,12 @@
     }
     else {
         CCRWDBestCardMagnifiedCell *magnifiedCell = (CCRWDBestCardMagnifiedCell *)collectionView.superview.superview;
-        CCRWDReward *reward = [[_rewardsByCategoryId objectForKey:magnifiedCell.category.categoryId] objectAtIndex:indexPath.row];
+        NSArray *rewards = [_rewardsByCategoryId objectForKey:magnifiedCell.category.categoryId];
+        CCRWDReward *reward = [rewards objectAtIndex:indexPath.row];
         CCRWDBestCardRewardCell *rewardCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"RewardCell" forIndexPath:indexPath];
         [rewardCell setReward:reward];
+        [rewardCell setHasMoreToLeft:(indexPath.row > 0)];
+        [rewardCell setHasMoreToRight:(indexPath.row < rewards.count - 1)];
         return rewardCell;
     }
 }

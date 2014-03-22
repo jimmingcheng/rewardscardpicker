@@ -16,5 +16,10 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *cardButton;
 @property (weak, nonatomic) IBOutlet UILabel *rewardLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *leftArrow;
+@property (weak, nonatomic) IBOutlet UIImageView *rightArrow;
+
+- (void)setHasMoreToLeft:(BOOL)hasMore;
+- (void)setHasMoreToRight:(BOOL)hasMore;
 
 @end

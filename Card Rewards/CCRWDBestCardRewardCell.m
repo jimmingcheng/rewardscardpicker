@@ -24,4 +24,25 @@
         [_rewardLabel setText:[NSString stringWithFormat:@"%@x %@", _reward.amount, _reward.unit]];
     }
 }
+
+- (void)setHasMoreToLeft:(BOOL)hasMore
+{
+    if (hasMore) {
+        [_leftArrow setHidden:NO];
+    }
+    else {
+        [_leftArrow setHidden:YES];
+    }
+}
+
+- (void)setHasMoreToRight:(BOOL)hasMore
+{
+    if (hasMore) {
+        [_rightArrow setHidden:NO];
+    }
+    else {
+        [_rightArrow setHidden:YES];
+    }
+}
+
 @end

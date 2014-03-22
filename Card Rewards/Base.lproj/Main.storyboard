@@ -126,22 +126,44 @@
                                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
+                                                                            <imageView userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_left" translatesAutoresizingMaskIntoConstraints="NO" id="2al-8y-Slt">
+                                                                                <rect key="frame" x="11" y="28" width="15" height="45"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="15" id="9gQ-C0-U85"/>
+                                                                                    <constraint firstAttribute="height" constant="45" id="cgj-Og-CvJ"/>
+                                                                                </constraints>
+                                                                            </imageView>
+                                                                            <imageView userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="mgv-rK-Y7P">
+                                                                                <rect key="frame" x="255" y="28" width="15" height="45"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="15" id="QE5-en-b6u"/>
+                                                                                    <constraint firstAttribute="height" constant="45" id="TCh-yn-gxS"/>
+                                                                                </constraints>
+                                                                            </imageView>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     </view>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="trailing" secondItem="wGQ-00-ELI" secondAttribute="trailing" id="39V-Cp-1Jn"/>
+                                                                        <constraint firstItem="JaM-Nq-djb" firstAttribute="centerY" secondItem="mgv-rK-Y7P" secondAttribute="centerY" id="4a3-hc-71M"/>
                                                                         <constraint firstItem="JaM-Nq-djb" firstAttribute="top" secondItem="oXl-nC-Vm0" secondAttribute="top" id="7Ap-aa-scg"/>
                                                                         <constraint firstAttribute="bottom" secondItem="wGQ-00-ELI" secondAttribute="bottom" id="JeO-YM-bCn"/>
+                                                                        <constraint firstItem="2al-8y-Slt" firstAttribute="leading" secondItem="oXl-nC-Vm0" secondAttribute="leading" constant="11" id="WgX-VL-y99"/>
                                                                         <constraint firstAttribute="centerX" secondItem="JaM-Nq-djb" secondAttribute="centerX" id="bQ3-CJ-CBC"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="mgv-rK-Y7P" secondAttribute="trailing" constant="10" id="beI-rv-ZRN"/>
                                                                         <constraint firstItem="wGQ-00-ELI" firstAttribute="leading" secondItem="oXl-nC-Vm0" secondAttribute="leading" id="hUu-p8-Ttw"/>
                                                                         <constraint firstItem="wGQ-00-ELI" firstAttribute="top" secondItem="JaM-Nq-djb" secondAttribute="bottom" id="lVv-35-5Qz"/>
+                                                                        <constraint firstItem="JaM-Nq-djb" firstAttribute="centerY" secondItem="2al-8y-Slt" secondAttribute="centerY" id="sLt-hB-Ai2"/>
                                                                     </constraints>
                                                                     <size key="customSize" width="280" height="150"/>
                                                                     <connections>
                                                                         <outlet property="cardButton" destination="JaM-Nq-djb" id="AEm-dp-anV"/>
+                                                                        <outlet property="leftArrow" destination="2al-8y-Slt" id="R0j-rg-mzK"/>
                                                                         <outlet property="rewardLabel" destination="wGQ-00-ELI" id="fOv-Sw-3Yf"/>
+                                                                        <outlet property="rightArrow" destination="mgv-rK-Y7P" id="t8R-X1-pNn"/>
                                                                     </connections>
                                                                 </collectionViewCell>
                                                             </cells>
@@ -667,14 +689,34 @@
                                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
+                                                                            <imageView userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_left" translatesAutoresizingMaskIntoConstraints="NO" id="jZj-cr-JhI">
+                                                                                <rect key="frame" x="10" y="28" width="15" height="45"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="15" id="Awa-T4-m99"/>
+                                                                                    <constraint firstAttribute="height" constant="45" id="jc5-ZO-lkD"/>
+                                                                                </constraints>
+                                                                            </imageView>
+                                                                            <imageView userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="XiY-v1-Fg6">
+                                                                                <rect key="frame" x="255" y="28" width="15" height="45"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="45" id="2Fr-Qd-ukR"/>
+                                                                                    <constraint firstAttribute="width" constant="15" id="EH9-E3-yCc"/>
+                                                                                </constraints>
+                                                                            </imageView>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     </view>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <constraints>
+                                                                        <constraint firstAttribute="trailing" secondItem="XiY-v1-Fg6" secondAttribute="trailing" constant="10" id="7lA-kP-erb"/>
                                                                         <constraint firstAttribute="trailing" secondItem="pUE-dd-p42" secondAttribute="trailing" id="J6j-Tj-Fro"/>
                                                                         <constraint firstItem="pUE-dd-p42" firstAttribute="leading" secondItem="RIB-ee-2Am" secondAttribute="leading" id="PV3-rP-cUG"/>
+                                                                        <constraint firstItem="jZj-cr-JhI" firstAttribute="leading" secondItem="RIB-ee-2Am" secondAttribute="leading" constant="10" id="YVz-yD-HmV"/>
                                                                         <constraint firstAttribute="centerX" secondItem="M3r-Wb-jgg" secondAttribute="centerX" id="cJF-lv-Bqe"/>
+                                                                        <constraint firstItem="M3r-Wb-jgg" firstAttribute="centerY" secondItem="jZj-cr-JhI" secondAttribute="centerY" id="eKd-ek-K5P"/>
+                                                                        <constraint firstItem="M3r-Wb-jgg" firstAttribute="centerY" secondItem="XiY-v1-Fg6" secondAttribute="centerY" id="hNi-YB-rKj"/>
                                                                         <constraint firstAttribute="bottom" secondItem="pUE-dd-p42" secondAttribute="bottom" id="jfM-6X-I8N"/>
                                                                         <constraint firstItem="M3r-Wb-jgg" firstAttribute="top" secondItem="RIB-ee-2Am" secondAttribute="top" id="jtp-kZ-BMr"/>
                                                                         <constraint firstItem="pUE-dd-p42" firstAttribute="top" secondItem="M3r-Wb-jgg" secondAttribute="bottom" id="vo3-dA-H7b"/>
@@ -682,7 +724,9 @@
                                                                     <size key="customSize" width="280" height="150"/>
                                                                     <connections>
                                                                         <outlet property="cardButton" destination="M3r-Wb-jgg" id="xGS-gV-rAr"/>
+                                                                        <outlet property="leftArrow" destination="jZj-cr-JhI" id="GS0-J2-vFy"/>
                                                                         <outlet property="rewardLabel" destination="pUE-dd-p42" id="bmj-c8-PSq"/>
+                                                                        <outlet property="rightArrow" destination="XiY-v1-Fg6" id="oGF-lg-idZ"/>
                                                                     </connections>
                                                                 </collectionViewCell>
                                                             </cells>
@@ -795,6 +839,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow_left" width="40" height="121"/>
+        <image name="arrow_right" width="40" height="121"/>
         <image name="chase_freedom" width="1000" height="629"/>
         <image name="star_grey" width="500" height="500"/>
     </resources>
@@ -804,7 +850,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="eqH-FI-GBU"/>
         <segue reference="jBc-7y-TDb"/>
+        <segue reference="eqH-FI-GBU"/>
     </inferredMetricsTieBreakers>
 </document>
