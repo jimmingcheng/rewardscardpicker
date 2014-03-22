@@ -95,7 +95,7 @@
 - (void)fetchCardsAndRewardsData
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSData* data = [NSData dataWithContentsOfURL:[[NSURL alloc] initWithString:@"http://cccal.herokuapp.com/api/0/cards/"]];
+        NSData* data = [NSData dataWithContentsOfURL:[[NSURL alloc] initWithString:@"http://cccal.herokuapp.com/api/0.1/cards/"]];
         [self performSelectorOnMainThread:@selector(fetchedCardsData:)
                                withObject:data waitUntilDone:YES];
     });
@@ -116,7 +116,7 @@
     _creditCards = [CCRWDCreditCard updatedCardsFromJSON:json context:context];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSData* data = [NSData dataWithContentsOfURL:[[NSURL alloc] initWithString:@"http://cccal.herokuapp.com/api/0/rewards/"]];
+        NSData* data = [NSData dataWithContentsOfURL:[[NSURL alloc] initWithString:@"http://cccal.herokuapp.com/api/0.1/rewards/"]];
         [self performSelectorOnMainThread:@selector(fetchedRewardsData:)
                                withObject:data waitUntilDone:YES];
     });
