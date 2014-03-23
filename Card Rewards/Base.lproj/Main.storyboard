@@ -223,7 +223,7 @@
                                         <rect key="frame" x="76" y="118" width="169" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <state key="normal" title="Search for a card...">
+                                        <state key="normal" title="Add a card...">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -270,7 +270,7 @@
             </objects>
             <point key="canvasLocation" x="577" y="-1328"/>
         </scene>
-        <!--Card Search View Controller - Search for a card-->
+        <!--Card Search View Controller - Add a card-->
         <scene sceneID="NDx-uD-Pb0">
             <objects>
                 <tableViewController id="A5v-ZC-rp5" customClass="CCRWDCardSearchViewController" sceneMemberID="viewController">
@@ -341,7 +341,7 @@
                             <outlet property="delegate" destination="A5v-ZC-rp5" id="294-qG-k0A"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Search for a card" id="rsl-Rj-V9g"/>
+                    <navigationItem key="navigationItem" title="Add a card" id="rsl-Rj-V9g"/>
                     <connections>
                         <outlet property="searchBar" destination="1Bq-O5-PyR" id="QYU-to-SwB"/>
                         <outlet property="searchDisplayController" destination="46i-rK-LEc" id="sQF-4R-hLt"/>
@@ -790,7 +790,7 @@
                                         <rect key="frame" x="76" y="118" width="169" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <state key="normal" title="Search for a card...">
+                                        <state key="normal" title="Add a card...">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -850,7 +850,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="jBc-7y-TDb"/>
         <segue reference="eqH-FI-GBU"/>
+        <segue reference="UQ9-db-GmX"/>
     </inferredMetricsTieBreakers>
 </document>

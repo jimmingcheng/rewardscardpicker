@@ -150,10 +150,10 @@
 {
     _cards = cards;
     _categories = [categories sortedArrayUsingComparator:^NSComparisonResult(CCRWDCategory *obj1, CCRWDCategory *obj2) {
-        if ([obj1.categoryId isEqualToString:@"default_reward"]) {
+        if ([obj1.categoryId isEqualToString:@"all_purchases"]) {
             return NSOrderedAscending;
         }
-        else if ([obj2.categoryId isEqualToString:@"default_reward"]) {
+        else if ([obj2.categoryId isEqualToString:@"all_purchases"]) {
             return NSOrderedDescending;
         }
         else {
