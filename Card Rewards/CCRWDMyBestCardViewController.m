@@ -9,6 +9,7 @@
 #import "CCRWDMyBestCardViewController.h"
 #import "CCRWDCreditCard.h"
 #import "CCRWDReward.h"
+#import "CCRWDEvent.h"
 
 @interface CCRWDMyBestCardViewController ()
 
@@ -21,6 +22,12 @@
     [self loadMyCards];
     [super viewWillAppear:animated];
     [self.myOrAllRewardsSelector setSelectedSegmentIndex:0];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [CCRWDEvent queueEventWithType:@"ViewMyCards"];
 }
 
 - (void)setCards:(NSArray *)cards categories:(NSArray *)categories rewards:(NSArray *)rewards
@@ -60,6 +67,7 @@
     }
     else {
         [super prepareForSegue:segue sender:sender];
+        [CCRWDEvent queueEventWithType:@"ViewCard" key:@"from" value:@"MyCards"];
     }
 }
 

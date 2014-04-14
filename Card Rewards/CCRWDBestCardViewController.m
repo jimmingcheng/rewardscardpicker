@@ -13,6 +13,7 @@
 #import "CCRWDCardViewController.h"
 #import "CCRWDCategory.h"
 #import "CCRWDReward.h"
+#import "CCRWDEvent.h"
 
 @interface CCRWDBestCardViewController ()
 
@@ -44,8 +45,10 @@
     [super viewDidAppear:animated];
     [_categoriesListView reloadData];
     [_magnifiedView reloadData];
+    if ([self class] == [CCRWDBestCardViewController class]) {
+        [CCRWDEvent queueEventWithType:@"ViewAllCards"];
+    }
 }
-
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -180,6 +183,9 @@
         CCRWDBestCardRewardCell *cell = (CCRWDBestCardRewardCell *)button.superview.superview;
         CCRWDCardViewController *cardVC = (CCRWDCardViewController *)segue.destinationViewController;
         [cardVC setCard:cell.reward.creditCard];
+        if ([self class] == [CCRWDBestCardViewController class]) {
+            [CCRWDEvent queueEventWithType:@"ViewCard" key:@"from" value:@"AllCards"];
+        }
     }
 }
 

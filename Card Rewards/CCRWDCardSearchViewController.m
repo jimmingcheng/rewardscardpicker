@@ -11,6 +11,7 @@
 #import "CCRWDCardSearchResultCell.h"
 #import "CCRWDAppDelegate.h"
 #import "CCRWDCreditCard.h"
+#import "CCRWDEvent.h"
 
 @interface CCRWDCardSearchViewController ()
 
@@ -134,6 +135,7 @@
         CCRWDCardSearchResultCell *cell = (CCRWDCardSearchResultCell *)sender;
         CCRWDCardViewController *cardVC = (CCRWDCardViewController *)segue.destinationViewController;
         [cardVC setCard:cell.card];
+        [CCRWDEvent queueEventWithType:@"ViewCard" key:@"from" value:@"Search"];
     }
 }
 

@@ -10,6 +10,7 @@
 #import "CCRWDRewardDetailCell.h"
 #import "CCRWDCategory.h"
 #import "CCRWDReward.h"
+#import "CCRWDEVent.h"
 
 @interface CCRWDCardViewController ()
 
@@ -76,6 +77,7 @@
 {
     UISwitch *starredSwitch = (UISwitch *)sender;
     [_card setStarred:[NSNumber numberWithBool:starredSwitch.on]];
+    [CCRWDEvent queueEventWithType:@"ToggleCard" key:@"value" value:[NSNumber numberWithBool:starredSwitch.on]];
 }
 
 @end
