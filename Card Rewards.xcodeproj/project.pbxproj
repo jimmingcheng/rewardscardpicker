@@ -78,6 +78,7 @@
 		2565A45E1893AAE8002FB4BE /* CCRWDCardSearchResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRWDCardSearchResultCell.m; sourceTree = "<group>"; };
 		256C1B2318FBB7EE00DD27E9 /* CCRWDEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRWDEvent.h; sourceTree = "<group>"; };
 		256C1B2418FBB7EE00DD27E9 /* CCRWDEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRWDEvent.m; sourceTree = "<group>"; };
+		257A56CA18FCCC6F0058D566 /* Card_Rewards_1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Card_Rewards_1.0.xcdatamodel; sourceTree = "<group>"; };
 		258E0E731814F45200E0E10D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		258E0E7618150A4300E0E10D /* Card_Rewards.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Card_Rewards.xcdatamodel; sourceTree = "<group>"; };
 		25C76AB217B2150B00F31874 /* Rewards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rewards.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -597,9 +598,10 @@
 		258E0E7518150A4300E0E10D /* Card_Rewards.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				257A56CA18FCCC6F0058D566 /* Card_Rewards_1.0.xcdatamodel */,
 				258E0E7618150A4300E0E10D /* Card_Rewards.xcdatamodel */,
 			);
-			currentVersion = 258E0E7618150A4300E0E10D /* Card_Rewards.xcdatamodel */;
+			currentVersion = 257A56CA18FCCC6F0058D566 /* Card_Rewards_1.0.xcdatamodel */;
 			path = Card_Rewards.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

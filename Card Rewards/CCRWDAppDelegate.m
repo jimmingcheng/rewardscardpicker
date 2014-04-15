@@ -100,7 +100,7 @@
 - (void)fetchCardsAndRewardsData
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSData* data = [NSData dataWithContentsOfURL:[[NSURL alloc] initWithString:@"http://api.rewardscardpicker.com/api/0.1/cards/"]];
+        NSData* data = [NSData dataWithContentsOfURL:[[NSURL alloc] initWithString:@"http://api.rewardscardpicker.com/api/1.0/cards/"]];
         [self performSelectorOnMainThread:@selector(fetchedCardsData:)
                                withObject:data waitUntilDone:YES];
     });
@@ -121,7 +121,7 @@
     _creditCards = [CCRWDCreditCard updatedCardsFromJSON:json context:context];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSData* data = [NSData dataWithContentsOfURL:[[NSURL alloc] initWithString:@"http://api.rewardscardpicker.com/api/0.1/rewards/"]];
+        NSData* data = [NSData dataWithContentsOfURL:[[NSURL alloc] initWithString:@"http://api.rewardscardpicker.com/api/1.0/rewards/"]];
         [self performSelectorOnMainThread:@selector(fetchedRewardsData:)
                                withObject:data waitUntilDone:YES];
     });
@@ -206,7 +206,7 @@
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:@{NSMigratePersistentStoresAutomaticallyOption:@YES, NSInferMappingModelAutomaticallyOption:@YES} error:&error]) {
         /*
          Replace this implementation with code to handle the error appropriately.
          

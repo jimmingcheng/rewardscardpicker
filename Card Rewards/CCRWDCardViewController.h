@@ -14,6 +14,7 @@
 @property (weak, nonatomic) CCRWDCreditCard *card;
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *notesLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *starredSwitch;
 @property (weak, nonatomic) IBOutlet UILabel *rewardUnitLabel;
 @property (weak, nonatomic) IBOutlet UIView *rewardDetailsFrameView;

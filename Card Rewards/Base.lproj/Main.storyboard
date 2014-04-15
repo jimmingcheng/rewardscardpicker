@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Lqp-nu-Nc1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Lqp-nu-Nc1">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -513,21 +513,34 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="d7W-CW-QE2">
+                                <rect key="frame" x="20" y="420" width="280" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="LOg-rZ-npt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="YaU-z1-Yr8" firstAttribute="leading" secondItem="i0p-GZ-Gb0" secondAttribute="leading" constant="60" id="1wI-Jc-5Ox"/>
                             <constraint firstItem="zBJ-wq-gmE" firstAttribute="centerX" secondItem="i0p-GZ-Gb0" secondAttribute="centerX" id="4ni-Xs-Gdm"/>
-                            <constraint firstItem="mKT-aB-A1c" firstAttribute="top" secondItem="xZU-j0-MD8" secondAttribute="bottom" priority="999" constant="20" id="9qw-bM-VMw"/>
                             <constraint firstAttribute="trailing" secondItem="EEu-53-bB4" secondAttribute="trailing" constant="60" id="AVB-J8-aaw"/>
                             <constraint firstItem="zBJ-wq-gmE" firstAttribute="leading" secondItem="ObY-Th-mtg" secondAttribute="leading" id="GC4-dR-YWn"/>
                             <constraint firstItem="xZU-j0-MD8" firstAttribute="leading" secondItem="i0p-GZ-Gb0" secondAttribute="leading" constant="20" id="GGU-6q-6ZH"/>
                             <constraint firstAttribute="trailing" secondItem="ObY-Th-mtg" secondAttribute="trailing" constant="40" id="JTP-8f-UZN"/>
+                            <constraint firstAttribute="trailing" secondItem="d7W-CW-QE2" secondAttribute="trailing" constant="20" id="PDZ-ff-A0D"/>
+                            <constraint firstItem="d7W-CW-QE2" firstAttribute="top" secondItem="xZU-j0-MD8" secondAttribute="bottom" constant="30" id="PHw-4d-VS3"/>
                             <constraint firstItem="YaU-z1-Yr8" firstAttribute="centerY" secondItem="EEu-53-bB4" secondAttribute="centerY" id="Vc3-TE-Fjy"/>
                             <constraint firstAttribute="trailing" secondItem="xZU-j0-MD8" secondAttribute="trailing" constant="20" id="a05-8s-L6Y"/>
                             <constraint firstItem="zBJ-wq-gmE" firstAttribute="trailing" secondItem="ObY-Th-mtg" secondAttribute="trailing" id="huq-Kf-yH7"/>
+                            <constraint firstItem="d7W-CW-QE2" firstAttribute="leading" secondItem="i0p-GZ-Gb0" secondAttribute="leading" constant="20" id="kOZ-QL-8gv"/>
                             <constraint firstItem="ObY-Th-mtg" firstAttribute="leading" secondItem="i0p-GZ-Gb0" secondAttribute="leading" constant="40" id="keM-c6-UXc"/>
                             <constraint firstItem="ObY-Th-mtg" firstAttribute="top" secondItem="i0p-GZ-Gb0" secondAttribute="top" constant="20" id="p51-ds-EC6"/>
+                            <constraint firstItem="mKT-aB-A1c" firstAttribute="top" secondItem="d7W-CW-QE2" secondAttribute="bottom" priority="999" constant="20" id="sML-4k-tW3"/>
                             <constraint firstItem="YaU-z1-Yr8" firstAttribute="top" secondItem="zBJ-wq-gmE" secondAttribute="bottom" constant="24" id="tqc-cG-btT"/>
                             <constraint firstItem="xZU-j0-MD8" firstAttribute="top" secondItem="YaU-z1-Yr8" secondAttribute="bottom" constant="30" id="vKA-bS-8y4"/>
                             <constraint firstItem="zBJ-wq-gmE" firstAttribute="top" secondItem="ObY-Th-mtg" secondAttribute="bottom" constant="8" id="vss-GX-ojI"/>
@@ -538,6 +551,7 @@
                     <connections>
                         <outlet property="cardImage" destination="ObY-Th-mtg" id="AMw-Vq-GFL"/>
                         <outlet property="nameLabel" destination="zBJ-wq-gmE" id="9Fh-t8-KeV"/>
+                        <outlet property="notesLabel" destination="d7W-CW-QE2" id="x1E-AV-nnz"/>
                         <outlet property="rewardDetailsFrameView" destination="xZU-j0-MD8" id="ec7-R8-Mm0"/>
                         <outlet property="rewardDetailsView" destination="COz-Qb-Obk" id="b0O-l4-5r3"/>
                         <outlet property="rewardUnitLabel" destination="mVC-zw-2Oj" id="gRt-oe-w6X"/>

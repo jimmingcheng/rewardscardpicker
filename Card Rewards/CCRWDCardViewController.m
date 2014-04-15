@@ -22,6 +22,7 @@
 {
     [super viewDidLoad];
     _nameLabel.text = _card.name;
+    _notesLabel.text = _card.notes;
     _cardImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", _card.cardId]];
 
     [_starredSwitch setOn:[_card.starred boolValue]];

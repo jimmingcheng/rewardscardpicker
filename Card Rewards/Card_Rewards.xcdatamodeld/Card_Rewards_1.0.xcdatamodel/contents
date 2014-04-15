@@ -8,6 +8,7 @@
     <entity name="CreditCard" syncable="YES">
         <attribute name="cardId" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="starred" optional="YES" attributeType="Boolean" defaultValueString="0" syncable="YES"/>
         <relationship name="rewards" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Reward" inverseName="creditCard" inverseEntity="Reward" syncable="YES"/>
     </entity>
@@ -18,8 +19,8 @@
         <relationship name="creditCard" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CreditCard" inverseName="rewards" inverseEntity="CreditCard" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Category" positionX="0" positionY="0" width="128" height="90"/>
-        <element name="CreditCard" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="Category" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="CreditCard" positionX="0" positionY="0" width="128" height="120"/>
         <element name="Reward" positionX="0" positionY="0" width="128" height="105"/>
     </elements>
 </model>
