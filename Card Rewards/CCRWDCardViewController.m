@@ -5,6 +5,7 @@
 //  Created by Jimming Cheng on 10/20/13.
 //  Copyright (c) 2013 Jimming Cheng. All rights reserved.
 //
+#import <Parse/Parse.h>
 
 #import "CCRWDCardViewController.h"
 #import "CCRWDRewardDetailCell.h"
@@ -79,6 +80,8 @@
     UISwitch *starredSwitch = (UISwitch *)sender;
     [_card setStarred:[NSNumber numberWithBool:starredSwitch.on]];
     [CCRWDEvent queueEventWithType:@"ToggleCard" key:@"value" value:[NSNumber numberWithBool:starredSwitch.on]];
+    NSDictionary *dimensions = [[NSDictionary alloc] initWithObjectsAndKeys:[NSString stringWithFormat:@"%d", starredSwitch.on], @"value", nil];
+    [PFAnalytics trackEvent:@"toggle_card" dimensions:dimensions];
 }
 
 @end

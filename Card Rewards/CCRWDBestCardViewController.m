@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Jimming Cheng. All rights reserved.
 //
 
+#import <Parse/Parse.h>
+
 #import "CCRWDBestCardViewController.h"
 #import "CCRWDBestCardCategoryCell.h"
 #import "CCRWDBestCardMagnifiedCell.h"
@@ -47,6 +49,7 @@
     [_magnifiedView reloadData];
     if ([self class] == [CCRWDBestCardViewController class]) {
         [CCRWDEvent queueEventWithType:@"ViewAllCards"];
+        [PFAnalytics trackEvent:@"view_all_cards"];
     }
 }
 
@@ -184,7 +187,8 @@
         CCRWDCardViewController *cardVC = (CCRWDCardViewController *)segue.destinationViewController;
         [cardVC setCard:cell.reward.creditCard];
         if ([self class] == [CCRWDBestCardViewController class]) {
-            [CCRWDEvent queueEventWithType:@"ViewCard" key:@"from" value:@"AllCards"];
+            [CCRWDEvent queueEventWithType:@"ViewCard" key:@"from" value:@"AllCards"];            
+            [PFAnalytics trackEvent:@"view_card" dimensions:@{@"from": @"all_cards"}];
         }
     }
 }

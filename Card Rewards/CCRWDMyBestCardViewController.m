@@ -5,6 +5,7 @@
 //  Created by Jimming Cheng on 11/26/13.
 //  Copyright (c) 2013 Jimming Cheng. All rights reserved.
 //
+#import <Parse/Parse.h>
 
 #import "CCRWDMyBestCardViewController.h"
 #import "CCRWDCreditCard.h"
@@ -28,6 +29,7 @@
 {
     [super viewDidAppear:animated];
     [CCRWDEvent queueEventWithType:@"ViewMyCards"];
+    [PFAnalytics trackEvent:@"view_my_cards"];
 }
 
 - (void)setCards:(NSArray *)cards categories:(NSArray *)categories rewards:(NSArray *)rewards
@@ -68,6 +70,7 @@
     else {
         [super prepareForSegue:segue sender:sender];
         [CCRWDEvent queueEventWithType:@"ViewCard" key:@"from" value:@"MyCards"];
+        [PFAnalytics trackEvent:@"view_card" dimensions:@{@"from": @"my_cards"}];
     }
 }
 

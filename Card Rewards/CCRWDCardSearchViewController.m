@@ -5,6 +5,7 @@
 //  Created by Jimming Cheng on 1/24/14.
 //  Copyright (c) 2014 Jimming Cheng. All rights reserved.
 //
+#import <Parse/Parse.h>
 
 #import "CCRWDCardViewController.h"
 #import "CCRWDCardSearchViewController.h"
@@ -136,6 +137,8 @@
         CCRWDCardViewController *cardVC = (CCRWDCardViewController *)segue.destinationViewController;
         [cardVC setCard:cell.card];
         [CCRWDEvent queueEventWithType:@"ViewCard" key:@"from" value:@"Search"];
+        [PFAnalytics trackEvent:@"view_card" dimensions:@{@"from": @"search"}];
+
     }
 }
 

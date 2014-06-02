@@ -20,6 +20,15 @@
 		2565A45C1893A34A002FB4BE /* CCRWDCardSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2565A45B1893A34A002FB4BE /* CCRWDCardSearchViewController.m */; };
 		2565A45F1893AAE8002FB4BE /* CCRWDCardSearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2565A45E1893AAE8002FB4BE /* CCRWDCardSearchResultCell.m */; };
 		256C1B2518FBB7EE00DD27E9 /* CCRWDEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 256C1B2418FBB7EE00DD27E9 /* CCRWDEvent.m */; };
+		257BE81F193BE123009C3D9A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 257BE81E193BE123009C3D9A /* Parse.framework */; };
+		257BE821193BE19F009C3D9A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 257BE820193BE19F009C3D9A /* AudioToolbox.framework */; };
+		257BE823193BE1A8009C3D9A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 257BE822193BE1A8009C3D9A /* CFNetwork.framework */; };
+		257BE825193BE1B9009C3D9A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 257BE824193BE1B9009C3D9A /* CoreLocation.framework */; };
+		257BE827193BE1BF009C3D9A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 257BE826193BE1BF009C3D9A /* libz.dylib */; };
+		257BE829193BE1C7009C3D9A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 257BE828193BE1C7009C3D9A /* MobileCoreServices.framework */; };
+		257BE82B193BE1CF009C3D9A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 257BE82A193BE1CF009C3D9A /* QuartzCore.framework */; };
+		257BE82D193BE1D8009C3D9A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 257BE82C193BE1D8009C3D9A /* Security.framework */; };
+		257BE830193BE1E7009C3D9A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25C7AAA01825820C00B3A77F /* SystemConfiguration.framework */; };
 		258E0E741814F45200E0E10D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258E0E731814F45200E0E10D /* CoreData.framework */; };
 		258E0E7718150A4300E0E10D /* Card_Rewards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 258E0E7518150A4300E0E10D /* Card_Rewards.xcdatamodeld */; };
 		25C76AB617B2150B00F31874 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25C76AB517B2150B00F31874 /* Foundation.framework */; };
@@ -79,6 +88,14 @@
 		256C1B2318FBB7EE00DD27E9 /* CCRWDEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRWDEvent.h; sourceTree = "<group>"; };
 		256C1B2418FBB7EE00DD27E9 /* CCRWDEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRWDEvent.m; sourceTree = "<group>"; };
 		257A56CA18FCCC6F0058D566 /* Card_Rewards_1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Card_Rewards_1.0.xcdatamodel; sourceTree = "<group>"; };
+		257BE81E193BE123009C3D9A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		257BE820193BE19F009C3D9A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		257BE822193BE1A8009C3D9A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		257BE824193BE1B9009C3D9A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		257BE826193BE1BF009C3D9A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		257BE828193BE1C7009C3D9A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		257BE82A193BE1CF009C3D9A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		257BE82C193BE1D8009C3D9A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		258E0E731814F45200E0E10D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		258E0E7618150A4300E0E10D /* Card_Rewards.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Card_Rewards.xcdatamodel; sourceTree = "<group>"; };
 		25C76AB217B2150B00F31874 /* Rewards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rewards.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,10 +133,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				258E0E741814F45200E0E10D /* CoreData.framework in Frameworks */,
+				257BE830193BE1E7009C3D9A /* SystemConfiguration.framework in Frameworks */,
+				257BE82D193BE1D8009C3D9A /* Security.framework in Frameworks */,
+				257BE82B193BE1CF009C3D9A /* QuartzCore.framework in Frameworks */,
+				257BE829193BE1C7009C3D9A /* MobileCoreServices.framework in Frameworks */,
+				257BE827193BE1BF009C3D9A /* libz.dylib in Frameworks */,
+				257BE825193BE1B9009C3D9A /* CoreLocation.framework in Frameworks */,
 				25C76AB817B2150B00F31874 /* CoreGraphics.framework in Frameworks */,
+				257BE823193BE1A8009C3D9A /* CFNetwork.framework in Frameworks */,
+				257BE821193BE19F009C3D9A /* AudioToolbox.framework in Frameworks */,
+				258E0E741814F45200E0E10D /* CoreData.framework in Frameworks */,
 				25C76ABA17B2150B00F31874 /* UIKit.framework in Frameworks */,
 				25C76AB617B2150B00F31874 /* Foundation.framework in Frameworks */,
+				257BE81F193BE123009C3D9A /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +184,14 @@
 		25C76AB417B2150B00F31874 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				257BE82C193BE1D8009C3D9A /* Security.framework */,
+				257BE82A193BE1CF009C3D9A /* QuartzCore.framework */,
+				257BE828193BE1C7009C3D9A /* MobileCoreServices.framework */,
+				257BE826193BE1BF009C3D9A /* libz.dylib */,
+				257BE824193BE1B9009C3D9A /* CoreLocation.framework */,
+				257BE822193BE1A8009C3D9A /* CFNetwork.framework */,
+				257BE820193BE19F009C3D9A /* AudioToolbox.framework */,
+				257BE81E193BE123009C3D9A /* Parse.framework */,
 				25C7AAA01825820C00B3A77F /* SystemConfiguration.framework */,
 				258E0E731814F45200E0E10D /* CoreData.framework */,
 				25C76AB517B2150B00F31874 /* Foundation.framework */,
@@ -295,6 +329,11 @@
 				TargetAttributes = {
 					25C76AB117B2150B00F31874 = {
 						DevelopmentTeam = QC38S2HZTP;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
 					};
 					25C76AD817B2150B00F31874 = {
 						TestTargetID = 25C76AB117B2150B00F31874;
@@ -491,14 +530,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jimming Cheng (S6SYPD2C66)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jimming Cheng (S6SYPD2C66)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Card Rewards/Card Rewards-Prefix.pch";
 				INFOPLIST_FILE = "Card Rewards/Card Rewards-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = Rewards;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "A32AEE12-D5F3-4F78-AA15-2EF67AF4CF6E";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -509,14 +552,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jimming Cheng (S6SYPD2C66)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jimming Cheng (S6SYPD2C66)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Card Rewards/Card Rewards-Prefix.pch";
 				INFOPLIST_FILE = "Card Rewards/Card Rewards-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = Rewards;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "A32AEE12-D5F3-4F78-AA15-2EF67AF4CF6E";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
